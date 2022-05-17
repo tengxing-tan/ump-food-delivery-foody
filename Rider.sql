@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `commission` (
-  `commission_ID` varchar(10) NOT NULL,
+  `commission_ID` varchar(10) NOT NULL PRIMARY KEY,
   `commission_date` date DEFAULT NULL,
   `commission_amount` int(11) DEFAULT NULL,
   `commission_total` int(11) DEFAULT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE `commission` (
 --
 
 CREATE TABLE `deliverynotes` (
-  `deliveryNotes_ID` varchar(10) NOT NULL,
+  `deliveryNotes_ID` varchar(10) NOT NULL PRIMARY KEY,
   `user_ID` varchar(10) NOT NULL,
   `restaurant_ID` varchar(10) NOT NULL,
   `payment_ID` varchar(10) NOT NULL,
@@ -52,26 +52,29 @@ CREATE TABLE `deliverynotes` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `deliveryrecord`
+-- Table structure for table `feedback`
 --
 
-CREATE TABLE `deliveryrecord` (
-  `deliveryRecord_ID` varchar(10) NOT NULL,
-  `deliveryNotes_ID` varchar(10) NOT NULL,
-  `feedback_ID` varchar(10) NOT NULL
+CREATE TABLE `feedback` (
+  `feedback_ID` varchar(10) NOT NULL PRIMARY KEY,
+  `user_ID` varchar(10) NOT NULL,
+  `feedback_info` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `feedback`
+-- Table structure for table `deliveryrecord`
 --
 
-CREATE TABLE `feedback` (
+CREATE TABLE `deliveryrecord` (
+  `deliveryRecord_ID` varchar(10) NOT NULL PRIMARY KEY,
+  `deliveryNotes_ID` varchar(10) NOT NULL,
   `feedback_ID` varchar(10) NOT NULL,
-  `user_ID` varchar(10) NOT NULL,
-  `feedback_info` varchar(50) DEFAULT NULL
+  FOREIGN KEY (`deliveryNotes_ID`) REFERENCES deliverynotes(`deliveryNotes_ID`),
+  FOREIGN KEY (`feedback_ID`) REFERENCES feedback(`feedback_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 -- --------------------------------------------------------
 
@@ -80,7 +83,7 @@ CREATE TABLE `feedback` (
 --
 
 CREATE TABLE `rider` (
-  `rider_ID` varchar(10) NOT NULL,
+  `rider_ID` varchar(10) NOT NULL PRIMARY KEY,
   `rider_name` varchar(30) DEFAULT NULL,
   `rider_email` varchar(30) DEFAULT NULL,
   `rider_phoneNum` varchar(11) DEFAULT NULL,
@@ -95,9 +98,11 @@ CREATE TABLE `rider` (
 --
 
 CREATE TABLE `riderreport` (
-  `riderReport_ID` varchar(10) NOT NULL,
+  `riderReport_ID` varchar(10) NOT NULL PRIMARY KEY,
   `deliveryNotes_ID` varchar(10) NOT NULL,
-  `commission_ID` varchar(10) NOT NULL
+  `commission_ID` varchar(10) NOT NULL,
+  FOREIGN KEY (`deliveryNotes_ID`) REFERENCES deliverynotes(`deliveryNotes_ID`),
+  FOREIGN KEY (`commission_ID`) REFERENCES commission(`commission_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -106,40 +111,7 @@ CREATE TABLE `riderreport` (
 
 --
 -- Indexes for table `commission`
---
-ALTER TABLE `commission`
-  ADD PRIMARY KEY (`commission_ID`);
-
---
--- Indexes for table `deliverynotes`
---
-ALTER TABLE `deliverynotes`
-  ADD PRIMARY KEY (`deliveryNotes_ID`);
-
---
--- Indexes for table `deliveryrecord`
---
-ALTER TABLE `deliveryrecord`
-  ADD PRIMARY KEY (`deliveryRecord_ID`);
-
---
--- Indexes for table `feedback`
---
-ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`feedback_ID`);
-
---
--- Indexes for table `rider`
---
-ALTER TABLE `rider`
-  ADD PRIMARY KEY (`rider_ID`);
-
---
--- Indexes for table `riderreport`
---
-ALTER TABLE `riderreport`
-  ADD PRIMARY KEY (`riderReport_ID`);
-COMMIT;
+-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
