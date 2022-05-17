@@ -2,9 +2,9 @@
 
 :root {
   --primary-bg: #6C5A8A;
+  --light-grey-bg: #EEE;
   --primary-txt: #1E1E1E;
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -46,7 +46,7 @@ body {
   height: calc(100vh - 120px);
 }
 #nav-bar {
-  background-color: var(--primary-bg);
+  background-color: white;
   height: 100%;
   width: 236px;
   padding-top: 50px;
@@ -55,18 +55,17 @@ body {
   display: inline-block;
   width: 100%;
   padding: 16px 24px;
-  color: white;
+  color: var(--primary-bg);
   font: bold 1rem 'PT-serif', serif;
   text-decoration: none;
 }
 .nav-link:hover {
-  color: var(--primary-bg);
-  background-color: white;
+  color: white;
+  background-color: var(--primary-bg);
   transition: all ease-in 200ms;
 }
 #main-content {
-  background-color: white;
-  border-radius: 50px 0 0 0;
+  background-color: var(--light-grey-bg);
   width: 100%;
   padding: 50px 75px;
   overflow-y: scroll;
