@@ -1,0 +1,21 @@
+.report-table {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    padding: 1rem;
+}
+.report-row {
+    display: grid;
+    grid-template-columns: 5rem repeat(2, 1fr);
+    place-items: center;
+    background-color: var(--gray-bg);
+    padding: 1rem;
+}
+.report-row:nth-child(2n) {
+    background-color: white;
+}
+.report-header-row {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}

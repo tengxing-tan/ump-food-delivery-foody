@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foody | UMP Food Delivery System</title>
+
+    <!-- external stylesheet -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="styles/restaurant_owner.css">
+    <link rel="stylesheet" href="styles/manage_menu_item.css">
+    <!-- javascript -->
+    <script src="scripts/add" charset="utf-8"></script>
+    <!-- icon library | font awesome -->
+    <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- title bar -->
+    <div id="title-bar">
+        <!-- foody logo -->
+        <a id="foody-link" class="icon-link" href="#index.html">Foody</a>
+
+        <!-- user profile -->
+        <div>
+          <a class="icon-link" href="#">
+            Rider
+            <i class="fa-solid fa-user"></i>
+          </a>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div id="content-wrapper">
+        <!-- navigation bar (left side) -->
+        <nav id="nav-bar">
+          <ul>
+            <li><a class="nav-link" href="index.html#">Summary</a></li>
+            <li><a class="nav-link" href="menu-list.html">Menu List</a></li>
+            <li><a class="nav-link" href="order-list.html">Order List</a></li>
+            <li><a class="nav-link" href="sales-report.html">Sales Report</a></li>
+          </ul>
+        </nav>
+
+        <!-- main content (right side) -->
+        <div id="main-content">
+            <form class="user-input-form" action="index.html" method="post">
+                <!-- Food title -->
+                <label class="bold-label required-input" for="food-title">Food title</label>
+                <input class="text-input" type="text" name="foot-title" placeholder="Enter food title" required>
+                <!-- Food description -->
+                <label class="bold-label" for="food-description">Food description</label>
+                <textarea class="text-input" rows="5" cols="80">None</textarea>
+                <!-- Price -->
+                <label class="bold-label required-input" for="price">Price (RM)</label>
+                <input class="text-input" type="text" name="price" value="0">
+                <!-- Food picture -->
+                <label class="bold-label required-input" for="food-picture">Food picture</label>
+                <!-- upload food picture -->
+                <input type="file" accept="image/*">
+                <button class="btn submit-button" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

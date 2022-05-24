@@ -1,0 +1,54 @@
+/*
+CONTAINER, TWO PAGE LAYOUT
+*/
+.two-pages-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100%;
+}
+.left-page {
+  background-color: var(--gray-bg);
+  padding: 1rem;
+  min-height: 100%;
+}
+.right-page {
+  margin-left: 2.5rem;
+}
+/*
+SUMMARY
+*/
+.summary-highlight {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.big-number {
+  font-size: 3rem;
+  font-weight: bold;
+}
+/*
+BAR CHART
+*/
+#daily-earnings-bar-chart {
+  background-color: white;
+  width: 100%;
+  height: 15rem;
+  padding: 1rem;
+}
+.bar {
+  display: inline-block;
+  background-color: dodgerblue;
+  width: 3rem;
+  height: 100px;
+  margin-left: 4px;
+}
+/*
+FORM
+*/
+.one-line-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
