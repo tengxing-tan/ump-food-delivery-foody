@@ -1,0 +1,44 @@
+.report{
+    height: 80%;
+    width: 100%;
+    display : flex;
+    justify-content: space-between;
+}
+.chart{
+    background-color: white;
+    border-radius: 10px;
+    width: 80%; 
+}
+.QRCode-section{
+    width: 10%;
+    margin-right: 40px; 
+}
+.QR-background{
+    display: flex;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    width: 150px;
+    height: 150px; 
+}
+#QRCode{
+    margin: auto;
+}
+.back-button{
+    width: 150px;
+    height: 50px;
+    margin: 10px; 
+    color: white; 
+    background-color: var(--primary-bg);
+    border: none; 
+    border-radius: 10px;
+    position: absolute;
+    bottom: 60px;
+    right: 80px;
+}
+.back-button:hover{
+    background-color: var(--button-hover);
+}
+.back-button:active{
+    background-color: var(--primary-bg);
+}

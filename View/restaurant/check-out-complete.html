@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foody | UMP Food Delivery System</title>
+
+    <!-- external stylesheet -->
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/restaurant/checkout-complete.css">
+    <!-- icon library | font awesome -->
+    <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
+</head>
+<body>
+    <!-- title bar -->
+    <div id="title-bar">
+        <!-- foody logo -->
+        <a id="foody-link" class="icon-link" href="../index.html">Foody</a>
+
+        <!-- user profile -->
+        <div>
+          <a class="icon-link" href="#">
+            User
+            <i class="fa-solid fa-user"></i>
+          </a>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div id="content-wrapper">
+        <!-- navigation bar (left side) -->
+        <nav id="nav-bar">
+        <ul>
+            <li><a class="nav-link active" href="../index.html">Home</a></li>
+            <li><a class="nav-link" href="../expenses-list/index.php">Expenses List</a></li>
+            <li><a class="nav-link" href="../calculate-average-expenses/index.html">Calculate Average Expenses</a></li>
+            <li><a class="nav-link" href="#">Complaint List</a></li>
+        </ul>
+        </nav>
+    
+        <!-- main content (right side) -->
+        <div id="main-content">
+            <div id="checkout-details">
+                <div id="header">
+                    <i class="fa-solid fa-circle-check fa-5x" id="complete-logo"></i>
+                    <br/>
+                    <h4>Checkout Complete!</h4>
+                    <br>
+                    <h4>Your order will be delivered soon.</h4>
+                    <h4>Thank you.</h4>
+                </div>
+                <hr/>
+                <div id="details">
+                    <div id="order-time">
+                        <p>Order status: Ordered</p>
+                        <p>Order Time: 6:55pm</p>
+                    </div>
+                    <div id="delivery-address">
+                        <p>Delivery adress: Jeremy Loh</p>
+                        <p>12, Jalan Gelam, 65500 Pekan, Pahang</p>
+                    </div>
+                    <div id="order-list">
+                        <p>Order List: Tempura x1</p>
+                    </div>
+                </div>
+                <div id="button">
+                    <a href="../index.html"><button type="button" id="back-button">Back to Home Page</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

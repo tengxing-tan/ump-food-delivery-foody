@@ -1,0 +1,44 @@
+.restaurant-list{
+    width: 100%;  
+    display: flex; 
+    justify-content: space-between;
+    overflow-x: scroll; 
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+img{
+    margin: auto; 
+    width: 140px;
+    height: 120px;
+    object-fit: fill;
+}
+.restaurant{
+    width: 150px; 
+    text-align: center;
+    margin-right:15px; 
+    margin-left: 15px;
+}
+.restaurant-list .restaurant a{
+    color:rgb(83, 83, 83);
+    text-decoration: none;
+}
+.food-number{
+    padding-top: 13px; 
+}
+.food-quantity-button{
+      border-radius: 30px;
+      background-color: white;
+      border: 2px solid var(--primary-bg);
+      color: var(--primary-bg);
+      width: 30px;
+      height: 30px;
+      margin: 10px; 
+}
+.food-quantity-button:hover{
+    background-color: rgb(233, 233, 233);
+}
+.food-quantity-button:active{
+    background-color: white;
+}

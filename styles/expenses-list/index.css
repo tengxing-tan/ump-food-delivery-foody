@@ -1,0 +1,72 @@
+#main-content{
+    position: relative;
+}
+.detail{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.buttons-section{
+    width: 100%;
+    text-align: end;
+    margin-top: 10px;
+}
+.update-button{
+    background-color: white;
+    color: var(--primary-bg);
+    border: 2px solid var(--primary-bg);
+    border-radius: 6px;
+    width: 80px;
+    height: 30px;
+    margin-right: 5px;
+}
+.update-button:hover{
+    background-color: var(--light-grey-bg);
+}
+.update-button:active{
+    background-color: white;
+}
+.delete-button{
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    width: 80px;
+    height: 30px;
+}
+.delete-button:hover{
+    background: rgb(175, 1, 1);
+}
+.delete-button:active{
+    background-color: red;
+}
+a{
+    text-decoration: none;
+}
+#add-expenses-button{
+    background: var(--primary-bg);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 190px;
+    text-align: center;
+    height: 60px;
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    box-shadow: 4px 4px 12px 4px rgb(191, 190, 190);
+}
+#add-expenses-button:hover{
+    background-color: var(--button-hover);
+}
+#add-expenses-button:active{
+    background-color: var(--primary-bg);
+}
+#hide{
+    color: var(--primary-bg);
+    font-size: 16px;
+    animation: hide 0s ease-in-out 3s;
+    animation-fill-mode: forwards;
+}
+@keyframes hide{
+    to {visibility: hidden; width:0; height: 0;}
+}

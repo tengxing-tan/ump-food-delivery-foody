@@ -1,0 +1,43 @@
+#checkout-details{
+    background-color: white;
+    border-radius: 10px;
+    height: 70%;
+    width: 50%;
+    margin: auto;
+}
+#complete-logo{
+    color: #1aba00;
+}
+#header{
+    padding: 10px; 
+    text-align: center;
+}
+#details{
+    text-align: left;
+}
+#order-time{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+#delivery-address{
+    padding: 10px;
+}
+#order-list{
+    padding: 10px;
+}
+#button{
+    text-align: center;
+}
+#back-button{
+    width: 150px;
+    height: 50px;
+    margin: 10px; 
+    color: white; 
+    background-color: var(--primary-bg);
+    border: none; 
+    border-radius: 10px;
+}
+#back-button:hover{
+    background-color: var(--button-hover);
+}

@@ -103,32 +103,6 @@ body {
   border-width: 0 0 2px;
   border-color: var(--primary-bg)
 }
-.restaurant-list{
-  width: 100%;  
-  display: flex; 
-  justify-content: space-between;
-  overflow-x: scroll; 
-}
-::-webkit-scrollbar {
-  width: 0;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
-}
-img{
-  margin: auto; 
-  width: 160px;
-  height: 150px;
-  object-fit: fill;
-}
-.restaurant{
-  width: 150px; 
-  text-align: center;
-  margin-right:15px; 
-  margin-left: 15px;
-}
-.restaurant-list .restaurant a{
-  color:rgb(83, 83, 83);
-  text-decoration: none;
-}
 .detail{
   background-color: white;
   border-radius: 10px;
@@ -150,8 +124,8 @@ img{
   right: 12em;
 }
 .danger-button{
-  width: 120px;
-  height: 40px;
+  width: 150px;
+  height: 50px;
   background-color: red;
   color: white; 
   margin: 10px; 

@@ -1,0 +1,67 @@
+.container{
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    width: 40%;
+    min-height: 50%; 
+    padding: 20px; 
+    line-height: 30px;
+    position: relative;
+}
+.order-list{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.buttons-section{
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+}
+.food-quantity-button{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    border: 2px solid var(--primary-bg);
+    background-color: white;
+    color: var(--primary-bg);
+    margin-left: 10px;
+    margin-right: 10px; 
+}
+.food-quantity-button:hover{
+    background-color: rgb(227, 227, 227);
+}
+.food-quantity-button:active{
+    background-color: white;
+}
+.food-number{
+    padding-top: 13px; 
+}
+#cancel-button:hover{
+    background-color: var(--light-grey-bg); 
+}
+#cancel-button:active{
+    background-color: white; 
+}
+#cancel-button{
+    width: 150px;
+    height: 50px;
+    margin: 10px;
+    color: var(--primary-bg);
+    background-color: white;
+    border: 2px solid var(--primary-bg);
+    border-radius: 10px;
+}
+#checkout-button{
+    width: 150px;
+    height: 50px;
+    margin: 10px; 
+    color: white; 
+    background-color: var(--primary-bg);
+    border: none; 
+    border-radius: 10px;
+}
+#checkout-button:hover{
+    background-color: var(--button-hover);
+}

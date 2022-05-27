@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foody | UMP Food Delivery System</title>
+
+    <!-- external stylesheet -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/user-main.css">
+
+    <!-- icon library | font awesome -->
+    <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
+
+    <!--Javacript-->
+    <script src="./js/main.js"></script>
+</head>
+<body>
+    <!-- title bar -->
+    <div id="title-bar">
+        <!-- foody logo -->
+        <a id="foody-link" class="icon-link" href="./index.html">Foody</a>
+
+        <!-- user profile -->
+        <div>
+          <a class="icon-link" href="#">
+            User
+            <i class="fa-solid fa-user"></i>
+          </a>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div id="content-wrapper">
+        <!-- navigation bar (left side) -->
+        <nav id="nav-bar">
+        <ul>
+            <li><a class="nav-link active" href="./index.html">Home</a></li>
+            <li><a class="nav-link" href="./expenses-list/index.php">Expenses List</a></li>
+            <li><a class="nav-link" href="./calculate-average-expenses/index.html">Calculate Average Expenses</a></li>
+            <li><a class="nav-link" href="#">Complaint List</a></li>
+        </ul>
+        </nav>
+    
+        <!-- main content (right side) -->
+        <div id="main-content">
+            <!--search section-->
+            <div id="search-section">
+                <input type="text" name="search-restaurant" id="search-bar" placeholder="Enter Restaurant Name Here"/>
+                <select id="categorize" class="btn" name="categorize">
+                    <option value="none" class="btn" selected disable hidden>Categorized By<i class="fa-solid fa-circle-chevron-down"></i></option>
+                    <option value="local-food" >Local Food</option>
+                    <option value="western-food" >Western Food</option>
+                    <option value="desert" >Dessert</option>
+                </select>
+                <button type="button" class="btn" id="search-button" name="search">Search</button>
+            </div>
+
+            <!--Popular Restaurant Section-->
+            <br/>
+            <h3>What's Popular</h3>
+            <br/>
+            <div id="popular-restaurant" class="restaurant-list">
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+            </div>
+
+            <!--Restaurant Near User Section-->
+            <h3>Restaurant Near You</h3>
+            <br/>
+            <div id="restaurant-near-you" class="restaurant-list">
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+                <div class="restaurant">
+                    <a href="./restaurant/index.html"><img src="../src/img/sushi-mentai.jpg"/>Sushi Mentai</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

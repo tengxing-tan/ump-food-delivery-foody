@@ -1,0 +1,119 @@
+#restaurant{
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    display: grid; 
+    gap: 10px; 
+    grid-template-columns: auto auto auto auto auto;
+    height: 200px; 
+}
+#restaurant-image, .food-image{
+    display: flex; 
+    grid-column-start: 1;
+    grid-column-end: 2;
+    padding-left: 20px; 
+    width: 200px;
+    height: 150px; 
+    padding-top: 20px; 
+}
+#restaurant-info, .food-details{
+    grid-column-start: 2 / 5;
+    text-align: left;
+    padding-top: 20px; 
+}
+#restaurant-address{
+    padding-top: 10px; 
+}
+#total-price{
+    text-align: center;
+    justify-content: space-between;
+    display: flex; 
+    width: 170px;
+}
+#total-price-section{
+    position: absolute; 
+    bottom: 10px;
+}
+#food-list{
+    margin-top: 20px; 
+    background-color: white;
+    border-radius: 10px;
+    height: 30em; 
+    overflow-y: scroll;
+}
+.food-card{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 10px; 
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin: 20px; 
+    border-bottom: 1px solid var(--seperator); 
+}
+.food-quantity{
+    align-content: center;
+    display: flex; 
+    grid-column-start: 5;
+    display: flex;
+    margin: auto; 
+}
+.button-section{
+    width: 100%;
+    justify-content: end;
+    display: flex;
+    margin-top: 10px;
+}
+.button-section button{
+    display: block;
+    margin: 10px; 
+}
+.food-quantity p{
+    padding-top: 20px; 
+}
+#back-button{
+    width: 190px; 
+    height: 60px; 
+    border: 2px solid var(--primary-bg);
+    background-color: white;
+    color: var(--primary-bg);
+    border-radius: 10px;
+}
+#back-button:hover{
+    background-color: #e5e5e5;
+}
+#back-button:active{
+    background-color: white;
+}
+#checkout-button{
+    width: 190px; 
+    height: 60px; 
+    border: none;
+    background-color: var(--primary-bg);
+    color: white; 
+    border-radius: 10px;
+}
+#checkout-button:hover{
+    background-color: #493b5e;
+}
+a{
+    text-decoration: none;
+}
+.food-quantity-button{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    border: 2px solid var(--primary-bg);
+    background-color: white;
+    color: var(--primary-bg);
+    margin: 10px; 
+}
+.food-quantity-button:hover{
+    background-color: rgb(227, 227, 227);
+}
+.food-quantity-button:active{
+    background-color: white;
+}
+.food-number{
+    padding-top: 13px; 
+}
+
