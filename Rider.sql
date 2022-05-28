@@ -28,82 +28,37 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `commission` (
-  `commission_ID` varchar(10) NOT NULL PRIMARY KEY,
+  `commission_ID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `commission_date` date DEFAULT NULL,
-  `commission_amount` int(11) DEFAULT NULL,
-  `commission_total` int(11) DEFAULT NULL,
+  `commission_amount` float(11) DEFAULT NULL,
+  `commission_total` float(11) DEFAULT NULL,
   `total_time` time DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `deliverynotes`
---
-
-CREATE TABLE `deliverynotes` (
-  `deliveryNotes_ID` varchar(10) NOT NULL PRIMARY KEY,
-  `user_ID` varchar(10) NOT NULL,
-  `restaurant_ID` varchar(10) NOT NULL,
-  `payment_ID` varchar(10) NOT NULL,
-  `qr_code` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `feedback`
---
-
-CREATE TABLE `feedback` (
-  `feedback_ID` varchar(10) NOT NULL PRIMARY KEY,
-  `user_ID` varchar(10) NOT NULL,
-  `feedback_info` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `deliveryrecord`
---
-
-CREATE TABLE `deliveryrecord` (
-  `deliveryRecord_ID` varchar(10) NOT NULL PRIMARY KEY,
-  `deliveryNotes_ID` varchar(10) NOT NULL,
-  `feedback_ID` varchar(10) NOT NULL,
-  FOREIGN KEY (`deliveryNotes_ID`) REFERENCES deliverynotes(`deliveryNotes_ID`),
-  FOREIGN KEY (`feedback_ID`) REFERENCES feedback(`feedback_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
+) 
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `rider`
 --
-
 CREATE TABLE `rider` (
-  `rider_ID` varchar(10) NOT NULL PRIMARY KEY,
+  `rider_ID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `rider_name` varchar(30) DEFAULT NULL,
   `rider_email` varchar(30) DEFAULT NULL,
   `rider_phoneNum` varchar(11) DEFAULT NULL,
   `rider_password` varchar(20) DEFAULT NULL,
   `rider_address` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) 
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `riderreport`
 --
-
 CREATE TABLE `riderreport` (
-  `riderReport_ID` varchar(10) NOT NULL PRIMARY KEY,
-  `deliveryNotes_ID` varchar(10) NOT NULL,
-  `commission_ID` varchar(10) NOT NULL,
-  FOREIGN KEY (`deliveryNotes_ID`) REFERENCES deliverynotes(`deliveryNotes_ID`),
+  `riderReport_ID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `commission_ID` int(11) NOT NULL,
   FOREIGN KEY (`commission_ID`) REFERENCES commission(`commission_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+)
 
 --
 -- Indexes for dumped tables
