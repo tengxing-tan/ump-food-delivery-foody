@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +11,8 @@
     <title>Admin Homepage</title>
 </head>
 <body>
+    <!--Navigation-->
+    <?php include "index.php" ?>
     
 </body>
 </html>
