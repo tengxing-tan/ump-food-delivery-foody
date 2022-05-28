@@ -1,3 +1,10 @@
+<?php
+    include_once 'C:\xampp\htdocs\ump-food-delivery-foody\dbconnection.php';
+    include_once 'navBar.php';
+    session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,5 +16,4 @@
 <body>
      <!--Navigation-->
      <?php include "index.php" ?>
-</body>
 </html>

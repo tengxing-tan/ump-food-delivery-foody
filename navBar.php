@@ -12,8 +12,6 @@
     <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
 </head>
 <body>
-     <!--Navigation-->
-     <?php include "index.php" ?>
     <!-- title bar -->
     <div id="title-bar">
         <!-- foody logo -->
@@ -22,7 +20,7 @@
         <!-- user profile -->
         <div>
           <a class="icon-link" href="#">
-            Rider
+            Admin
             <i class="fa-solid fa-user"></i>
           </a>
         </div>
@@ -44,8 +42,6 @@
     
         <!-- main content (right side) -->
         <div id="main-content">
-           
-            <button class = 'btn'>test</button>
         </div>
     </div>
 </body>
