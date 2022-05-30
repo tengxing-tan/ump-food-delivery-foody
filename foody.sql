@@ -63,12 +63,6 @@ CREATE TABLE `restaurant` (
   `restaurant_address` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `restauranttype` (
-  `restaurantType_ID` int(10) NOT NULL,
-  `restaurantType_name` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
 
 
 ALTER TABLE `admin`
