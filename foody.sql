@@ -1,6 +1,6 @@
 
 CREATE TABLE `rider` (
-  `rider_ID` int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `rider_ID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `rider_name` varchar(30) DEFAULT NULL,
   `rider_email` varchar(30) DEFAULT NULL,
   `rider_phoneNum` varchar(11) DEFAULT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE `expensesrecord` (
 CREATE TABLE `order` (
   `order_ID` int(10) NOT NULL,
   `restaurant_ID` int(10) NOT NULL,
-  `rider_ID` int(10) NULL,
+  `rider_ID` int(11) NOT NULL,
   `user_ID` int(10) NOT NULL,
   `extra_note` varchar(100) NOT NULL,
   `order_date` date NOT NULL,
@@ -286,7 +286,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `complaintlist` (
-  `id` int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `id` int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   `complaint_name` varchar(50) NOT NULL,
   `complaint_date` date NOT NULL,
   `complaint_time` time NOT NULL,
@@ -295,6 +295,7 @@ CREATE TABLE `complaintlist` (
   `complaint_status` varchar(30) NOT NULL,
   `feedback_info` varchar(30) NULL,
   `feedback_status` varchar(30) NULL
+  FOREIGN KEY ('order_ID') REFERENCES order('order_ID'),
 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -317,7 +318,7 @@ ALTER TABLE `complaintlist`
 -- AUTO_INCREMENT for table `complaintlist`
 --
 ALTER TABLE `complaintlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
