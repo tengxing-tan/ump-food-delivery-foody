@@ -1,6 +1,6 @@
 
 CREATE TABLE `rider` (
-  `rider_ID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `rider_ID` int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `rider_name` varchar(30) DEFAULT NULL,
   `rider_email` varchar(30) DEFAULT NULL,
   `rider_phoneNum` varchar(11) DEFAULT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE `expensesrecord` (
 CREATE TABLE `order` (
   `order_ID` int(10) NOT NULL,
   `restaurant_ID` int(10) NOT NULL,
-  `rider_ID` int(11) NOT NULL,
+  `rider_ID` int(10) NULL,
   `user_ID` int(10) NOT NULL,
   `extra_note` varchar(100) NOT NULL,
   `order_date` date NOT NULL,
