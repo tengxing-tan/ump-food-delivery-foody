@@ -58,10 +58,6 @@ ALTER TABLE `User`
   ADD PRIMARY KEY (`user_ID`);
 
 --
--- Constraints for dumped tables
---
-
---
 -- Constraints for table `Admin`
 --
 ALTER TABLE `Admin`
