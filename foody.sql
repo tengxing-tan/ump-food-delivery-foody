@@ -298,7 +298,9 @@ CREATE TABLE `complaintlist` (
   `complaint_time` time NOT NULL,
   `complaint_type` varchar(50) NOT NULL,
   `complaint_comment` varchar(200) NOT NULL,
-  'complaint_status' varchar(30) NOT NULL,
+  `complaint_status` varchar(30) NOT NULL,
+  `feedback_info` varchar(30) NULL,
+  `feedback_status` varchar(30) NULL
 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
