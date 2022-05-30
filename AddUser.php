@@ -105,7 +105,7 @@
         <!-- main content (right side) -->
         <div id="main-content">
 
-    <h1>Add User Data</h1>  
+    <h1>Registration</h1>  
         <form action="#" method="post">
             <select name="type">
                 <option disable selected value>Choose User Type</option>

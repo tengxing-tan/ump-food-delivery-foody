@@ -3,6 +3,9 @@
     include_once 'navBar.php';
     session_start();
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
