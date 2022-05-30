@@ -9,7 +9,7 @@ CREATE TABLE `rider` (
 ) 
 
 
-CREATE TABLE `Admin` (
+CREATE TABLE `admin` (
   `admin_ID` int(10) NOT NULL,
   `user_ID` varchar(10) NOT NULL,
   `admin_name` varchar(30) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE `Admin` (
   `admin_password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `User` (
+CREATE TABLE `user` (
   `user_ID` int(10) NOT NULL,
   `user_name` varchar(30) NOT NULL,
   `user_email` varchar(30) NOT NULL,
@@ -71,11 +71,11 @@ CREATE TABLE `restauranttype` (
 
 
 
-ALTER TABLE `Admin`
+ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_ID`),
   ADD KEY `user_ID` (`user_ID`);
 
-ALTER TABLE `User`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`user_ID`);
 
 ALTER TABLE `expensesrecord`
@@ -107,7 +107,7 @@ ALTER TABLE `restaurant`
 ALTER TABLE `restauranttype`
   ADD PRIMARY KEY (`restaurantType_ID`);
 
-ALTER TABLE `Admin`
+ALTER TABLE `admin`
   ADD CONSTRAINT `Admin_ibfk_1` FOREIGN KEY (`user_ID`) REFERENCES `User` (`user_ID`);
   
   ALTER TABLE `expensesrecord`
@@ -115,7 +115,7 @@ ALTER TABLE `Admin`
 
 COMMIT;
 
-CREATE TABLE `Food` (
+CREATE TABLE `food` (
   `food_ID` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `restaurant_ID` int(10) NOT NULL,
   `food_title` varchar(30) NOT NULL,
@@ -131,7 +131,7 @@ CREATE TABLE `Food` (
 -- Table structure for table `FoodCategory`
 --
 
-CREATE TABLE `FoodCategory` (
+CREATE TABLE `foodcategory` (
   `food_category_ID` int(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `category_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -141,7 +141,7 @@ CREATE TABLE `FoodCategory` (
 -- Table structure for table `Restaurant`
 --
 
-CREATE TABLE `Restaurant` (
+CREATE TABLE `restaurant` (
   `restaurant_ID` int(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `ro_ID` int(10) NOT NULL   REFERENCES RestaurantOwner(`ro_ID`),
   `restaurant_name` varchar(100) NOT NULL,
@@ -156,7 +156,7 @@ CREATE TABLE `Restaurant` (
 -- Table structure for table `RestaurantOwner`
 --
 
-CREATE TABLE `RestaurantOwner` (
+CREATE TABLE `restaurantowner` (
   `ro_ID` int(10) NOT NULL PRIMARY KEY,
   `ro_name` varchar(30) NOT NULL,
   `ro_email` varchar(30) NOT NULL,
@@ -171,7 +171,7 @@ CREATE TABLE `RestaurantOwner` (
 -- Dumping data for table `Food`
 --
 
-INSERT INTO `Food` (`food_ID`, `restaurant_ID`, `food_title`, `food_category_ID`, `food_description`, `food_image`, `food_price`) VALUES
+INSERT INTO `food` (`food_ID`, `restaurant_ID`, `food_title`, `food_category_ID`, `food_description`, `food_image`, `food_price`) VALUES
 (NULL, 1, 'Asam Laksa', 1, '', 'asam_laksa.jpg', 9),
 (NULL, 1, 'Cendol', 2, 'update x2', 'cendol.jpg', 40),
 (NULL, 1, 'Fried Chicken', 2, '1px only', 'fried_chicken.jpg', 4),
@@ -191,7 +191,7 @@ INSERT INTO `Food` (`food_ID`, `restaurant_ID`, `food_title`, `food_category_ID`
 -- Dumping data for table `FoodCategory`
 --
 
-INSERT INTO `FoodCategory` (`food_category_ID`, `category_name`) VALUES
+INSERT INTO `foodcategory` (`food_category_ID`, `category_name`) VALUES
 (1, 'Main Dishes'),
 (2, 'Side Dishes'),
 (3, 'Drinks');
@@ -202,7 +202,7 @@ INSERT INTO `FoodCategory` (`food_category_ID`, `category_name`) VALUES
 -- Dumping data for table `Restaurant`
 --
 
-INSERT INTO `Restaurant` (`restaurant_ID`, `ro_ID`, `restaurant_name`, `restaurant_imgae`, `restaurant_description`, `restaurant_address`) VALUES
+INSERT INTO `restaurant` (`restaurant_ID`, `ro_ID`, `restaurant_name`, `restaurant_imgae`, `restaurant_description`, `restaurant_address`) VALUES
 (1, 1, 'hotdog', '../assets/tempura.png', 'no food', 'tan teng xing\r\ntan teng xing\r\ntan teng xing');
 
 -- --------------------------------------------------------
@@ -211,7 +211,7 @@ INSERT INTO `Restaurant` (`restaurant_ID`, `ro_ID`, `restaurant_name`, `restaura
 -- Dumping data for table `RestaurantOwner`
 --
 
-INSERT INTO `RestaurantOwner` (`ro_ID`, `ro_name`, `ro_email`, `ro_phoneNum`, `ro_password`, `ro_address`) VALUES
+INSERT INTO `restaurantowner` (`ro_ID`, `ro_name`, `ro_email`, `ro_phoneNum`, `ro_password`, `ro_address`) VALUES
 (1, 'tan teng xing', 'tengxing@@gmail.com', '123456', 'tan', 'tan teng xing\r\ntan teng xing\r\ntan teng xing');
 --
 -- AUTO_INCREMENT for table `order`
