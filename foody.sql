@@ -51,9 +51,9 @@ CREATE TABLE `expensesrecord` (
 
 CREATE TABLE `order` (
   `order_ID` int(10) NOT NULL,
-  `restaurant_ID` varchar(10) NOT NULL,
-  `rider_ID` varchar(10) NOT NULL,
-  `user_ID` varchar(10) NOT NULL,
+  `restaurant_ID` int(10) NOT NULL,
+  `rider_ID` int(11) NOT NULL,
+  `user_ID` int(10) NOT NULL,
   `extra_note` varchar(100) NOT NULL,
   `order_date` date NOT NULL,
   `total_amount` int(11) NOT NULL,
