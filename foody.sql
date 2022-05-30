@@ -50,7 +50,8 @@ CREATE TABLE `order` (
 CREATE TABLE `orderedfood` (
   `order_ID` int(10) NOT NULL,
   `restaurant_ID` int(10) NOT NULL,
-  `food_ID` int(10) NOT NULL
+  `food_ID` int(10) NOT NULL, 
+  `food_quantity` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `restaurant` (
@@ -63,7 +64,10 @@ CREATE TABLE `restaurant` (
   `restaurant_address` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
+CREATE TABLE `restauranttype` (
+  `restaurantType_ID` int(10) NOT NULL,
+  `restaurantType_name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_ID`),
@@ -104,10 +108,9 @@ ALTER TABLE `restauranttype`
 ALTER TABLE `admin`
   ADD CONSTRAINT `Admin_ibfk_1` FOREIGN KEY (`user_ID`) REFERENCES `User` (`user_ID`);
   
-  ALTER TABLE `expensesrecord`
+ALTER TABLE `expensesrecord`
   MODIFY `expenses_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
-COMMIT;
 
 CREATE TABLE `food` (
   `food_ID` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -234,7 +237,15 @@ ALTER TABLE `user`
 --
 -- Constraints for dumped tables
 --
-
+--
+-- Constraints for table `order`
+--
+ALTER TABLE `order`
+  ADD CONSTRAINT `restaurant_ID` FOREIGN KEY (`restaurant_ID`) REFERENCES `restaurant` (`restaurant_ID`);
+ALTER TABLE `order`
+  ADD CONSTRAINT `rider_ID` FOREIGN KEY (`rider_ID`) REFERENCES `rider` (`rider_ID`);
+ALTER TABLE `order`
+  ADD CONSTRAINT `user_ID` FOREIGN KEY (`user_ID`) REFERENCES `user` (`user_ID`);
 --
 -- Constraints for table `expensesrecord`
 --
@@ -246,15 +257,18 @@ ALTER TABLE `expensesrecord`
 --
 ALTER TABLE `orderedfood`
   ADD CONSTRAINT `order_ID` FOREIGN KEY (`order_ID`) REFERENCES `order` (`order_ID`);
+  
+ALTER TABLE `orderedfood`
+  ADD CONSTRAINT `restaurant_ID` FOREIGN KEY (`restaurant_ID`) REFERENCES `restaurant` (`restaurant_ID`);
+  
+ALTER TABLE `orderedfood`
+  ADD CONSTRAINT `food_ID` FOREIGN KEY (`food_ID`) REFERENCES `food` (`food_ID`);
 
 --
 -- Constraints for table `restaurant`
 --
 ALTER TABLE `restaurant`
   ADD CONSTRAINT `restaurantType_ID` FOREIGN KEY (`restaurantType_ID`) REFERENCES `restauranttype` (`restaurantType_ID`);
-COMMIT;
-
-COMMIT;
 -- phpMyAdmin SQL Dump
 -- version 4.7.4
 -- https://www.phpmyadmin.net/
@@ -295,14 +309,13 @@ CREATE TABLE `complaintlist` (
   `complaint_status` varchar(30) NOT NULL,
   `feedback_info` varchar(30) NULL,
   `feedback_status` varchar(30) NULL
-  FOREIGN KEY ('order_ID') REFERENCES order('order_ID'),
 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
-
+FOREIGN KEY ('order_ID') REFERENCES order('order_ID'),
 --
 -- Indexes for table `complaintlist`
 --
