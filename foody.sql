@@ -1,11 +1,19 @@
 
 CREATE TABLE `rider` (
-  `rider_ID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `rider_ID` int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `rider_name` varchar(30) DEFAULT NULL,
   `rider_email` varchar(30) DEFAULT NULL,
   `rider_phoneNum` varchar(11) DEFAULT NULL,
   `rider_password` varchar(20) DEFAULT NULL,
   `rider_address` varchar(30) DEFAULT NULL
+) 
+
+CREATE TABLE `feedback` (
+  `feedback_ID` int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `id` int(10) NOT NULL,
+  `feedback_info` varchar(30) NULL,
+  `feedback_status` varchar(30) NULL,
+   FOREIGN KEY (`id`) REFERENCES complaintlist(`id`)
 ) 
 
 
@@ -38,7 +46,7 @@ CREATE TABLE `expensesrecord` (
 CREATE TABLE `order` (
   `order_ID` int(10) NOT NULL,
   `restaurant_ID` int(10) NOT NULL,
-  `rider_ID` int(11) NOT NULL,
+  `rider_ID` int(10) NOT NULL,
   `user_ID` int(10) NOT NULL,
   `extra_note` varchar(100) NOT NULL,
   `order_date` date NOT NULL,
@@ -308,14 +316,14 @@ CREATE TABLE `complaintlist` (
   `complaint_comment` varchar(200) NOT NULL,
   `complaint_status` varchar(30) NOT NULL,
   `feedback_info` varchar(30) NULL,
-  `feedback_status` varchar(30) NULL
-
+  `feedback_status` varchar(30) NULL,
+   FOREIGN KEY (`order_ID`) REFERENCES order(`order_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
-FOREIGN KEY ('order_ID') REFERENCES order('order_ID'),
+
 --
 -- Indexes for table `complaintlist`
 --
