@@ -41,7 +41,7 @@ HEADER
 }
 .icon-link{ color: white };
 .icon-link:visited { color: white; }
-.fa-user {
+.fa {
   font-size: 20px;
   margin-left: 4px;
 }
@@ -58,6 +58,9 @@ BODY
 NAVIGRATINO BAR
 */
 #nav-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: white;
   height: 100%;
   width: 236px;
