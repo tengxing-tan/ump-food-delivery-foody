@@ -47,6 +47,10 @@ $result = mysqli_query($conn, $query);
             <li><a class="nav-link" href="../calculate-average-expenses/index.html">Calculate Average Expenses</a></li>
             <li><a class="nav-link" href="#">Complaint List</a></li>
         </ul>
+        <a href="index.php" class="nav-link" style="text-decoration: underline;">
+            Logout
+             <i class="fa fa-sign-out" aria-hidden="true" style></i>
+         </a>
         </nav>
     
         <!-- main content (right side) -->

@@ -1,3 +1,3 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "foody") or die(mysqli_error($conn));
+$conn = mysqli_connect("localhost", "root", "", "foodydb") or die(mysqli_error($conn));
 ?>

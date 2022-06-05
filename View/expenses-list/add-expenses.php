@@ -19,11 +19,15 @@ session_start();
     <!-- title bar -->
     <div id="title-bar">
         <!-- foody logo -->
-        <a id="foody-link" class="icon-link" href="../index.html">Foody</a>
+        <a id="foody-link" class="icon-link" href="../index.php">Foody</a>
 
         <!-- user profile -->
         <div>
-          <a class="icon-link" href="#">
+            <a class="icon-link" href="../restaurant/order-list.php">
+                Order List
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+          <a class="icon-link" href="../user.php">
             User
             <i class="fa-solid fa-user"></i>
           </a>
@@ -35,11 +39,15 @@ session_start();
         <!-- navigation bar (left side) -->
         <nav id="nav-bar">
         <ul>
-            <li><a class="nav-link" href="../index.html">Home</a></li>
+            <li><a class="nav-link" href="../index.php">Home</a></li>
             <li><a class="nav-link active" href="../expenses-list/index.php">Expenses List</a></li>
-            <li><a class="nav-link" href="../calculate-average-expenses/index.html">Calculate Average Expenses</a></li>
+            <li><a class="nav-link" href="../calculate-average-expenses/index.php">Calculate Average Expenses</a></li>
             <li><a class="nav-link" href="#">Complaint List</a></li>
         </ul>
+        <a href="index.php" class="nav-link" style="text-decoration: underline;">
+            Logout
+             <i class="fa fa-sign-out" aria-hidden="true" style></i>
+         </a>
         </nav>
     
         <!-- main content (right side) -->
@@ -55,14 +63,14 @@ session_start();
                     if(isset($_SESSION['ERROR_MESSAGE'])){
                         $i=0;
                     if(in_array("title cannot be empty.", $_SESSION['ERROR_MESSAGE'])){
-                        echo "<p style='color:red;font-size:12px;'>".$_SESSION['ERROR_MESSAGE'][$i]. "</p>";
+                        echo "<p style='color:red;font-size:12px;'>*".$_SESSION['ERROR_MESSAGE'][$i]. "</p>";
                         $i+=1;
                     }
                     }
                     ?>
 
                     <div class="date">
-                        <input type="text" name="date" placeholder="Date, ex: 2022-01-01"/>
+                        <input type="date" name="date" placeholder="Date, ex: 2022-01-01"/>
                     </div>
 
                     <?php

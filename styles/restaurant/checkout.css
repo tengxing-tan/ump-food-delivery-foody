@@ -7,13 +7,26 @@
     padding: 40px; 
     align-content: space-between;
 }
-#address{
+.address{
     padding: 10px; 
 }
-#order{
-    display: flex;
+.order{
+    display: grid;
+    grid-template-columns: auto auto auto;
     justify-content: space-between;
     padding: 10px;
+}
+.food-title{
+    grid-column-start: 1;
+    text-align: left;  
+}
+.food-quantity{
+    grid-column-start: 2;
+    text-align: center;
+}
+.food-price{
+    grid-column-start: 3;
+    text-align: right;
 }
 #content textarea{
     width: 100%;
@@ -31,11 +44,10 @@
     justify-content: space-between;
 }
 #buttons{
+    width: 100%;
+    justify-content: end;
     display: flex;
     padding: 40px; 
-    position: absolute; 
-    bottom: 20px;
-    right: 30px;
 }
 #cancel-button:hover{
     background-color: var(--light-grey-bg); 

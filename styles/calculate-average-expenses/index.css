@@ -7,12 +7,26 @@
     height: 50px;
     margin: 10px; 
     color: white; 
+    margin-bottom: 10px;
     background-color: var(--primary-bg);
     border: none; 
     border-radius: 10px;
+    box-shadow: 2px 2px 12px 4px rgb(191, 190, 190);
 }
 .calculate-button button:hover{
     background-color: var(--button-hover);
+}
+.month-selection, .week-selection{
+    color: var(--primary-bg);
+    border: 2px solid var(--primary-bg);
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
+}
+.option{
+    text-align: left;
 }
 .calculate-button button:active{
     background-color: var(--primary-bg);
@@ -46,15 +60,24 @@
 .content{
     height: 100%;
 }
+.header{
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    text-align: center;
+}
 .title{
-    display: flex;
-    justify-content: space-between;
+    text-align: left;
+}
+.date{
+    text-align: center;
+}
+.amount{
+    text-align: right;
 }
 .row{
-    display: flex;
-    justify-content: space-between;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    text-align: center;
 }
 .average-expenses{
     display: flex;

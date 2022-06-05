@@ -1,7 +1,6 @@
 .restaurant-list{
     width: 100%;  
     display: flex; 
-    justify-content: space-between;
     overflow-x: scroll; 
 }
 ::-webkit-scrollbar {
@@ -10,12 +9,12 @@
 }
 img{
     margin: auto; 
-    width: 140px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     object-fit: fill;
 }
 .restaurant{
-    width: 150px; 
+    width: 200px;
     text-align: center;
     margin-right:15px; 
     margin-left: 15px;

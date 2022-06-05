@@ -22,11 +22,15 @@ include ('../../php/connect-database.php');
     <!-- title bar -->
     <div id="title-bar">
         <!-- foody logo -->
-        <a id="foody-link" class="icon-link" href="../index.html">Foody</a>
+        <a id="foody-link" class="icon-link" href="../index.php">Foody</a>
 
         <!-- user profile -->
         <div>
-          <a class="icon-link" href="#">
+            <a class="icon-link" href="../restaurant/order-list.php">
+                Order List
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+          <a class="icon-link" href="../user.php">
             User
             <i class="fa-solid fa-user"></i>
           </a>
@@ -38,11 +42,15 @@ include ('../../php/connect-database.php');
         <!-- navigation bar (left side) -->
         <nav id="nav-bar">
         <ul>
-            <li><a class="nav-link" href="../index.html">Home</a></li>
+            <li><a class="nav-link" href="../index.php">Home</a></li>
             <li><a class="nav-link active" href="../expenses-list/index.php">Expenses List</a></li>
-            <li><a class="nav-link" href="../calculate-average-expenses/index.html">Calculate Average Expenses</a></li>
+            <li><a class="nav-link" href="../calculate-average-expenses/index.php">Calculate Average Expenses</a></li>
             <li><a class="nav-link" href="#">Complaint List</a></li>
         </ul>
+        <a href="index.php" class="nav-link" style="text-decoration: underline;">
+            Logout
+             <i class="fa fa-sign-out" aria-hidden="true" style></i>
+         </a>
         </nav>
     
         <!-- main content (right side) -->
@@ -56,7 +64,7 @@ include ('../../php/connect-database.php');
 
             <form method="POST">
                 <div id="search-section">
-                    <input type="text" name="search-restaurant" id="search-bar" placeholder="Enter expenses title, ex:dinner"/>
+                    <input type="text" name="search-expenses" id="search-bar" placeholder="Enter expenses title, ex:dinner"/>
                     <button type="submit" class="btn" name="search">Search</button>
                 </div>
             </form>
@@ -65,7 +73,7 @@ include ('../../php/connect-database.php');
 
 
             if(isset($_POST['search'])){
-                $input=$_POST['search-restaurant'];
+                $input=$_POST['search-expenses'];
                 $search_result=mysqli_query($conn, "SELECT * FROM expensesrecord WHERE expenses_title LIKE '%$input%' OR expenses_date LIKE '%$input%'");
 
                 if(mysqli_num_rows($search_result)==0){

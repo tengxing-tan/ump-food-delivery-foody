@@ -1,7 +1,7 @@
 #checkout-details{
     background-color: white;
     border-radius: 10px;
-    height: 70%;
+    min-height: 70%;
     width: 50%;
     margin: auto;
 }
@@ -23,13 +23,14 @@
 #delivery-address{
     padding: 10px;
 }
-#order-list{
-    padding: 10px;
-}
 #button{
+    margin-top: 20px;
     text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
-#back-button{
+.button{
     width: 150px;
     height: 50px;
     margin: 10px; 
@@ -38,6 +39,6 @@
     border: none; 
     border-radius: 10px;
 }
-#back-button:hover{
+.button:hover{
     background-color: var(--button-hover);
 }
