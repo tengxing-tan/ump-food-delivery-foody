@@ -2,7 +2,7 @@
     include_once 'C:\xampp\htdocs\ump-food-delivery-foody\dbconnection.php';
     session_start();
 
-    if(!isset($_SESSION["admin_ID"])){
+    if(!isset($_SESSION["adminName"])){
         header("Location: login.php");
     }else{
         if(isset($_POST['update'])){
@@ -12,7 +12,7 @@
             $password = mysqli_real_escape_string($con, $_POST['adminPassword']);
             $email = mysqli_real_escape_string($con, $_POST['adminEmail']);
 
-            $query = "UPDATE admin SET admin_name = '$name', admin_password = '$password', admin_email = '$email' WHERE admin_name = '{$_SESSION["admin_ID"]}' ";
+            $query = "UPDATE admin SET admin_name = '$name', admin_password = '$password', admin_email = '$email' WHERE admin_name = '{$_SESSION["adminName"]}' ";
             $result = mysqli_query($con, $query);
 
             if($result){
@@ -85,7 +85,7 @@
                 <h1>Update Administrator Profile</h1>
 
                 <?php 
-                    $query = "SELECT * FROM admin WHERE admin_name = '{$_SESSION['admin_ID']}'";
+                    $query = "SELECT * FROM admin WHERE admin_ID = '{$_SESSION['admin_ID']}'";
                     $result = mysqli_query($con, $query);
 
                     if(mysqli_num_rows($result) > 0){

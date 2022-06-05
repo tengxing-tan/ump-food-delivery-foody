@@ -52,10 +52,10 @@
         <!-- main content (right side) -->
         <div id="main-content">
 
-                <h1>Administrator</h1>
+                <h1> Administrator Profile</h1>
 
                 <?php 
-                    $query = "SELECT * FROM admin WHERE admin_name = '{$_SESSION["admin_ID"]}' ";
+                    $query = "SELECT * FROM admin WHERE admin_name = '{$_SESSION['admin_name']}'";
                     $result = mysqli_query($con, $query);
 
                     if(mysqli_num_rows($result) > 0){
@@ -67,33 +67,32 @@
                     <div class= "adminProfile">
                         <div class = "inputBox">
                             <span class = "details" >Admin ID: </span>
-                            <input type = "text" id = "admin_ID" name="admin_ID" value ="<?php echo $row['admin_ID'] ?>" disabled required><br><br>
+                            <input type = "text" id = "admin_ID" name="adminID" value ="<?php echo $row['admin_ID'] ?>" disabled required><br><br>
                         </div>
 
                         <div class = "inputBox">
                             <span class = "details" >Admin Name: </span>
-                            <input type = "text" id = "admin_name" name="admin_name" value =" <?php echo $row['admin_name'] ?>" disabled required><br><br>
+                            <input type = "text" id = "admin_name" name="adminName" value =" <?php echo $row['admin_name'] ?>" disabled required><br><br>
                         </div>
 
                         <div class="inputBox">
                             <span class= "details">Admin Email:</span>
-                            <input type = "email" id="admin_email" name= "admin_email" value=" <?php echo $row['admin_email'] ?>" disabled required><br><br>
+                            <input type = "email" id="admin_email" name= "adminEmail" value=" <?php echo $row['admin_email'] ?>" disabled required><br><br>
                         </div>
                             
                         <div class = "inputBox">
                             <span class = "details" >Admin Password: </span>
-                            <input type = "text" id = "admin_password" name="admin_password" value =" <?php echo $row['admin_password'] ?>" disabled required><br><br>
+                            <input type = "text" id = "admin_password" name="adminPassword" value =" <?php echo $row['admin_password'] ?>" disabled required><br><br>
                         </div>
                     </div> 
-            </form>
 
-            <a href = "UpdateAdminProfile.php"><button type ="submit" >Edit</button></a>
- 
-                <?php
+                    <?php
                         }
                     }
 
                 ?>
+            </form>
+            <a href="UpdateAdminProfile.php"><button type ="submit" class= "button">Edit</button></a>
 
         </div>
     </div>

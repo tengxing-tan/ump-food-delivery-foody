@@ -5,23 +5,25 @@
     if(isset($_POST["Login"]))
     {
         $type = $_POST['type'];
+        $name = $_POST['name'];
         $name = mysqli_real_escape_string($con, $_POST["name"]);
         $password = mysqli_real_escape_string($con, $_POST["password"]);
 
         if($type === 'Admin'){
 
-            $login = mysqli_query($con, "SELECT admin_name FROM admin WHERE admin_name = '$name' limit 1 ");
+            $login = mysqli_query($con, "SELECT admin_ID FROM admin WHERE admin_ID='$name' limit 1");
+            //echo mysqli_num_rows($login);
 
             if (mysqli_num_rows($login) > 0) {
 
-                $row = mysqli_fetch_assoc($login);
+                $row = mysqli_fetch_array($login);
 
-                $_SESSION["admin_ID"] = $row['admin_name'];
+                $_SESSION["admin_ID"] = $row['admin_ID'];
 
                 header("Location: AdminHomepage.php");
             }
             else{
-                echo "<script>alert('Login details is incorrect. Please try again.');</script>";
+                echo "<script>alert('Login details for admin is incorrect. Please try again.');</script>";
             }
             
         }else if($type === 'General User'){
@@ -94,7 +96,7 @@
           <input type="text" name="name" id="fname" ><br><br>
     
           <label for="fpassword">Password:</label>   
-        <input type="text" name="password" id="fpassword" ><br><br>
+        <input type="password" name="password" id="fpassword" ><br><br>
 
         <select name="type">
             <option disable selected value>Choose User Type</option>

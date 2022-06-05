@@ -43,7 +43,7 @@
                 }
             }
             else if($type === 'Restaurant Owner'){
-                $query = "INSERT INTO restaurant_owner(ro_name, ro_password, ro_email, ro_phoneNum, ro_address) VALUES ('$name', '$password', '$email', '$phoneNum', '$address')";
+                $query = "INSERT INTO restaurantowner(ro_name, ro_password, ro_email, ro_phoneNum, ro_address) VALUES ('$name', '$password', '$email', '$phoneNum', '$address')";
                 $result = mysqli_query($con, $query);
 
                 if($result){
