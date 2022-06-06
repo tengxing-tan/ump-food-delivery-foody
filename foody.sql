@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2022 at 03:11 PM
+-- Generation Time: Jun 06, 2022 at 03:40 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -67,6 +67,14 @@ CREATE TABLE `expensesrecord` (
   `expenses_amount` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `expensesrecord`
+--
+
+INSERT INTO `expensesrecord` (`expenses_ID`, `user_ID`, `expenses_title`, `expenses_description`, `expenses_date`, `expenses_amount`) VALUES
+(8, 1, 'dinner', 'fdsaf', '2022-06-09', 12),
+(9, 1, 'fdasf', 'fdsaf', '2022-06-08', 12);
+
 -- --------------------------------------------------------
 
 --
@@ -92,15 +100,21 @@ CREATE TABLE `food` (
   `food_category_ID` int(10) NOT NULL,
   `food_description` text NOT NULL,
   `food_image` varchar(255) NOT NULL,
-  `food_price` float NOT NULL
+  `food_price` float NOT NULL,
+  `food_availability` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `food`
 --
 
-INSERT INTO `food` (`food_ID`, `restaurant_ID`, `food_title`, `food_category_ID`, `food_description`, `food_image`, `food_price`) VALUES
-(13, 1, 'sushi', 1, 'Sushi', '../../src/img/sushi-mentai.jpg', 12);
+INSERT INTO `food` (`food_ID`, `restaurant_ID`, `food_title`, `food_category_ID`, `food_description`, `food_image`, `food_price`, `food_availability`) VALUES
+(13, 1, 'Sushi', 1, 'Sushi', '../../src/img/sushi.jpg', 12, 1),
+(14, 1, 'Udon', 1, 'Made with hand-made udon noodles', '../../src/img/udon.jpg', 12, 1),
+(15, 1, 'Tempura', 2, 'Fresh fry tempura', '../../src/img/tempura.jpg', 6, 1),
+(16, 2, 'Mc Chicken', 1, 'Mc Chicken, fresh chicken meat with tomato, lettuce, and cabbage', '../../src/img/Mc Chicken.jpg', 13, 1),
+(17, 2, 'Coca Cola', 3, 'coca cola', '../../src/img/coca cola.jpg', 3, 1),
+(18, 2, 'Fry Chicken', 2, 'Spicy fry chicken', '../../src/img/fry chicken.jpg', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -133,12 +147,25 @@ CREATE TABLE `order` (
   `restaurant_ID` int(10) NOT NULL,
   `rider_ID` int(10) NOT NULL,
   `user_ID` int(10) NOT NULL,
-  `extra_note` varchar(100) NOT NULL,
-  `order_date` date NOT NULL,
+  `order_date` datetime NOT NULL,
   `total_amount` int(11) NOT NULL,
-  `order_status` varchar(20) NOT NULL,
-  `order_time` time NOT NULL
+  `order_status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`order_ID`, `restaurant_ID`, `rider_ID`, `user_ID`, `order_date`, `total_amount`, `order_status`) VALUES
+(1, 1, 1, 1, '2022-06-04 17:10:56', 12, 'Ordered'),
+(2, 2, 1, 1, '2022-06-04 23:32:05', 39, 'Ordered'),
+(3, 2, 1, 1, '2022-06-04 23:35:16', 39, 'Ordered'),
+(4, 1, 1, 1, '2022-06-04 23:35:34', 54, 'Ordered'),
+(5, 1, 1, 1, '2022-06-04 23:38:24', 54, 'Ordered'),
+(6, 1, 1, 1, '2022-06-04 23:41:08', 54, 'Ordered'),
+(7, 2, 1, 1, '2022-06-04 23:52:55', 21, 'Ordered'),
+(8, 1, 1, 1, '2022-06-05 17:48:23', 162, 'Ordered'),
+(9, 1, 1, 1, '2022-06-05 20:43:32', 24, 'Ordered');
 
 -- --------------------------------------------------------
 
@@ -148,10 +175,25 @@ CREATE TABLE `order` (
 
 CREATE TABLE `orderedfood` (
   `order_ID` int(10) NOT NULL,
-  `restaurant_ID` int(10) NOT NULL,
   `food_ID` int(10) NOT NULL,
   `food_quantity` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orderedfood`
+--
+
+INSERT INTO `orderedfood` (`order_ID`, `food_ID`, `food_quantity`) VALUES
+(6, 13, 1),
+(6, 14, 2),
+(6, 15, 3),
+(7, 16, 0),
+(7, 17, 2),
+(7, 18, 3),
+(8, 13, 3),
+(8, 14, 6),
+(8, 15, 9),
+(9, 13, 2);
 
 -- --------------------------------------------------------
 
@@ -165,7 +207,7 @@ CREATE TABLE `restaurant` (
   `restaurant_name` varchar(30) NOT NULL,
   `restaurant_image` varchar(255) NOT NULL,
   `restaurantType_ID` int(10) NOT NULL,
-  `restaurant_descripton` text NOT NULL,
+  `restaurant_description` text NOT NULL,
   `restaurant_address` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -173,8 +215,9 @@ CREATE TABLE `restaurant` (
 -- Dumping data for table `restaurant`
 --
 
-INSERT INTO `restaurant` (`restaurant_ID`, `ro_ID`, `restaurant_name`, `restaurant_image`, `restaurantType_ID`, `restaurant_descripton`, `restaurant_address`) VALUES
-(1, '1', 'Sushi Mentai', '../src/img/sushi-mentai.jpg', 1, 'Sushi Restaurant', '9, Jalan Apa, Taman Apa, 65500 Pekan, Pahang');
+INSERT INTO `restaurant` (`restaurant_ID`, `ro_ID`, `restaurant_name`, `restaurant_image`, `restaurantType_ID`, `restaurant_description`, `restaurant_address`) VALUES
+(1, '1', 'Sushi Mentai', '../src/img/sushi-mentai.jpg', 1, 'Sushi Restaurant', '9, Jalan Apa, Taman Apa, 65500 Pekan, Pahang'),
+(2, '1', 'MCD', '../src/img/McDonald.jpg', 2, 'fast food , selling burgers, fries, nuggets, soft drinks', '43, Persiaran Muda Musa, 65500 Pekan, Pahang');
 
 -- --------------------------------------------------------
 
@@ -221,6 +264,29 @@ INSERT INTO `restauranttype` (`restaurantType_ID`, `restaurantType_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rider`
+--
+
+CREATE TABLE `rider` (
+  `rider_ID` int(10) NOT NULL,
+  `rider_name` varchar(30) DEFAULT NULL,
+  `rider_email` varchar(30) DEFAULT NULL,
+  `rider_phoneNum` varchar(11) DEFAULT NULL,
+  `rider_password` varchar(20) DEFAULT NULL,
+  `rider_address` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rider`
+--
+
+INSERT INTO `rider` (`rider_ID`, `rider_name`, `rider_email`, `rider_phoneNum`, `rider_password`, `rider_address`) VALUES
+(1, 'Lim', 'lim@gmail.com', '0102235554', 'abc', 'pekan,pahang'),
+(2, 'Tan', 'tan@gmail.com', '0123654789', '1234', 'kuantan, pahang');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -238,7 +304,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_ID`, `user_name`, `user_email`, `user_phoneNum`, `user_password`, `user_address`) VALUES
-(1, 'jeremy', 'jeremy@example.com', '010-2520223', 'jeremy', '21, Jalan Melaka, Taman Melaka, 65500 Pekan, Pahan');
+(1, 'jeremy', 'jeremy@example.com', '010-2520223', 'jeremy', '21, Jalan Melaka, Taman Melaka, 65500 Pekan, Pahang');
 
 --
 -- Indexes for dumped tables
@@ -292,7 +358,8 @@ ALTER TABLE `foodcategory`
 ALTER TABLE `order`
   ADD PRIMARY KEY (`order_ID`),
   ADD KEY `restaurant_ID` (`restaurant_ID`),
-  ADD KEY `user_ID` (`user_ID`);
+  ADD KEY `user_ID` (`user_ID`),
+  ADD KEY `rider_ID` (`rider_ID`);
 
 --
 -- Indexes for table `orderedfood`
@@ -321,6 +388,12 @@ ALTER TABLE `restauranttype`
   ADD PRIMARY KEY (`restaurantType_ID`);
 
 --
+-- Indexes for table `rider`
+--
+ALTER TABLE `rider`
+  ADD PRIMARY KEY (`rider_ID`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -340,7 +413,7 @@ ALTER TABLE `complaintlist`
 -- AUTO_INCREMENT for table `expensesrecord`
 --
 ALTER TABLE `expensesrecord`
-  MODIFY `expenses_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `expenses_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -352,7 +425,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
-  MODIFY `food_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `food_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `foodcategory`
@@ -364,19 +437,25 @@ ALTER TABLE `foodcategory`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `restaurant_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `restaurant_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `restauranttype`
 --
 ALTER TABLE `restauranttype`
   MODIFY `restaurantType_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `rider`
+--
+ALTER TABLE `rider`
+  MODIFY `rider_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -412,6 +491,7 @@ ALTER TABLE `food`
 --
 ALTER TABLE `order`
   ADD CONSTRAINT `restaurant_ID` FOREIGN KEY (`restaurant_ID`) REFERENCES `restaurant` (`restaurant_ID`),
+  ADD CONSTRAINT `rider_ID` FOREIGN KEY (`rider_ID`) REFERENCES `rider` (`rider_ID`),
   ADD CONSTRAINT `user_ID` FOREIGN KEY (`user_ID`) REFERENCES `user` (`user_ID`);
 
 --
