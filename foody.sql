@@ -109,12 +109,12 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`food_ID`, `restaurant_ID`, `food_title`, `food_category_ID`, `food_description`, `food_image`, `food_price`, `food_availability`) VALUES
-(13, 1, 'Sushi', 1, 'Sushi', '../../src/img/sushi.jpg', 12, 1),
-(14, 1, 'Udon', 1, 'Made with hand-made udon noodles', '../../src/img/udon.jpg', 12, 1),
-(15, 1, 'Tempura', 2, 'Fresh fry tempura', '../../src/img/tempura.jpg', 6, 1),
-(16, 2, 'Mc Chicken', 1, 'Mc Chicken, fresh chicken meat with tomato, lettuce, and cabbage', '../../src/img/Mc Chicken.jpg', 13, 1),
-(17, 2, 'Coca Cola', 3, 'coca cola', '../../src/img/coca cola.jpg', 3, 1),
-(18, 2, 'Fry Chicken', 2, 'Spicy fry chicken', '../../src/img/fry chicken.jpg', 5, 1);
+(13, 1, 'Sushi', 1, 'Sushi', 'sushi.jpg', 12, 0),
+(14, 1, 'Udon', 1, 'Made with hand-made udon noodles', 'udon.jpg', 12, 0),
+(15, 1, 'Tempura', 2, 'Fresh fry tempura', 'tempura.jpg', 6, 1),
+(16, 2, 'Mc Chicken', 1, 'Mc Chicken, fresh chicken meat with tomato, lettuce, and cabbage', 'Mc Chicken.jpg', 13, 1),
+(17, 2, 'Coca Cola', 3, 'coca cola', 'coca cola.jpg', 3, 1),
+(18, 2, 'Fry Chicken', 2, 'Spicy fry chicken', 'fry chicken.jpg', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -147,7 +147,8 @@ CREATE TABLE `order` (
   `restaurant_ID` int(10) NOT NULL,
   `rider_ID` int(10) NOT NULL,
   `user_ID` int(10) NOT NULL,
-  `order_date` datetime NOT NULL,
+  `order_date` date NOT NULL,
+  `order_time` time NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `total_amount` int(11) NOT NULL,
   `order_status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -205,19 +206,22 @@ CREATE TABLE `restaurant` (
   `restaurant_ID` int(10) NOT NULL,
   `ro_ID` varchar(10) NOT NULL,
   `restaurant_name` varchar(30) NOT NULL,
-  `restaurant_image` varchar(255) NOT NULL,
   `restaurantType_ID` int(10) NOT NULL,
+  `contact` varchar(20) NOT NULL,
+  `restaurant_address` varchar(100) NOT NULL,
+  `operating_hour_open` time NOT NULL,
+  `operating_hour_close` time NOT NULL,
   `restaurant_description` text NOT NULL,
-  `restaurant_address` varchar(100) NOT NULL
+  `restaurant_image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `restaurant`
 --
 
-INSERT INTO `restaurant` (`restaurant_ID`, `ro_ID`, `restaurant_name`, `restaurant_image`, `restaurantType_ID`, `restaurant_description`, `restaurant_address`) VALUES
-(1, '1', 'Sushi Mentai', '../src/img/sushi-mentai.jpg', 1, 'Sushi Restaurant', '9, Jalan Apa, Taman Apa, 65500 Pekan, Pahang'),
-(2, '1', 'MCD', '../src/img/McDonald.jpg', 2, 'fast food , selling burgers, fries, nuggets, soft drinks', '43, Persiaran Muda Musa, 65500 Pekan, Pahang');
+INSERT INTO `restaurant` (`restaurant_ID`, `ro_ID`, `restaurant_name`, `restaurantType_ID`, `contact`, `restaurant_address`, `operating_hour_open`, `operating_hour_close`, `restaurant_description`, `restaurant_image`) VALUES
+(1, '1', 'Sushi Mentai', 1, '016-9998888', '9, Jalan Apa, Taman Apa, 65500 Pekan, Pahang', '08:00:00', '20:00:00', 'Sushi Restaurant', '../src/img/sushi-mentai.jpg'),
+(2, '1', 'MCD', 2, '012-3334455', '43, Persiaran Muda Musa, 65500 Pekan, Pahang', '00:00:00', '23:59:00', 'fast food , selling burgers, fries, nuggets, soft drinks', '../src/img/McDonald.jpg');
 
 -- --------------------------------------------------------
 
@@ -413,7 +417,7 @@ ALTER TABLE `complaintlist`
 -- AUTO_INCREMENT for table `expensesrecord`
 --
 ALTER TABLE `expensesrecord`
-  MODIFY `expenses_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `expenses_ID` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -425,43 +429,42 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
-  MODIFY `food_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `food_ID` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `foodcategory`
 --
 ALTER TABLE `foodcategory`
-  MODIFY `food_category_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `food_category_ID` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `order_ID` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `restaurant_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `restaurant_ID` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `restauranttype`
 --
 ALTER TABLE `restauranttype`
-  MODIFY `restaurantType_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `restaurantType_ID` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `rider`
 --
 ALTER TABLE `rider`
-  MODIFY `rider_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `rider_ID` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_ID` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
