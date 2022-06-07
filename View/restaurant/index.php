@@ -81,7 +81,7 @@ $id=$row['food_ID'];
             <form method="POST" action="../restaurant/order-list.php?id=<?php echo $id;?>">
                 <div id="food-list">
                     <?php
-                    $result=mysqli_query($conn, "SELECT * FROM food WHERE restaurant_ID='$restaurant_ID'");
+                    $result=mysqli_query($conn, "SELECT * FROM food WHERE restaurant_ID='$restaurant_ID' && food_availability=1");
                         if(isset($_SESSION['order'])){
                             $foodQuantity=$_SESSION['order'];
                         }
