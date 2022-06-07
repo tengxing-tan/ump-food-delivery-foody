@@ -1,8 +1,11 @@
 <?php
 session_start();
 include("../../php/connect-database.php");
+
+if(isset($_SESSION['restaurant_name']) && isset($_SESSION['restaurant_ID'])){
 $restaurant_name=$_SESSION['restaurant_name'];
 $restaurant_ID=$_SESSION['restaurant_ID'];
+}
 
 if(isset($_GET['id'])){
     $result=mysqli_query($conn, "SELECT food_ID from food WHERE restaurant_ID='$restaurant_ID'");
@@ -80,7 +83,7 @@ if(isset($_GET['id'])){
         <!-- main content (right side) -->
         <div id="main-content">
             <div class="container">
-                <h3><?php echo $restaurant_name;?></h3>
+                <h3><?php if(isset($_SESSION['rsetaurant_name'])){echo $restaurant_name;}else{echo "";}?></h3>
                 <hr/>
                 <form method="POST" action="../restaurant/checkout.php">
                     <div class="order">
@@ -100,10 +103,9 @@ if(isset($_GET['id'])){
                         </div>
                         <hr/>
                         <?php
-                        $result=mysqli_query($conn, "SELECT * FROM food WHERE restaurant_ID='$restaurant_ID'");
                         if(isset($_SESSION['order'])){
+                            $result=mysqli_query($conn, "SELECT * FROM food WHERE restaurant_ID='$restaurant_ID'");
                             $foodQuantity=$_SESSION['order'];
-                        }
                         while($row=mysqli_fetch_array($result, 1)){ 
                             if(reset($foodQuantity)!=0){
                         ?>
@@ -123,7 +125,10 @@ if(isset($_GET['id'])){
                                 <input class="food-price" value="RM <?php echo $row['food_price'] * reset($foodQuantity); array_shift($foodQuantity);?>" name="price-<?php echo $row['food_ID'];?>"></input>
                             </div>
                         </div>
-                        <?php } }?>
+                        <?php } }} 
+                            else { echo "No order";}
+                        ?>
+                            
                     </div>
                     <div class="buttons-section">
                         <a href="./index.php?a=<?php echo $restaurant_ID;?>"><button type="button" id="cancel-button">Cancel</button></a>

@@ -136,10 +136,6 @@ include ('../../php/connect-database.php');
                 ?>
 
                 <a href="add-expenses.php"><button type="button" id="add-expenses-button">Add Expenses</button></a>
-
-            <?php 
-                session_destroy();
-                ?>
         </div>
     </div>
 </body>

@@ -63,7 +63,7 @@ include("../../php/connect-database.php");
                     <div class="QR-background">
                         <div id="QRCode"></div>
                     </div>
-                    <h4>Scan QR Code to view on phone.</h4>
+                    <h4>Scan QR Code to view on phone in table form.</h4>
                 </div>
             </div>
 
@@ -79,7 +79,7 @@ include("../../php/connect-database.php");
                     array_push($sum, $row['sum']);
                 }
                 }
-
+                $sum_assoc = array_combine($month, $sum);
 
             ?>
             <a href="./index.php"><button type="button" class="back-button">Back</button></a>
@@ -114,7 +114,7 @@ include("../../php/connect-database.php");
         });
 
         var qrcode = new QRCode(document.getElementById("QRCode"), {
-            text: "http://10.50.55.163:3000/ump-food-delivery-foody/View/calculate-average-expenses/report.php",
+            text: "<?php foreach($sum_assoc as $month => $sum){echo $month.' : '.$sum.'\r\n';}?>",
             width: 128,
             height: 128,
             colorDark : "#6C5A8A",
