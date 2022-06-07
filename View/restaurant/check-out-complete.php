@@ -5,11 +5,12 @@ date_default_timezone_set("Asia/Singapore");
 
 $restaurant_ID=$_SESSION['restaurant_ID'];
 $total=$_SESSION['total'];
-$date=date('Y-m-d H:i:s');
+$date=date('Y-m-d');
+$time=date("H:i:s");
 $status="Ordered";
 // $time=date('h:i:sa');
 
-$query="INSERT INTO `order` (order_ID, restaurant_ID, rider_ID, user_ID, order_date, total_amount, order_status) VALUES (NULL, $restaurant_ID, 1, 1, '$date', $total, '$status')";
+$query="INSERT INTO `order` (order_ID, restaurant_ID, rider_ID, user_ID, order_date, ,order_time, total_amount, order_status) VALUES (NULL, $restaurant_ID, 1, 1, '$date', '$time', $total, '$status')";
 
 if(mysqli_query($conn, $query)){
     echo '<script>alert("Order Completed")</script>';
@@ -95,7 +96,7 @@ foreach($_SESSION['order'] as $id => $quantity){
                 <div id="details">
                     <div id="order-time">
                         <p>Order status: Ordered</p>
-                        <p>Order Time: <?php echo $date?></p>
+                        <p>Order Time: <?php echo $date." ".$time;?></p>
                     </div>
                     <div id="delivery-address">
                         <p>Delivery adress:</p>

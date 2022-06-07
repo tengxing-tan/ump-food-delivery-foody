@@ -90,7 +90,7 @@ $id=$row['food_ID'];
                     ?>
                     <div class="food-card">
                         <div class="food-image">
-                            <img src="../<?php echo $row['food_image'];?>"/>                    
+                            <img src="../<?php echo "../../src/img/".$row['food_image'];?>"/>                    
                         </div>
                         <div class="food-details">
                             <h3><?php echo $row['food_title'];?></h3>
