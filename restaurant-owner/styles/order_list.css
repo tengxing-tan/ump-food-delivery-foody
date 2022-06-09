@@ -1,31 +1,4 @@
 /*
-    ORDER LIST CONTAINER
-*/
-.order-list-container {
-	display: grid;
-	grid-template-columns: 1fr 5fr;
-	width: 100%;
-    height: 80%;
-}
-/*
-    ORDER STATUS MENU
-*/
-.order-status-menu {
-    display: flex;
-    flex-direction: column;
-    min-width: 14rem;
-}
-.order-status-menu > ul > li {
-    list-style: none;
-    display: block;
-    background-color: white;
-    color: var(--primary-bg);
-    border-radius: 10px 0 0 10px;
-    padding: 1.5rem;
-    margin-top: 1rem;
-    font-weight: bold;
-}
-/*
     ORDER LISTING
 */
 .order-list {
@@ -33,7 +6,7 @@
     flex-direction: column;
     align-items: center;
     background-color: var(--gray-bg);
-    height: 100%;
+    height: min-content;
     padding: 1rem 3rem;
 }
 /*
@@ -74,6 +47,7 @@
     border-radius: 5px;
     padding: 0.25rem 1rem;
     margin-left: 0.5rem;
+    text-transform: capitalize;
 }
 .cancel-order-button {
     background-color: #FFE4E6;
@@ -85,4 +59,6 @@
 }
 .order-status {
     font-weight: bold;
+    color: var(--primary-bg);
+    text-transform: capitalize;
 }

@@ -1,18 +1,4 @@
 /*
-    CIRCLE ADD BUTTON
-*/
-.add-button {
-    background-color: var(--primary-bg);
-    color: white;
-    width: 4rem;
-    height: 4rem;
-    border: none;
-    border-radius: 50%;
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-}
-/*
     MENU LIST
 */
 .menu-list {
@@ -41,8 +27,10 @@
     text-decoration: none;
 }
 .food-picture {
+    display: block;
     background-color: var(--gray-bg);
     width: 100%;
+    max-width: 14rem;
     height: 10rem;
     border-radius: 10px;
     margin-bottom: 0.5rem;
@@ -58,4 +46,40 @@
     align-self: flex-end;
     font-weight: bold;
     font-size: 1.25rem;
+}
+.food-price::before {
+    content: 'RM';
+}
+/*
+    TOOGLE SWITCH
+*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+.switch:after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    background-color: white;
+    top: 1px;
+    left: 1px;
+    transition: all 0.3s;
+}
+#toggle:checked+.switch:after {
+    transform: translateX(20px);
+}
+#toggle:checked+.switch {
+    background-color: var(--primary-bg);
+}
+.offscreen {
+    position: absolute;
+    left: -9999px;
 }

@@ -1,21 +1,34 @@
-.report-table {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    width: 100%;
-    padding: 1rem;
-}
 .report-row {
     display: grid;
-    grid-template-columns: 5rem repeat(2, 1fr);
     place-items: center;
-    background-color: var(--gray-bg);
     padding: 1rem;
+    margin-bottom: 1rem;
+
+    font: inherit;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+}
+.report-row:nth-child(2n+1) {
+    background-color: var(--light-grey-bg);
 }
 .report-row:nth-child(2n) {
     background-color: white;
 }
 .report-header-row {
     font-weight: bold;
+    text-align: center;
     margin-bottom: 1rem;
+    position: sticky;
+    top: -2.5rem;
+}
+.white-card {
+    display: grid;
+    place-items: center;
+    background-color: white;
+    max-width: 56rem;
+    padding: 4rem;
+    margin: 2rem auto 4rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
 }
