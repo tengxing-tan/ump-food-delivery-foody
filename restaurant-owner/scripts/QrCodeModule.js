@@ -1,5 +1,5 @@
-var qrcode = new QRCode(document.getElementById("QRCode"), {
-    text: "http://10.50.55.163:3000/ump-food-delivery-foody/View/calculate-average-expenses/report.php",
+var qrcode = new QRCode(document.getElementById('qr-code'), {
+    text: "http://10.66.0.36:3000/webserver/foody/restaurant-owner/view-charts.php?id=",
     width: 128,
     height: 128,
     colorDark: "#6C5A8A",

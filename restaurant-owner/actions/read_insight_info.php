@@ -6,7 +6,7 @@ include 'actions/db_connect.php';
  * SESSION
  */
 session_start();
-$restaurantID = $_SESSION['restaurantID'];
+$restaurantID = (isset($_GET['id'])) ? $_GET['id'] : $_SESSION['restaurantID'];
 // $restaurantID = 1;
 
 /**
