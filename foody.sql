@@ -1,21 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 06, 2022 at 03:40 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Host: localhost
+-- Generation Time: Jun 09, 2022 at 05:11 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `foodydb`
@@ -35,6 +29,13 @@ CREATE TABLE `admin` (
   `admin_password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_ID`, `user_ID`, `admin_name`, `admin_email`, `admin_password`) VALUES
+(1, 'tengxing', 'Teng Xing', 'tengxing@email.com', 'mypwd');
+
 -- --------------------------------------------------------
 
 --
@@ -51,6 +52,13 @@ CREATE TABLE `complaintlist` (
   `complaint_comment` varchar(200) NOT NULL,
   `complaint_status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `complaintlist`
+--
+
+INSERT INTO `complaintlist` (`complaint_id`, `order_id`, `complaint_name`, `complaint_date`, `complaint_time`, `complaint_type`, `complaint_comment`, `complaint_status`) VALUES
+(1, 1, 'Food had eaten', '2022-06-07', '10:42:25', 'rider', 'the rider ate my roti canai😡', 'ok');
 
 -- --------------------------------------------------------
 
@@ -87,6 +95,13 @@ CREATE TABLE `feedback` (
   `feedback_info` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`feedback_id`, `complaint_id`, `feedback_info`) VALUES
+(1, 1, 'sorry lo');
+
 -- --------------------------------------------------------
 
 --
@@ -101,7 +116,7 @@ CREATE TABLE `food` (
   `food_description` text NOT NULL,
   `food_image` varchar(255) NOT NULL,
   `food_price` float NOT NULL,
-  `food_availability` tinyint(1) NOT NULL
+  `food_availability` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -109,12 +124,23 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`food_ID`, `restaurant_ID`, `food_title`, `food_category_ID`, `food_description`, `food_image`, `food_price`, `food_availability`) VALUES
-(13, 1, 'Sushi', 1, 'Sushi', 'sushi.jpg', 12, 0),
-(14, 1, 'Udon', 1, 'Made with hand-made udon noodles', 'udon.jpg', 12, 0),
-(15, 1, 'Tempura', 2, 'Fresh fry tempura', 'tempura.jpg', 6, 1),
-(16, 2, 'Mc Chicken', 1, 'Mc Chicken, fresh chicken meat with tomato, lettuce, and cabbage', 'Mc Chicken.jpg', 13, 1),
-(17, 2, 'Coca Cola', 3, 'coca cola', 'coca cola.jpg', 3, 1),
-(18, 2, 'Fry Chicken', 2, 'Spicy fry chicken', 'fry chicken.jpg', 5, 1);
+(1, 1, 'Sushi', 1, 'Sushi', 'sushi.jpg', 12, 0),
+(2, 1, 'Udon', 1, 'Made with hand-made udon noodles', 'udon.jpg', 12, 0),
+(3, 1, 'Tempura', 2, 'Fresh fry tempura', 'tempura.jpg', 6, 1),
+(4, 2, 'Mc Chicken', 1, 'Mc Chicken, fresh chicken meat with tomato, lettuce, and cabbage', 'Mc Chicken.jpg', 13, 1),
+(5, 2, 'Coca Cola', 3, 'coca cola', 'coca cola.jpg', 3, 1),
+(6, 2, 'Fry Chicken', 2, 'Spicy fry chicken', 'fry chicken.jpg', 5, 1),
+(7, 1, 'Asam Laksa', 1, '', 'asam_laksa.jpg', 9, 1),
+(8, 1, 'Cendol', 2, 'update x2', 'cendol.jpg', 40, 1),
+(9, 1, 'Fried Chicken', 2, '1px only', 'fried_chicken.jpg', 4, 1),
+(10, 1, 'Nasi Kerabu', 1, '', 'nasi_kerabu.jpg', 10, 1),
+(11, 1, 'Mee Sup', 1, '', 'mee_sup.jpg', 5, 1),
+(12, 1, 'Milo Ais', 3, '', 'milo_ais.jpg', 2.5, 1),
+(13, 1, 'Nasi Kerabu', 1, '', 'nasi_kerabu.jpg', 7.5, 1),
+(14, 1, 'Nasi Lemak', 1, '', 'nasi_lemak.jpg', 5.5, 1),
+(15, 1, 'Roti Canai', 2, '', 'roti_canai.jpg', 1.2, 1),
+(16, 1, 'Roti Telur', 2, '', 'roti_telur.jpg', 2.5, 1),
+(17, 1, 'Teh Tarik', 3, '', 'teh_tarik.jpg', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -148,7 +174,7 @@ CREATE TABLE `order` (
   `rider_ID` int(10) NOT NULL,
   `user_ID` int(10) NOT NULL,
   `order_date` date NOT NULL,
-  `order_time` time NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `order_time` time NOT NULL,
   `total_amount` int(11) NOT NULL,
   `order_status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -157,16 +183,17 @@ CREATE TABLE `order` (
 -- Dumping data for table `order`
 --
 
-INSERT INTO `order` (`order_ID`, `restaurant_ID`, `rider_ID`, `user_ID`, `order_date`, `total_amount`, `order_status`) VALUES
-(1, 1, 1, 1, '2022-06-04 17:10:56', 12, 'Ordered'),
-(2, 2, 1, 1, '2022-06-04 23:32:05', 39, 'Ordered'),
-(3, 2, 1, 1, '2022-06-04 23:35:16', 39, 'Ordered'),
-(4, 1, 1, 1, '2022-06-04 23:35:34', 54, 'Ordered'),
-(5, 1, 1, 1, '2022-06-04 23:38:24', 54, 'Ordered'),
-(6, 1, 1, 1, '2022-06-04 23:41:08', 54, 'Ordered'),
-(7, 2, 1, 1, '2022-06-04 23:52:55', 21, 'Ordered'),
-(8, 1, 1, 1, '2022-06-05 17:48:23', 162, 'Ordered'),
-(9, 1, 1, 1, '2022-06-05 20:43:32', 24, 'Ordered');
+INSERT INTO `order` (`order_ID`, `restaurant_ID`, `rider_ID`, `user_ID`, `order_date`, `order_time`, `total_amount`, `order_status`) VALUES
+(1, 1, 1, 1, '2022-06-04', '17:10:56', 12, 'Ordered'),
+(2, 2, 1, 1, '2022-06-04', '23:32:05', 39, 'Ordered'),
+(3, 2, 1, 1, '2022-06-04', '23:35:16', 39, 'Ordered'),
+(4, 1, 1, 1, '2022-06-04', '23:35:34', 54, 'Ordered'),
+(5, 1, 1, 1, '2022-06-04', '23:38:24', 54, 'Ordered'),
+(6, 1, 1, 1, '2022-06-04', '23:41:08', 54, 'Ordered'),
+(7, 2, 1, 1, '2022-06-04', '23:52:55', 21, 'Ordered'),
+(8, 1, 1, 1, '2022-06-05', '17:48:23', 162, 'Ordered'),
+(9, 1, 1, 1, '2022-06-05', '17:48:23', 162, 'Ordered'),
+(10, 1, 1, 1, '2022-05-15', '10:28:38', 24, 'Ordered');
 
 -- --------------------------------------------------------
 
@@ -286,7 +313,8 @@ CREATE TABLE `rider` (
 
 INSERT INTO `rider` (`rider_ID`, `rider_name`, `rider_email`, `rider_phoneNum`, `rider_password`, `rider_address`) VALUES
 (1, 'Lim', 'lim@gmail.com', '0102235554', 'abc', 'pekan,pahang'),
-(2, 'Tan', 'tan@gmail.com', '0123654789', '1234', 'kuantan, pahang');
+(2, 'Tan', 'tan@gmail.com', '0123654789', '1234', 'kuantan, pahang'),
+(3, 'Jeremy', 'jeremy@gmail.com', '012-3334445', 'jeremy', 'Pekan, Pahang');
 
 -- --------------------------------------------------------
 
@@ -308,7 +336,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_ID`, `user_name`, `user_email`, `user_phoneNum`, `user_password`, `user_address`) VALUES
-(1, 'jeremy', 'jeremy@example.com', '010-2520223', 'jeremy', '21, Jalan Melaka, Taman Melaka, 65500 Pekan, Pahang');
+(1, 'jeremy', 'jeremy@example.com', '010-2520223', 'jeremy', '21, Jalan Melaka, Taman Melaka, 65500 Pekan, Pahang'),
+(2, 'Teng Xing', 'tengxing@email.com', '018-9995000', 'mypwd', '11, Jalan Kerling, Taman Air Panas, Selangor.');
 
 --
 -- Indexes for dumped tables
@@ -408,57 +437,64 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `admin_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `complaintlist`
 --
 ALTER TABLE `complaintlist`
-  MODIFY `complaint_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `complaint_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `expensesrecord`
 --
 ALTER TABLE `expensesrecord`
-  MODIFY `expenses_ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `expenses_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `feedback_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `feedback_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
-  MODIFY `food_ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `food_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `foodcategory`
 --
 ALTER TABLE `foodcategory`
-  MODIFY `food_category_ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `food_category_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `restaurant_ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `restaurant_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `restauranttype`
 --
 ALTER TABLE `restauranttype`
-  MODIFY `restaurantType_ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `restaurantType_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `rider`
 --
 ALTER TABLE `rider`
-  MODIFY `rider_ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `rider_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -510,7 +546,3 @@ ALTER TABLE `orderedfood`
 ALTER TABLE `restaurant`
   ADD CONSTRAINT `restaurantType_ID` FOREIGN KEY (`restaurantType_ID`) REFERENCES `restauranttype` (`restaurantType_ID`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
