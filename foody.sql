@@ -312,9 +312,9 @@ CREATE TABLE `rider` (
 --
 
 INSERT INTO `rider` (`rider_ID`, `rider_name`, `rider_email`, `rider_phoneNum`, `rider_password`, `rider_address`) VALUES
-(1, 'Lim', 'lim@gmail.com', '0102235554', 'abc', 'pekan,pahang'),
-(2, 'Tan', 'tan@gmail.com', '0123654789', '1234', 'kuantan, pahang'),
-(3, 'Jeremy', 'jeremy@gmail.com', '012-3334445', 'jeremy', 'Pekan, Pahang');
+(1, 'John Lim', 'johnlim@gmail.com', '0112235251', 'john4321', 'Kuantan, Pahang'),
+(2, 'Amir', 'amir@gmail,com', '0166669999', 'amir6666', 'Jln 2, Pekan, Pahang'),
+(3, 'Shawan', 'shw@gmail.com', '0127789963', 'shwpass', 'Dhuam Pekan, Pahang');
 
 -- --------------------------------------------------------
 
