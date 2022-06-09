@@ -1,0 +1,112 @@
+li #home{
+    color: white;
+    background-color: var(--primary-bg);
+    transition: all ease-in 200ms;
+}
+#deliveryDetail{
+    height:500px;
+    width:1000px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+#arrowB{
+    font-size: 24px;
+    margin-top: -30px;
+    float: right;
+    margin-right: 80px;
+    cursor: pointer;
+}
+hr{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    border-width: 1.5px;
+}
+#firstD{
+    display: grid;
+    grid-template-columns: 400px 100px 400px;
+    grid-template-rows: 100px;
+    gap: 2px;
+    padding-left: 50px;
+    padding-top: 10px;
+}
+#firstD div{
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: left;
+    padding: 1px;
+    font-size: 18px;
+}
+.address, .addName{
+    font-size: 16px;
+}
+#firstD div .arrowTo{
+    padding-top: 100px;
+}
+#secondD h3, #bottomD h3{
+    margin-left: 50px;
+    margin-top: 5px;
+    font-size: 18px;
+}
+#secondD ul li{
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-template-rows: 20px;
+    padding-left: 50px;
+    padding-top: 5px;
+    list-style: none;
+    font-size: 16px;
+}
+#secondD ul li .foodPrice{
+    text-align: right;
+    font: white;
+}
+#secondD ul li .foodQuantity{
+    text-align: left;
+    margin-left: -150px;
+}
+#secondD div{
+    padding-top: 5px;
+    text-align: right;
+    margin-right: 50px;
+    font-weight: bold;
+}
+#secondD{
+    margin-bottom: 20px;
+}
+#thirdD, #forthD, #sixthD, #seventhD{
+    height: 18%;
+    width: 100%;
+    margin-left: 50px;
+    margin-top: 5px;
+}
+#seventhD{
+    cursor: pointer;
+}
+#thirdD > p, #forthD > p, #sixthD > p, #seventhD > p{
+    padding-top: 5px;
+}
+
+#order{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    border: none;
+    text-align: center;
+    background-color: var(--light-grey-bg);
+}
+#top h3{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}

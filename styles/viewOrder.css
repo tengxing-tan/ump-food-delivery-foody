@@ -1,0 +1,145 @@
+li #home{
+    color: white;
+    background-color: var(--primary-bg);
+    transition: all ease-in 200ms;
+}
+#topPart{
+    width: 1200px;
+    height: 80px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-top: -20px;
+}
+#topPart #date{
+    width: 885px;
+    height: 40px;
+    margin-left: 120px;
+    margin-right: 30px;
+    border: solid 1px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+#button{
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: #6C5A8A;
+    color: white;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    cursor: pointer;
+}
+
+#recordDetail{
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(234, 233, 233);
+    margin-top: -10px;
+}
+#topD{
+    background-color: white;
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px;
+    grid-template-rows: 60px; 
+    margin: 15px;
+    justify-content: center;
+    align-content: center;
+    column-gap: 50px;
+}
+#topD div{
+    text-align: left;
+    padding: 10px;
+    font-size: 18px;  
+    margin-left: 45px; 
+}
+#middleD ul li{
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px;
+    grid-template-rows: 60px;
+    background-color: white;
+    margin: 12px;
+    list-style: none;
+    font-size: 16px;
+    padding-left: 20px;
+    height: 50px;
+    column-gap: 50px;
+}
+
+#middleD ul li p{
+    margin: 15px;
+    text-align: center;
+}
+#middleD ul li a{
+    cursor: pointer;
+    color: #6C5A8A;
+}
+#arrowB{
+    font-size: 24px;
+    margin-top: -30px;
+    float: right;
+    margin-right: 80px;
+    cursor: pointer;
+}
+#noOrder{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+
+}
+/*Pop up confirmation*/
+.container{
+    display: none;
+    top: 120px;
+    left:202px;
+    right: 0;
+    bottom: 0;
+    position: fixed; /*fix full page*/
+    background: rgb(0, 0, 0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+.container.active{
+    display: block;
+}
+.container .deliveryDetail{
+    position: relative;
+    height:200px;
+    width:400px;
+    background-color: white;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+}
+#middleContainer{
+    display: block;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+#middleContainer h3{
+    padding-top: 80px;
+}
+#bottomBtn{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+#bottomBtn button{
+    margin: 10px;
+    cursor: pointer;
+}
+#cancelBtn{
+    background-color:white;
+    color:  #6C5A8A;
+    border: 1px solid #6C5A8A;
+}
+#cancelBtn:hover{
+    background-color: var(--button-hover);
+}
