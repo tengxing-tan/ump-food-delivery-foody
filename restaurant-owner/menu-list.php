@@ -105,8 +105,7 @@ include 'actions/read_menu_list.php';
                             <p class="food-category"><?php echo $row['category_name'] ?></p>
                             <p style="color: darkslategrey; font-size: 0.75rem; padding: 0.2rem">
                                 <a href="actions/update_food_availability.php?id=<?php echo $row['food_ID'].'&a='.$row['food_availability']; ?>">
-                                    <input type="checkbox" id="toggle" class="offscreen" <?php echo ($row['food_availability'] == 1) ? "checked" : "" ?> />
-                                    <label for="toggle" class="switch"></label>
+                                    <input type="checkbox" <?php echo ($row['food_availability'] == 1) ? "checked" : "" ?> />
                                 </a>
                                 Availability
                             </p>

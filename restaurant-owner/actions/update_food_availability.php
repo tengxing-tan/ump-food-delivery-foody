@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 include 'db_connect.php';
 /**
@@ -16,7 +17,7 @@ $foodAvailability = ($_GET['a']) ? 0 : 1;
 
 $sql = "UPDATE `food` SET `food_availability`=$foodAvailability WHERE `food_ID`='$foodID'";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-print_r($result);
+// print_r($result);
 
 header('location: ../menu-list.php');
 exit();
