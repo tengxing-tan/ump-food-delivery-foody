@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/mainPage.css">
     <link rel="stylesheet" href="../../styles/deliveryNotes.css">
-    <script src="../../function/mainPage.js" defer></script>
-    <!-- icon library | font awesome -->
+    <!--<script src="../../function/mainPage.js" defer></script>
+     icon library | font awesome -->
     <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
 </head>
 <body>
