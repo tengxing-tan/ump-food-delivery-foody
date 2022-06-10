@@ -24,18 +24,8 @@ include 'actions/read_insight_info.php';
 
     <!-- javascript -->
     <script src="scripts/RestaurantOwner.js" charset="utf-8"></script>
-     <!-- qr code generator -->
-     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-    <script type="text/javascript">
-        var qrcode = new QRCode(document.getElementById("QRCode"), {
-            text: "http://10.66.0.36:3000/webserver/foody/restaurant-owner/view-charts.php?id=<?php echo $restaurantID; ?>",
-            width: 128,
-            height: 128,
-            colorDark: "#6C5A8A",
-            colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.H
-        });
-    </script>
+    <!-- qr code generator -->
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
     <!-- js chart -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> -->
@@ -212,43 +202,50 @@ include 'actions/read_insight_info.php';
 
         <!-- main content (right side) -->
         <div id="main-content">
-            <div style="display: flex;">
-                <div>
-
-                    <!-- 
+        <div class="white-card">
+            <!-- 
+                QR code
+             -->
+                <div id="QRCode"></div>
+                <p style="margin-top: 1rem; font-weight: bold; color: var(--primary-bg);">View in mobile phone</p>
+                <script type="text/javascript">
+                    var qrcode = new QRCode(document.getElementById("QRCode"), {
+                        text: "http://10.66.0.36/foody/restaurant-owner/view-charts.php?id=<?php echo $restaurantID; ?>",
+                        width: 128,
+                        height: 128,
+                        colorDark: "#6C5A8A",
+                        colorLight: "#ffffff",
+                        correctLevel: QRCode.CorrectLevel.H
+                    });
+                </script>
+            </div>
+            <!-- 
                 Last payment (lowest and highest)
             -->
-                    <div class="white-card">
-                        <h3 style="margin-bottom: 2.5rem;">Collected Payment Last Month</h3>
-                        <canvas id="chartPaymentLastMonth" style="width:100%;max-width:700px"></canvas>
+            <div class="white-card">
+                <h3 style="margin-bottom: 2.5rem;">Collected Payment Last Month</h3>
+                <canvas id="chartPaymentLastMonth" style="width:100%;max-width:700px"></canvas>
 
-                        <div style="width: 100%; display: flex; flex-direction: column; justify-content: start;">
-                            <p style="margin-top: 1rem;">Highest : RM <span id="maxPayment"></span></p>
-                            <p style="margin-top: 0.25em;">Lowest : RM <span id="minPayment"></span></p>
-                        </div>
-                    </div>
+                <div style="width: 100%; display: flex; flex-direction: column; justify-content: start;">
+                    <p style="margin-top: 1rem;">Highest : RM <span id="maxPayment"></span></p>
+                    <p style="margin-top: 0.25em;">Lowest : RM <span id="minPayment"></span></p>
+                </div>
+            </div>
 
-                    <!-- 
+            <!-- 
                 Total order
-             -->
-                    <div class="white-card">
-                        <h3 style="margin-bottom: 2.5rem;">Number Of Orders Last Month</h3>
-                        <canvas id="chartTotalOrder" style="width:100%;max-width:700px"></canvas>
-                    </div>
+            -->
+            <div class="white-card">
+                <h3 style="margin-bottom: 2.5rem;">Number Of Orders Last Month</h3>
+                <canvas id="chartTotalOrder" style="width:100%;max-width:700px"></canvas>
+            </div>
 
-                    <!-- 
+            <!-- 
                 Accumulated payment
-             -->
-                    <div class="white-card">
-                        <h3 style="margin-bottom: 2.5rem;">Accumalated Received Payment Since Joined Foody</h3>
-                        <canvas id="chartAccumPay" style="width:100%;max-width:700px"></canvas>
-                    </div>
-                </div>
-
-                <div style="background-color: white; padding: 1rem;">
-                    <div id="QRCode"></div>
-                    <p>test qr code </p>
-                </div>
+            -->
+            <div class="white-card">
+                <h3 style="margin-bottom: 2.5rem;">Accumalated Received Payment Since Joined Foody</h3>
+                <canvas id="chartAccumPay" style="width:100%;max-width:700px"></canvas>
             </div>
 
         </div>

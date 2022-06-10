@@ -1,7 +1,3 @@
-dashboard (so sales report first)
-    - sql: order list, complete order
-    - graph: daily earning
-
 (last compile) fix every contains: $restaurantID = 1;
 
 x script in 'view menu item' move to external js
