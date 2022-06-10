@@ -58,7 +58,7 @@ CREATE TABLE `complaintlist` (
 --
 
 INSERT INTO `complaintlist` (`complaint_id`, `order_id`, `complaint_name`, `complaint_date`, `complaint_time`, `complaint_type`, `complaint_comment`, `complaint_status`) VALUES
-(1, 1, 'Food had eaten', '2022-06-07', '10:42:25', 'rider', 'the rider ate my roti canai😡', 'ok');
+(1, 1, 'Food had eaten', '2022-06-07', '10:42:25', 'rider', 'the rider ate my roti canai😡', 'In Investigation');
 
 -- --------------------------------------------------------
 
