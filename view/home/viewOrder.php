@@ -9,8 +9,8 @@
     <!-- external stylesheet -->
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/viewOrder.css">
-    <script src="../../function/detailRecord.js"></script>
-    <!-- icon library | font awesome -->
+ <!--   <script src="../../function/detailRecord.js"></script>
+     icon library | font awesome -->
     <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
 </head>
 <body>

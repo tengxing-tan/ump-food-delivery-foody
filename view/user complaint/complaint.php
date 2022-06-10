@@ -59,7 +59,7 @@
 
             <div id="compDetail">
                 <div id="topD">
-                    <div id="item1" class="item1"><h3 id="topic1">Complaint's ID</h3>
+                    <div id="item1" class="item1"><h3 id="topic1">Order's ID</h3>
                     </div>
                     <div id="item2" class="item2"><h3 id="topic2">Date</h3>
                     </div>
