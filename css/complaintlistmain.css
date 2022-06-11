@@ -1,0 +1,15 @@
+
+ .row{
+    margin-top: 3vw;
+  }
+
+  button[type='submit2']{
+        bottom:0;
+        right:0px;
+        position: absolute;
+  }
+  
+  .main-content{
+    display:inline-block;
+    text-align: center;
+  }
