@@ -1,0 +1,75 @@
+li #home{
+    color: white;
+    background-color: var(--primary-bg);
+    transition: all ease-in 200ms;
+}
+button{
+    background-color: var(--primary-bg);
+    text-align: center;
+    color: white;
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    border: none; 
+    margin-left: 10px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    cursor: pointer;
+}
+#onlineBtn{
+    margin-top: -30px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.map{
+    position:relative;
+    text-align:right;
+    height:500px;
+    width:1000px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*Pop Message*/
+.container{
+    display: none;
+    top: 120px;
+    left:202px;
+    right: 0;
+    bottom: 0;
+    position: fixed; /*fix full page*/
+    background: rgb(0, 0, 0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+.container.active{
+    display: block;
+}
+.container .deliveryDetail{
+    position: relative;
+    height:500px;
+    width:1000px;
+    background-color: white;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+}
+#bottomBtn{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+#bottomBtn button{
+    margin: 10px;
+    cursor: pointer;
+}
+#cancelBtn{
+    background-color:white;
+    color:  #6C5A8A;
+    border: 1px solid #6C5A8A;
+}
+#cancelBtn:hover{
+    background-color: var(--button-hover);
+}

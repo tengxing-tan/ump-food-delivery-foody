@@ -1,0 +1,154 @@
+li #deliveryRecord{
+    color: white;
+    background-color: var(--primary-bg);
+    transition: all ease-in 200ms;
+}
+#deliveryDetail{
+    height:500px;
+    width:1000px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -100px;
+}
+#arrowB{
+    font-size: 24px;
+    margin-top: -30px;
+    float: right;
+    margin-right: 80px;
+    cursor: pointer;
+}
+#topD, #bottomD{
+    width: 100%;
+    height: 20%;
+}
+hr{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    border-width: 1.5px;
+}
+#firstD{
+    display: grid;
+    grid-template-columns: 400px 100px 400px;
+    grid-template-rows: 100px;
+    gap: 2px;
+    padding-left: 50px;
+    padding-top: 10px;
+}
+#firstD div{
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: left;
+    padding: 1px;
+    font-size: 18px;
+}
+.address, .addName{
+    font-size: 16px;
+}
+#firstD div .arrowTo{
+    padding-top: 100px;
+}
+#secondD h3, #bottomD h3{
+    margin-left: 50px;
+    margin-top: 5px;
+    font-size: 18px;
+}
+#secondD ul li{
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-template-rows: 20px;
+    padding-left: 50px;
+    padding-top: 5px;
+    list-style: none;
+    font-size: 16px;
+}
+#secondD ul li .foodPrice{
+    text-align: right;
+}
+#secondD ul li .foodQuantity{
+    text-align: left;
+    margin-left: -150px;
+}
+#secondD div{
+    padding-top: 5px;
+    text-align: right;
+    margin-right: 50px;
+    font-weight: bold;
+}
+#thirdD, #forthD, #fifthD{
+    height: 18%;
+    width: 100%;
+    margin-left: 50px;
+    margin-top: 5px;
+}
+#secondD{
+    margin-bottom: 20px;
+}
+#thirdD > p, #forthD > p, #fifthD> p{
+    padding-top: 5px;
+}
+
+/*
+#feedback{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+Feedback Form
+.container{
+    display: block;
+    top: 120px;
+    left:203px;
+    right: 0;
+    bottom: 0;
+ 
+    justify-content: center;
+    align-items: center;
+}
+.container.active{
+    display: block;
+}
+
+#feedbackF{
+    width: 800px;
+    height: 380px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#topic{
+    color: black;
+}
+#addBtn{
+  background-color: var(--primary-bg);
+  text-align: center;
+  color: white;
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  border: none; 
+  margin-left: 10px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+#addBtn:hover, #cancelBtn:hover{
+    background-color: var(--button-hover);
+  }
+#addBtn:active{
+    background-color: var(--primary-bg);
+}
+#feedbackF div, h3, textarea{
+    margin-bottom: 15px;
+}
+
+#cancelBtn{
+    background-color: white;
+    color: var(--primary-bg);
+    border: 1px solid #6C5A8A;
+}
+*?
