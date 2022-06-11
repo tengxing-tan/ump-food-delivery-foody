@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("../php/connect-database.php");
+$user_ID=$_SESSION['user_ID'];
 ?>
 
 <!DOCTYPE html>
@@ -62,8 +63,9 @@ include("../php/connect-database.php");
             <h3>User Profile</h3>
             <ul>
             <?php
-            $result=mysqli_query($conn, "SELECT * FROM user WHERE user_ID=1");
+            $result=mysqli_query($conn, "SELECT * FROM user WHERE user_ID=$user_ID");
 
+            //display user information
             if (mysqli_num_rows($result) > 0) {
                 while($row = mysqli_fetch_array($result, 1)) 
                 {
