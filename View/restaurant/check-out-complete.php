@@ -107,7 +107,7 @@ foreach($_SESSION['order'] as $id => $quantity){
                     </div>
                 </div>
                 <div id="button">
-                    <a href="#"><button type="button" class="button">Make Complaint</button></a>
+                    <a href="#?a=<?php echo $orderID?>"><button type="button" class="button">Make Complaint</button></a>
                     <a href="../index.php"><button type="button" class="button">Order received, back to homepage</button></a>
                 </div>
             </div>

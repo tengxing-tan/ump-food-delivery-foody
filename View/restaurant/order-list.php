@@ -133,7 +133,7 @@ if(isset($_GET['id'])){
                             
                     </div>
                     <div class="buttons-section">
-                        <a href=<?php if(isset($_SESSION['restaurant_ID'])){ echo "'./index.php?a=?.$restaurant_ID'";}else{echo "'../index.php'";}?>><button type="button" id="cancel-button">Cancel</button></a>
+                        <a href=<?php if(isset($_SESSION['restaurant_ID'])){ echo "'./index.php?a=$restaurant_ID'";}else{echo "'../index.php'";}?>><button type="button" id="cancel-button">Cancel</button></a>
                         <button type="submit" id="checkout-button">Checkout</button></a>
                     </div>
                 </form>
