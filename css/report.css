@@ -1,0 +1,80 @@
+body{
+    background: #EEEEEE;
+}
+
+
+.main-part{
+    width:100%;
+    margin:auto;
+    text-align: center;
+    padding: 0px 5px;
+}
+
+.cpanel{
+    border-radius: 15px;
+    margin-left: 8px;
+    margin-right: 8px;
+    width:20%;
+    font-size:20px;
+    text-align: center;
+    height: 60px;
+    display: inline-block;
+    background-color:#34495E;
+    color:#fff;
+    margin-top: 50px;
+}
+
+.cpanel-2{
+    background-color: #16A085;
+}
+
+.cpanel-3{
+    background-color: #F39C12;
+}
+
+.cpanel-4{
+    background-color: #2980B9;
+}
+
+
+.diagram{
+    margin-left:30vw;
+    margin-right:20px;
+    
+}
+
+/*
+.dropdown {
+    position:relative;
+    display: inline-block;
+}
+
+.dropdown-btn{
+  padding: 16px;
+  font-size: 12px;
+  color: #FFF;
+  background: #6C5A8A;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+}
+
+.dropdown-container{
+    display: none;
+    position:absolute;
+    overflow:auto;
+    min-width: 100px;
+    background-color: #6C5A8A;
+    border-radius:10px;
+    padding-left: 8px;
+}
+.dropdown a:hover {background-color: #845EC2;}
+
+.dropdown-container a{
+    color:white;
+    text-decoration:none;
+    display:block;
+}
+*/
+

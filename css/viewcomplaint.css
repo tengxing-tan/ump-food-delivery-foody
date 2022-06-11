@@ -1,0 +1,23 @@
+.otherbtn{
+  
+  background-color: var(--primary-bg);
+  color: white;
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+float: right;
+
+}
+
+.content{
+    display:inline-block;
+    margin:0;
+}
+
+
+#main-content{
+  text-align: justify;
+}
+
