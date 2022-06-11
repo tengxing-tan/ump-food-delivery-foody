@@ -10,14 +10,14 @@
 
         if($type === 'Admin'){
 
-            $login = mysqli_query($con, "SELECT admin_email FROM admin WHERE admin_email='$email' limit 1");
+            $login = mysqli_query($con, "SELECT admin_email, admin_ID, admin_password FROM admin WHERE admin_email='$email' AND admin_password ='$password' limit 1");
             //echo mysqli_num_rows($login);
 
             if (mysqli_num_rows($login) > 0) {
 
                 $row = mysqli_fetch_array($login);
 
-                $_SESSION["adminLogin"] = $row['admin_email'];
+                $_SESSION["adminLogin"] = $row['admin_ID'];
 
                 header("Location: AdminHomepage.php");
             }
@@ -27,13 +27,13 @@
             
         }else if($type === 'General User'){
 
-            $login = mysqli_query($con, "SELECT user_name FROM user WHERE user_name = '$name' limit 1 ");
+            $login = mysqli_query($con, "SELECT user_name, user_ID, user_password FROM user WHERE user_name = '$name' AND user_password = '$password' limit 1 ");
 
             if (mysqli_num_rows($login) > 0) {
 
                 $row = mysqli_fetch_assoc($login);
 
-                $_SESSION["user_ID"] = $row['user_name'];
+                $_SESSION["user_ID"] = $row['user_ID'];
 
                 header("Location: UserHomepage.php");
             }
@@ -42,13 +42,13 @@
             }
         }else if($type === 'Rider'){
 
-            $login = mysqli_query($con, "SELECT rider_name FROM rider WHERE rider_name = '$name' limit 1 ");
+            $login = mysqli_query($con, "SELECT rider_name, rider_ID, rider_password FROM rider WHERE rider_name = '$name' AND rider_password='$password' limit 1 ");
 
             if (mysqli_num_rows($login) > 0) {
 
                 $row = mysqli_fetch_assoc($login);
 
-                $_SESSION["rider_ID"] = $row['rider_name'];
+                $_SESSION["rider_ID"] = $row['rider_ID'];
 
                 header("Location: RiderHomepage.php");
             }
@@ -57,13 +57,13 @@
             }
         }else if($type === 'Restaurant Owner'){
 
-            $login = mysqli_query($con, "SELECT ro_name FROM restaurantowner WHERE ro_name = '$name' limit 1 ");
+            $login = mysqli_query($con, "SELECT ro_name, ro_ID, ro_password FROM restaurantowner WHERE ro_name = '$name' AND ro_password='$password' limit 1 ");
 
             if (mysqli_num_rows($login) > 0) {
 
                 $row = mysqli_fetch_assoc($login);
 
-                $_SESSION["ro_ID"] = $row['ro_name'];
+                $_SESSION["ro_ID"] = $row['ro_ID'];
 
                 header("Location: RestaurantOwnerHomepage.php");
             }

@@ -12,7 +12,7 @@
             $password = mysqli_real_escape_string($con, $_POST['adminPassword']);
             $email = mysqli_real_escape_string($con, $_POST['adminEmail']);
 
-            $query = "UPDATE admin SET admin_name = '$name', admin_password = '$password'  WHERE admin_email = '{$_SESSION["adminLogin"]}' ";
+            $query = "UPDATE admin SET admin_name = '$name', admin_password = '$password'  WHERE admin_ID = '{$_SESSION["adminLogin"]}' ";
             $result = mysqli_query($con, $query);
 
             if($result){
@@ -85,7 +85,7 @@
                 <h1>Update Administrator Profile</h1>
 
                 <?php 
-                    $query = "SELECT * FROM admin WHERE admin_email = '{$_SESSION['adminLogin']}'";
+                    $query = "SELECT * FROM admin WHERE admin_ID = '{$_SESSION['adminLogin']}'";
                     $result = mysqli_query($con, $query);
 
                     if(mysqli_num_rows($result) > 0){

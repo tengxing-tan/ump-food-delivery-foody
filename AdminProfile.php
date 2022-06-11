@@ -55,7 +55,7 @@
                 <h1> Administrator Profile</h1>
 
                 <?php 
-                    $query = "SELECT * FROM admin WHERE admin_email = '{$_SESSION['adminLogin']}'";
+                    $query = "SELECT * FROM admin WHERE admin_ID= '{$_SESSION['adminLogin']}'";
                     $result = mysqli_query($con, $query);
 
                     if(mysqli_num_rows($result) > 0){
