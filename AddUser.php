@@ -115,23 +115,53 @@
             </select>
 
             <br><br>
-
+            <table>
+      <tr>
+        <td width="200">
             <label for="fusername">Name:</label>  
+            </td>
+        <td>
             <input type="text" name="username" id="fusername" ><br><br>
-        
-            <label for="fpassword">Password:</label>   
+            </td>
+      </tr>
+      <tr>
+        <td>
+            <label for="fpassword">Password:</label>  
+            </td>
+        <td>
             <input type="text" name="password" id="fpassword" ><br><br>
-
+            </td>
+      </tr>
+      <tr>
+        <td>
             <label for="fuseremail">Email:</label>   
-            <input type="text" name="useremail" id="fuseremail" ><br><br>
-
+            </td>
+        <td>
+            <input type="email" name="useremail" id="fuseremail" ><br><br>
+            </td>
+      </tr>
+      <tr>
+        <td>
             <label for="fphoneNum">Phone Number:</label>  
+            </td>
+        <td>
             <input type="text" name="phoneNum" id="fphoneNum" ><br><br>
-        
-            <label for="fuseraddress">Address:</label>   
-            <input type="text" name="useraddress" id="fuseraddress" ><br><br>
-
+            </td>
+      </tr>
+      <tr>
+        <td>
+        <label for="faddress">Address:</label>
+           </td>
+        <td>
+            <textarea name="useraddress" rows="5" cols="40"></textarea><br><br>
+            </td>
+      </tr>
+      <tr>
+        <td>
             <button type="submit" name="Add" value = "Add User" >Add</button>   
+            </td>
+      </tr>
+    </table>
         </form>
         </div>
     </div>

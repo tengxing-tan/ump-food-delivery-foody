@@ -5,20 +5,19 @@
     if(isset($_POST["Login"]))
     {
         $type = $_POST['type'];
-        $name = $_POST['name'];
-        $name = mysqli_real_escape_string($con, $_POST["name"]);
+        $email = mysqli_real_escape_string($con, $_POST["email"]);
         $password = mysqli_real_escape_string($con, $_POST["password"]);
 
         if($type === 'Admin'){
 
-            $login = mysqli_query($con, "SELECT admin_ID FROM admin WHERE admin_ID='$name' limit 1");
+            $login = mysqli_query($con, "SELECT admin_email FROM admin WHERE admin_email='$email' limit 1");
             //echo mysqli_num_rows($login);
 
             if (mysqli_num_rows($login) > 0) {
 
                 $row = mysqli_fetch_array($login);
 
-                $_SESSION["admin_ID"] = $row['admin_ID'];
+                $_SESSION["adminLogin"] = $row['admin_email'];
 
                 header("Location: AdminHomepage.php");
             }
@@ -92,8 +91,8 @@
 <h2>Welcome back!</h2>
     <form action="#" method="post">
 
-          <label for="fname">Name:</label>  
-          <input type="text" name="name" id="fname" ><br><br>
+          <label for="email">Email:</label>  
+          <input type="email" name="email" id="email" ><br><br>
     
           <label for="fpassword">Password:</label>   
         <input type="password" name="password" id="fpassword" ><br><br>

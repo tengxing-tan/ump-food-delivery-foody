@@ -2,7 +2,7 @@
     include_once 'C:\xampp\htdocs\ump-food-delivery-foody\dbconnection.php';
     session_start();
 
-    if(!isset($_SESSION["adminName"])){
+    if(!isset($_SESSION["adminLogin"])){
         header("Location: login.php");
     }else{
         if(isset($_POST['update'])){
@@ -12,7 +12,7 @@
             $password = mysqli_real_escape_string($con, $_POST['adminPassword']);
             $email = mysqli_real_escape_string($con, $_POST['adminEmail']);
 
-            $query = "UPDATE admin SET admin_name = '$name', admin_password = '$password', admin_email = '$email' WHERE admin_name = '{$_SESSION["adminName"]}' ";
+            $query = "UPDATE admin SET admin_name = '$name', admin_password = '$password'  WHERE admin_email = '{$_SESSION["adminLogin"]}' ";
             $result = mysqli_query($con, $query);
 
             if($result){
@@ -85,34 +85,60 @@
                 <h1>Update Administrator Profile</h1>
 
                 <?php 
-                    $query = "SELECT * FROM admin WHERE admin_ID = '{$_SESSION['admin_ID']}'";
+                    $query = "SELECT * FROM admin WHERE admin_email = '{$_SESSION['adminLogin']}'";
                     $result = mysqli_query($con, $query);
 
                     if(mysqli_num_rows($result) > 0){
                         while($row = mysqli_fetch_assoc($result)){
 
                 ?>
-
+                <table>
                 <form action="" method="post">
+                <tr>
+                    <td width="200">
                     <div class= "adminProfile">
                         <div class = "inputBox">
                             <span class = "details" >Admin ID: </span>
+                            </td>
+                        <td>
+                            <br>
                             <input type = "text" id = "admin_ID" name="adminID" value ="<?php echo $row['admin_ID'] ?>" ><br><br>
                         </div>
+                        </td>
+                      </tr>
+                   <tr>
+                        <td>
 
                         <div class = "inputBox">
                             <span class = "details" >Admin Name: </span>
+                            </td>
+                        <td>
+                            <br>
                             <input type = "text" id = "admin_name" name="adminName" value =" <?php echo $row['admin_name'] ?>" ><br><br>
-                        </div>
-
+                            </div>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td>
                         <div class="inputBox">
                             <span class= "details">Admin Email:</span>
-                            <input type = "email" id="admin_email" name= "adminEmail" value=" <?php echo $row['admin_email'] ?>" ><br><br>
+                            </td>
+                        <td>
+                            <br>
+                            <input type = "email" id="admin_email" name= "adminEmail" value=" <?php echo $row['admin_email'] ?>" disabled required><br><br>
                         </div>
-                            
+                        </td>
+                            </tr>
+                            <tr>
+                                <td>
                         <div class = "inputBox">
                             <span class = "details" >Admin Password: </span>
+                            </td>
+                        <td>
+                            <br>
                             <input type = "text" id = "admin_password" name="adminPassword" value =" <?php echo $row['admin_password'] ?>" ><br><br>
+                            </td>
+                        </tr>
                         </div>
                     </div> 
 
@@ -121,10 +147,18 @@
                     }
 
                 ?>
+                <tr>
+            <td>
+                <button type ="submit" name="update" value="update" class= "button">Update</button>
+                </td>
+                </tr>
+                </form>
+            
 
-                     <button type ="submit" name="update" value="update" class= "button">Update</button>
-            </form>
-
+            
+                    
+                </table>
+                
         </div>
     </div>
 </body>

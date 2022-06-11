@@ -1,0 +1,29 @@
+
+
+h1 i{
+    padding-right: 2%;
+}
+.card{
+    box-shadow: 0 7px 10px #A3BBCB;
+    width: 320px;
+    border-radius: 16px;
+    margin-top: 3%;
+    margin-left: 5%;
+    padding: 2%;
+}
+
+.flexbox{
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.graphBox{
+    margin-left: 9%;
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    
+}
