@@ -54,7 +54,7 @@ if(isset($_SESSION['ERROR_MSG'])){
             <li><a class="nav-link active" href="./index.php">Home</a></li>
             <li><a class="nav-link" href="./expenses-list/index.php">Expenses List</a></li>
             <li><a class="nav-link" href="./calculate-average-expenses/index.php">Calculate Average Expenses</a></li>
-            <li><a class="nav-link" href="#">Complaint List</a></li>
+            <li><a class="nav-link" href="../../complaint/foody-complaint/user/userform.php">Complaint List</a></li>
         </ul>
         <a href="index.php" class="nav-link" style="text-decoration: underline;">
             Logout

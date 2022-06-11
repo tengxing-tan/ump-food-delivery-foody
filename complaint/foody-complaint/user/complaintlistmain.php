@@ -40,9 +40,9 @@ $result = mysqli_query($conn, $query);
         <!-- navigation bar (left side) -->
         <nav id="nav-bar">
             <ul>
-                <li><a class="nav-link" href="#">Order History</a></li>
-                <li><a class="nav-link" href="#">Expenses List</a></li>
-                <li><a class="nav-link" href="#">Calculate Average Expenses</a></li>
+            <li><a class="nav-link" href="../../../user/View/index.php">Home</a></li>
+                <li><a class="nav-link" href="../../../user/View/expenses-list/index.php">Expenses List</a></li>
+                <li><a class="nav-link" href="../../../user/View/calculate-average-expenses/index.php">Calculate Average Expenses</a></li>
                 <li><a class="nav-link active" href="complaintlistmain.php">Complaint List</a></li>
             </ul>
         </nav>
