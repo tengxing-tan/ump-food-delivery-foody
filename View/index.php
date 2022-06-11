@@ -2,6 +2,7 @@
 session_start();
 include("../php/connect-database.php");
 
+$_SESSION['user_ID']=1;
 if(isset($_SESSION['ERROR_MSG'])){
     echo '<script>alert("'.$_SESSION['ERROR_MSG'].'")</script>';
     $_SESSION['ERROR_MSG']=null;

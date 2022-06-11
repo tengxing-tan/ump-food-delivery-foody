@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("../../php/connect-database.php");
+$user_ID=$_SESSION['user_ID'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +69,7 @@ include("../../php/connect-database.php");
             </div>
 
             <?php
-                $query="SELECT MONTHNAME(expenses_date) AS month, SUM(expenses_amount) AS sum FROM expensesrecord GROUP BY MONTH(expenses_date)" ;
+                $query="SELECT MONTHNAME(expenses_date) AS month, SUM(expenses_amount) AS sum FROM expensesrecord WHERE user_ID=$user_ID GROUP BY MONTH(expenses_date)" ;
                 $result=mysqli_query($conn, $query);
                 $num_row=mysqli_num_rows($result);
                 $month=array();
@@ -114,7 +115,7 @@ include("../../php/connect-database.php");
         });
 
         var qrcode = new QRCode(document.getElementById("QRCode"), {
-            text: "<?php foreach($sum_assoc as $month => $sum){echo $month.' : '.$sum.'\r\n';}?>",
+            text: "<?php foreach($sum_assoc as $month => $sum){echo $month.' : RM '.$sum.'\r\n';}?>",
             width: 128,
             height: 128,
             colorDark : "#6C5A8A",

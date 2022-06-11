@@ -8,9 +8,10 @@ $total=$_SESSION['total'];
 $date=date('Y-m-d');
 $time=date("H:i:s");
 $status="Ordered";
+$user_ID=$_SESSION['user_ID'];
 // $time=date('h:i:sa');
 
-$query="INSERT INTO `order` (order_ID, restaurant_ID, rider_ID, user_ID, order_date, ,order_time, total_amount, order_status) VALUES (NULL, $restaurant_ID, 1, 1, '$date', '$time', $total, '$status')";
+$query="INSERT INTO `order` (order_ID, restaurant_ID, rider_ID, user_ID, order_date, order_time, total_amount, order_status) VALUES (NULL, $restaurant_ID, 1, $user_ID, '$date', '$time', $total, '$status')";
 
 if(mysqli_query($conn, $query)){
     echo '<script>alert("Order Completed")</script>';
@@ -19,19 +20,18 @@ else{
     echo mysqli_error($conn);
 }
 
-$result=mysqli_query($conn, "SELECT order_ID from `order` WHERE order_date='$date'");
+$result=mysqli_query($conn, "SELECT order_ID from `order` WHERE order_date='$date' AND order_time='$time'");
 $row=mysqli_fetch_array($result, 1);
 $orderID=$row['order_ID'];
 
 foreach($_SESSION['order'] as $id => $quantity){
     if($quantity!=0){
-    $foodQuery="INSERT INTO orderedfood (order_ID, food_ID, food_quantity) VALUES ('$orderID', '$id', '$quantity')";
-    mysqli_query($conn, $foodQuery);
+        $foodQuery="INSERT INTO orderedfood (order_ID, food_ID, food_quantity) VALUES ('$orderID', '$id', '$quantity')";
+        mysqli_query($conn, $foodQuery);
     }
 }
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

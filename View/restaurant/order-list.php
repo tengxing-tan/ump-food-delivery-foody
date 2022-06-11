@@ -2,9 +2,11 @@
 session_start();
 include("../../php/connect-database.php");
 
-if(isset($_SESSION['restaurant_name']) && isset($_SESSION['restaurant_ID'])){
-$restaurant_name=$_SESSION['restaurant_name'];
-$restaurant_ID=$_SESSION['restaurant_ID'];
+if(isset($_SESSION['restaurant_name'])){
+    $restaurant_name=$_SESSION['restaurant_name'];
+}
+if(isset($_SESSION['restaurant_ID'])){
+    $restaurant_ID=$_SESSION['restaurant_ID'];
 }
 
 if(isset($_GET['id'])){
@@ -131,7 +133,7 @@ if(isset($_GET['id'])){
                             
                     </div>
                     <div class="buttons-section">
-                        <a href="./index.php?a=<?php echo $restaurant_ID;?>"><button type="button" id="cancel-button">Cancel</button></a>
+                        <a href=<?php if(isset($_SESSION['restaurant_ID'])){ echo "'./index.php?a=?.$restaurant_ID'";}else{echo "'../index.php'";}?>><button type="button" id="cancel-button">Cancel</button></a>
                         <button type="submit" id="checkout-button">Checkout</button></a>
                     </div>
                 </form>

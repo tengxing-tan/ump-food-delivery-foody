@@ -7,6 +7,7 @@ $title=$_POST['expenses-title'];
 $date=$_POST['date'];
 $description=$_POST['expenses-description'];
 $amount=$_POST['expenses-amount'];
+$user_ID=$_SESSION['user_ID'];
 
 $err_flag=false;
 
@@ -36,13 +37,12 @@ if($amount!='' && (is_numeric($amount)==0)){
 
 if($err_flag){
     $_SESSION['ERROR_MESSAGE']= $error_msg;
-    session_write_close();
     header("location: ../../View/expenses-list/add-expenses.php");
     $_error_msg[]=array();
     exit();
 }
 
-$query="INSERT INTO expensesrecord (user_ID, expenses_title, expenses_description, expenses_date, expenses_amount) VALUES (1, '$title', '$description', '$date', $amount)";
+$query="INSERT INTO expensesrecord (user_ID, expenses_title, expenses_description, expenses_date, expenses_amount) VALUES ($user_ID, '$title', '$description', '$date', $amount)";
 
 if(mysqli_query($conn, $query)){
     $_SESSION['result']= "EXPENSES RECORD ADDED";

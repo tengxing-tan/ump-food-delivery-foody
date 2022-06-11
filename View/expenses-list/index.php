@@ -1,6 +1,7 @@
 <?php
 session_start();
 include ('../../php/connect-database.php');
+$user_ID=$_SESSION['user_ID'];
 ?>
 
 <!DOCTYPE html>
@@ -30,10 +31,10 @@ include ('../../php/connect-database.php');
                 Order List
                 <i class="fa-solid fa-cart-shopping"></i>
             </a>
-          <a class="icon-link" href="../user.php">
-            User
-            <i class="fa-solid fa-user"></i>
-          </a>
+            <a class="icon-link" href="../user.php">
+                User
+                <i class="fa-solid fa-user"></i>
+            </a>
         </div>
     </div>
 
@@ -59,6 +60,7 @@ include ('../../php/connect-database.php');
             <?php
             if(isset($_SESSION['result'])){
             echo "<p id='hide'>". $_SESSION['result']."<p/>"; 
+            $_SESSION['result']=null;
             }
             ?>
 
@@ -74,7 +76,7 @@ include ('../../php/connect-database.php');
 
             if(isset($_POST['search'])){
                 $input=$_POST['search-expenses'];
-                $search_result=mysqli_query($conn, "SELECT * FROM expensesrecord WHERE expenses_title LIKE '%$input%' OR expenses_date LIKE '%$input%'");
+                $search_result=mysqli_query($conn, "SELECT * FROM expensesrecord WHERE expenses_title LIKE '%$input%' OR expenses_date LIKE '%$input%' AND user_ID=$user_ID");
 
                 if(mysqli_num_rows($search_result)==0){
                     echo "<p style='color: var(--primary-bg);'>No result found</p>";
@@ -104,7 +106,7 @@ include ('../../php/connect-database.php');
                     else{
             ?>
                 <?php
-                $result=mysqli_query($conn, "SELECT * FROM expensesrecord");
+                $result=mysqli_query($conn, "SELECT * FROM expensesrecord WHERE user_ID=$user_ID");
 
                 if(mysqli_num_rows($result)>0){
                     while($row = mysqli_fetch_array($result, 1)){

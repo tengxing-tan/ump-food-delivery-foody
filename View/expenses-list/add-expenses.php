@@ -103,7 +103,7 @@ session_start();
                         echo "<p style='color:red;font-size:12px;'>*".$_SESSION['ERROR_MESSAGE'][$i]. "</p>";
                         $i=NULL;
                     }}
-                    session_destroy();
+                    $_SESSION['ERROR_MESSAGE']=null;
                     ?>
 
                 </div>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("../../php/connect-database.php");
+$user_ID=$_SESSION['user_ID'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,7 +106,7 @@ include("../../php/connect-database.php");
             $startDate=$_SESSION['start-date'];
             $endDate=$_SESSION['end-date'];
 
-            $query="SELECT expenses_title, expenses_date, expenses_amount FROM expensesrecord WHERE expenses_date BETWEEN '$startDate' AND '$endDate' ";
+            $query="SELECT expenses_title, expenses_date, expenses_amount FROM expensesrecord WHERE user_ID=$user_ID AND expenses_date BETWEEN '$startDate' AND '$endDate' ";
             $result=mysqli_query($conn, $query);
 
             while($row=mysqli_fetch_array($result, 1)){
@@ -125,7 +126,7 @@ include("../../php/connect-database.php");
 
             <?php
             if(isset($_SESSION['start-date']) && isset($_SESSION['end-date'])){
-            $result=mysqli_query($conn, "SELECT AVG(expenses_amount) AS average FROM expensesrecord WHERE expenses_date BETWEEN '$startDate' AND '$endDate'");
+            $result=mysqli_query($conn, "SELECT AVG(expenses_amount) AS average FROM expensesrecord WHERE user_ID=$user_ID AND expenses_date BETWEEN '$startDate' AND '$endDate'");
             $row=mysqli_fetch_array($result);
             ?>
 
