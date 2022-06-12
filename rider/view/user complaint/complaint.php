@@ -40,7 +40,7 @@
             <li><a id="report" class="nav-link" href="../report/report.php">Report</a></li>
             
         </ul>
-            <a href="index.php" class="nav-link" style="text-decoration: underline;">
+            <a href="../../../logout.php" class="nav-link" style="text-decoration: underline;">
                 Logout
                 <i class="fa fa-sign-out" aria-hidden="true" style></i>
             </a>
@@ -52,7 +52,7 @@
         <?php
            include '../connectDB.php';
            session_start();
-           $rider = $_SESSION["rider"] = '1';
+           $rider = $_SESSION["rider"];
 
             $sql = "SELECT order_ID, complaint_ID, complaint_date, complaint_type, complaint_comment, complaint_status FROM `complaintlist` WHERE order_ID IN(SELECT order_ID FROM `order` WHERE rider_ID = '$rider') ORDER BY complaint_date DESC";
             $result = mysqli_query($link, $sql);?>

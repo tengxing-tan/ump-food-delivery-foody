@@ -61,13 +61,12 @@ li #deliveryRecord{
 #middleD ul li{
     display: grid;
     grid-template-columns: 200px 200px 200px 200px 200px;
-    grid-template-rows: 60px;
+    grid-template-rows: min-content;
     background-color: white;
     margin: 12px;
     list-style: none;
     font-size: 16px;
     padding-left: 20px;
-    height: 50px;
     column-gap: 50px;
 }
 #middleD ul li p{

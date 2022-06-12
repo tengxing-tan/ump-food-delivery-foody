@@ -40,7 +40,7 @@
             <li><a id="complaint" class="nav-link" href="../user complaint/complaint.php">User's Complaint</a></li>
             <li><a id="report" class="nav-link" href="#">Report</a></li>
         </ul>
-            <a href="index.php" class="nav-link" style="text-decoration: underline;">
+            <a href="../../../logout.php" class="nav-link" style="text-decoration: underline;">
                 Logout
                 <i class="fa fa-sign-out" aria-hidden="true" style></i>
             </a>
@@ -51,7 +51,7 @@
         <?php
            include '../connectDB.php';
            session_start();
-           $rider = $_SESSION["rider"] = '1';
+           $rider = $_SESSION["rider"] ;
             $sql = "SELECT COUNT(`order_date`), `order_date`, WEEK(`order_date`), `order_status` FROM `order` WHERE rider_ID = '$rider' AND order_status = 'Completed' GROUP BY WEEK(`order_date`)";
             $sql2 = "SELECT COUNT(`order_date`), `order_date`, MONTHNAME(`order_date`), `order_status` FROM `order` WHERE rider_ID = '$rider' AND order_status = 'Completed' GROUP BY MONTH(`order_date`)";
             $sql3 = "SELECT COUNT(`order_date`), `order_date`, YEAR(`order_date`), `order_status` FROM `order` WHERE rider_ID = '$rider' AND order_status = 'Completed' GROUP BY YEAR(`order_date`)";

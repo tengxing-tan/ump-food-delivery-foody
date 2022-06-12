@@ -39,7 +39,7 @@
             <li><a id="complaint" class="nav-link" href="../user complaint/complaint.php">User's Complaint</a></li>
             <li><a id="report" class="nav-link" href="../report/report.php">Report</a></li>
         </ul>
-            <a href="index.php" class="nav-link" style="text-decoration: underline;">
+            <a href="../../../logout.php" class="nav-link" style="text-decoration: underline;">
                 Logout
                 <i class="fa fa-sign-out" aria-hidden="true" style></i>
             </a>
@@ -68,9 +68,10 @@
                 </div>
          <!--Select from database and show Prepared food for rider to choose to deliver -->       
         <?php
+       // session_start();
            include '../connectDB.php';
-            $rider = 2;
-            $rider = '';
+           // $rider = $_SESSION["rider"];
+            //$rider = '';
             
            $sql = "SELECT o.order_ID, r.restaurant_address, u.user_address, o.order_date FROM `order` o 
                     INNER JOIN `restaurant` r ON o.restaurant_ID = r.restaurant_ID
@@ -88,8 +89,8 @@
                             echo "
                         <li><p class='orderDate'>".$row['order_date']."</p>
                             <p class='orserID'>".$row['order_ID']."</p>
-                            <p class='restaurantID'>".$row['restaurant_address']."</p>
-                            <p class='userID'>".$row['user_address']."</p>
+                            <p class='restaurantID' style='height: fit-content;'>".$row['restaurant_address']."</p>
+                            <p class='userID' style='height: fit-content;'>".$row['user_address']."</p>
                             <p class='action'><a href='onlinePage.php?i=$row[order_ID]'>Accept</a>
                         </li>";
                             }

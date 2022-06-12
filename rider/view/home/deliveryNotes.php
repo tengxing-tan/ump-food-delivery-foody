@@ -44,7 +44,7 @@ session_start();
             <li><a id="complaint" class="nav-link" href="../user complaint/complaint.php">User's Complaint</a></li>
             <li><a class="nav-link" href="../report/report.php">Report</a></li>
         </ul>
-            <a href="index.php" class="nav-link" style="text-decoration: underline;">
+            <a href="../../../logout.php" class="nav-link" style="text-decoration: underline;">
                 Logout
                 <i class="fa fa-sign-out" aria-hidden="true" style></i>
             </a>

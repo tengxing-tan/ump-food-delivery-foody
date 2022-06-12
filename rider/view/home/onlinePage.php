@@ -42,7 +42,7 @@ session_start();
             <li><a id="complaint" class="nav-link" href="../user complaint/complaint.php">User's Complaint</a></li>
             <li><a class="nav-link" href="../report/report.php">Report</a></li>
         </ul>
-            <a href="index.php" class="nav-link" style="text-decoration: underline;">
+            <a href="../../../logout.php" class="nav-link" style="text-decoration: underline;">
                 Logout
                 <i class="fa fa-sign-out" aria-hidden="true" style></i>
             </a>
@@ -58,7 +58,7 @@ session_start();
             }
             
             $id =  $_SESSION["order"];
-            $rider = '1';
+            $rider = $_SESSION["rider"];
 
             $check = "SELECT order_ID, order_status FROM `order` WHERE `order_ID` = '$id'";
             $result = mysqli_query($link, $check);
