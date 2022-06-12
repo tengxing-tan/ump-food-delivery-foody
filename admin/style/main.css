@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Poppins&display=swap');
+
+:root {
+  --primary-bg: #6C5A8A;
+  --light-grey-bg: #EEE;
+  --primary-txt: #1E1E1E;
+  --seperator: #A9A9A9;
+  --button-hover: #493b5e;
+  --shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  width: 100vw;
+  color: var(--primary-txt);
+}
+/*
+HEADER
+*/
+#title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: white;
+  background-color: var(--primary-bg);
+  height: 120px;
+  width: 100%;
+  padding: 32px 24px;
+}
+#foody-link {
+  font: 3rem 'Poppins', sans-serif;
+}
+.icon-link {
+  color: white;
+  text-decoration: none;
+}
+.icon-link{ color: white };
+.icon-link:visited { color: white; }
+.fa-user {
+  font-size: 20px;
+  margin-left: 4px;
+}
+/*
+BODY
+*/
+#content-wrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--primary-bg);
+  height: calc(100vh - 120px);
+}
+/*
+NAVIGRATINO BAR
+*/
+#nav-bar {
+  background-color: white;
+  height: 100%;
+  width: 236px;
+  padding-top: 50px;
+}
+.nav-link {
+  display: inline-block;
+  width: 100%;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  color: var(--primary-bg);
+  font: bold 1rem 'PT-serif', serif;
+  text-decoration: none;
+  text-align: center;
+}
+.active, .nav-link:hover {
+  color: white;
+  background-color: var(--primary-bg);
+  transition: all ease-in 200ms;
+}
+/*
+CONTENT
+*/
+#main-content {
+  background-color: var(--light-grey-bg);
+  width: 100%;
+  padding: 50px 75px;
+  overflow-y: scroll;
+}
+/* =============================== EVERYONE CAN USE THESE CLASSES =============================== */
+/*
+HTML TAG
+*/
+img {
+  margin: auto;
+  width: 160px;
+  height: 150px;
+  object-fit: fill;
+}
+input, textarea, select, option, button {
+  font: inherit;
+}
+input:focus, textarea:focus {
+  box-shadow: var(--shadow);
+}
+/*
+BUTTON
+*/
+.btn{
+  background-color: var(--primary-bg);
+  text-align: center;
+  font: inherit;
+  color: white;
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 10px;
+  box-shadow: var(--shadow);
+}
+.btn:hover{
+  background-color: var(--button-hover);
+}
+.btn:active{
+  background-color: var(--primary-bg);
+}
+.secondary-btn {
+  background-color: white;
+  color: var(--primary-bg);
+  border-color: var(--primary-bg);
+}
+.secondary-btn:hover {
+  background-color: var(--button-hover);
+  color: white;
+}
+.buttons{
+  position: absolute;
+  bottom: 5em;
+  right: 12em;
+}
+.danger-button{
+  width: 120px;
+  height: 40px;
+  background-color: red;
+  color: white;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+}
+.danger-button:hover{
+  background-color: rgb(200, 0, 0);
+}
+.danger-button:active{
+  background-color: red;
+}
+/*
+SEARCH BAR
+*/
+#search-bar{
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: rgb(134, 131, 131);
+  background: var(--light-grey-bg);
+  width: 75%;
+  /* height: 40px; */
+  padding: 0.5rem;
+  margin-bottom: 20px;
+}
+#search-bar:focus{
+  /* border-width: 0 0 2px; */
+  border-color: var(--primary-bg);
+}
+/* =============================== EVERYONE CAN USE THESE CLASSES ABOVE =============================== */
+/*
+RESTAURANT LIST ()
+*/
+.restaurant-list{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  overflow-x: scroll;
+}
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+.restaurant{
+  width: 150px;
+  text-align: center;
+  margin-right:15px;
+  margin-left: 15px;
+}
+.restaurant-list .restaurant a{
+  color:rgb(83, 83, 83);
+  text-decoration: none;
+}
+.detail{
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  line-height: 1.6;
+  width: 90%;
+}
+.title-and-date, .order-list{
+  display: flex;
+  justify-content: space-between;
+}
+.total-price{
+  padding-top: 5px;
+  text-align: right;
+}
