@@ -69,7 +69,15 @@ if (isset($_POST["Add User"])) {
                 <button type="submit" name="next" value="Add User">Next</button>
             </form>
 
-            <a href="AddUser.php"><button class='btn'>Add data</button></a>
+            <div style="display:flex; justify-content: space-between; width: 200px;">
+                <a href="AddUser.php"><button class='btn'>Add User</button></a>
+
+                <a href="AddRider.php"><button class='btn'>Add Rider</button></a>
+
+                <a href="AddRestaurantOwner.php"><button class='btn'>Add Restaurant Owner</button></a>
+
+
+            </div>
 
 
             <?php
