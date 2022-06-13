@@ -47,7 +47,8 @@ if (isset($_POST["Add User"])) {
                 <li><a class="nav-link" href="AdminProfile.php">Admin Profile</a></li>
                 <li><a class="nav-link" href="UserList.php">User List</a></li>
                 <li><a class="nav-link" href="UserReport.php">User Report</a></li>
-                <li><a class="nav-link" href="ComplaintReport.php">Complaint Report</a></li>
+                <li><a class="nav-link" href="../complaint/foody-complaint/admin/viewcomplaint.php">Complaint Menu</a></li>
+                <li><a class="nav-link" href="../complaint/foody-complaint/admin/report.php">Complaint Report</a></li>
             </ul>
             <a href="../logout.php" class="nav-link" style="text-decoration: underline;">
                 Logout

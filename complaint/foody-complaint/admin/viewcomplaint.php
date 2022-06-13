@@ -1,5 +1,5 @@
 <?php
-include("connecttest.php");
+include("../connecttest.php");
 
 
 $query = "SELECT * FROM complaintlist";
@@ -38,12 +38,18 @@ $result = mysqli_query($conn, $query);
         <!-- navigation bar (left side) -->
         <nav id="nav-bar">
             <ul>
-                <li><a class="nav-link" href="#">Home</a></li>
-                <li><a class="nav-link active" href="#">Complaint Menu</a></li>
-                <li><a class="nav-link" href="qrcode.php">Complaint Report</a></li>
+                <li><a class="nav-link" href="../../../admin/AdminHomepage.php">Dashboard</a></li>
+                <li><a class="nav-link" href="../../../admin/AdminProfile.php">Admin Profile</a></li>
+                <li><a class="nav-link" href="../../../admin/UserList.php">User List</a></li>
+                <li><a class="nav-link" href="../../../admin/UserReport.php">User Report</a></li>
+                <li><a class="nav-link active" href="viewcomplaint.php">Complaint Menu</a></li>
+                <li><a class="nav-link" href="report">Complaint Report</a></li>
             </ul>
+            <a href="../../../logout.php" class="nav-link" style="text-decoration: underline;">
+                Logout
+                <i class="fa fa-sign-out" aria-hidden="true" style></i>
+            </a>
         </nav>
-
 
         <!--main content-->
         <div id="main-content">
@@ -64,17 +70,14 @@ $result = mysqli_query($conn, $query);
                     ?>
 
 
-                    <?php echo "$complaint_date || $complaint_time"; ?><br>
-                    <?php echo $complaint_type; ?><br>
-                    <?php echo $complaint_comment; ?>
-                    <button class="otherbtn" name="complaint_status"
-                        value="$complaint_status"><?php echo $complaint_status; ?></button><br>
-                    <br>
-                    <a href="adminform.php?id=<?php echo $complaint_id; ?>"><button class="btn"
-                            name="update">Update</button></a>
-                    <a href="delete.php?id=<?php echo $complaint_id; ?>"><button class="btn"
-                            name="delete">Delete</button></a>
-                    <br><br><br>
+                            <?php echo "$complaint_date || $complaint_time"; ?><br>
+                            <?php echo $complaint_type; ?><br>
+                            <?php echo $complaint_comment; ?>
+                            <button class="otherbtn" name="complaint_status" value="$complaint_status"><?php echo $complaint_status; ?></button><br>
+                            <br>
+                            <a href="adminform.php?id=<?php echo $complaint_id; ?>"><button class="btn" name="update">Update</button></a>
+                            <a href="delete.php?id=<?php echo $complaint_id; ?>"><button class="btn" name="delete">Delete</button></a>
+                            <br><br><br>
 
 
                     <?php

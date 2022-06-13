@@ -44,14 +44,20 @@ $complaint_status = $row['complaint_status'];
     </div>
 
     <div id="content-wrapper">
-        <!-- navigation bar (left side) -->
-        <nav id="nav-bar">
+         <!-- navigation bar (left side) -->
+         <nav id="nav-bar">
             <ul>
-                <li><a class="nav-link" href="#">Order History</a></li>
-                <li><a class="nav-link" href="#">Expenses List</a></li>
-                <li><a class="nav-link" href="#">Calculate Average Expenses</a></li>
-                <li><a class="nav-link active" href="viewcomplaint.php">Complaint List</a></li>
+                <li><a class="nav-link" href="../../../admin/AdminHomepage.php">Dashboard</a></li>
+                <li><a class="nav-link" href="../../../admin/AdminProfile.php">Admin Profile</a></li>
+                <li><a class="nav-link" href="../../../admin/UserList.php">User List</a></li>
+                <li><a class="nav-link" href="../../../admin/UserReport.php">User Report</a></li>
+                <li><a class="nav-link active" href="viewcomplaint.php">Complaint Menu</a></li>
+                <li><a class="nav-link" href="report">Complaint Report</a></li>
             </ul>
+            <a href="../../../logout.php" class="nav-link" style="text-decoration: underline;">
+                Logout
+                <i class="fa fa-sign-out" aria-hidden="true" style></i>
+            </a>
         </nav>
 
         <div id='main-content'>
