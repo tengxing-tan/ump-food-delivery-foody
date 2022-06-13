@@ -52,7 +52,7 @@ $complaint_status = $row['complaint_status'];
                 <li><a class="nav-link" href="../../../admin/UserList.php">User List</a></li>
                 <li><a class="nav-link" href="../../../admin/UserReport.php">User Report</a></li>
                 <li><a class="nav-link active" href="viewcomplaint.php">Complaint Menu</a></li>
-                <li><a class="nav-link" href="report">Complaint Report</a></li>
+                <li><a class="nav-link" href="report.php">Complaint Report</a></li>
             </ul>
             <a href="../../../logout.php" class="nav-link" style="text-decoration: underline;">
                 Logout
