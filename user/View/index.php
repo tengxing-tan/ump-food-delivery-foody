@@ -101,7 +101,7 @@ if(isset($_SESSION['ERROR_MSG'])){
                 ?>
 
                 <div class="restaurant">
-                    <a href="./restaurant/index.php?a=<?php echo $row['restaurant_ID']?>"><img src="<?php echo $row['restaurant_image']?>"/><?php echo $row['restaurant_name']?></a>
+                    <a href="./restaurant/index.php?a=<?php echo $row['restaurant_ID']?>"><img src="../../assets/img/restaurant/<?php echo $row['restaurant_image']?>"/><?php echo $row['restaurant_name']?></a>
                 </div>
 
                 <?php }}
@@ -113,7 +113,7 @@ if(isset($_SESSION['ERROR_MSG'])){
                             while($row=mysqli_fetch_array($result, 1)){
                 ?>
                 <div class="restaurant">
-                    <a href="./restaurant/index.php?a=<?php echo $row['restaurant_ID']?>"><img src="<?php echo $row['restaurant_image']?>"/><?php echo $row['restaurant_name']?></a>
+                    <a href="./restaurant/index.php?a=<?php echo $row['restaurant_ID']?>"><img src="../../assets/img/restaurant/<?php echo $row['restaurant_image']?>"/><?php echo $row['restaurant_name']?></a>
                 </div>
                 <?php
                         }}} else {
@@ -124,7 +124,7 @@ if(isset($_SESSION['ERROR_MSG'])){
                 ?>
                    
                     <div class="restaurant">
-                        <a href="./restaurant/index.php?a=<?php echo $row['restaurant_ID']?>"><img src="<?php echo $row['restaurant_image']?>"/><?php echo $row['restaurant_name']?></a>
+                        <a href="./restaurant/index.php?a=<?php echo $row['restaurant_ID']?>"><img src="../../assets/img/restaurant/<?php echo $row['restaurant_image']?>"/><?php echo $row['restaurant_name']?></a>
                     </div>
 
                 <?php }}}} else {?>
@@ -137,7 +137,7 @@ if(isset($_SESSION['ERROR_MSG'])){
                 while($row=mysqli_fetch_array($result, 1)){
                 ?>
                     <div class="restaurant">
-                        <a href="./restaurant/index.php?a=<?php echo $row['restaurant_ID']?>"><img src="<?php echo $row['restaurant_image']?>"/><?php echo $row['restaurant_name']?></a>
+                        <a href="./restaurant/index.php?a=<?php echo $row['restaurant_ID']?>"><img src="../../assets/img/restaurant/<?php echo $row['restaurant_image']?>"/><?php echo $row['restaurant_name']?></a>
                     </div>
                 <?php }} ?>
             </div>

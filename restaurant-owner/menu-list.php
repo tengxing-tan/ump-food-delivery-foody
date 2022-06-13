@@ -88,7 +88,7 @@ include 'actions/read_menu_list.php';
                     /**
                      * Set food image path
                      */
-                    $foodImagePath = "assets/menu/$restaurantID/" . $row['food_image'];
+                    $foodImagePath = "../assets/img/menu/$restaurantID/" . $row['food_image'];
                     //print each row
                 ?>
                     <div class="menu-item">
