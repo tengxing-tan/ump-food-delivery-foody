@@ -60,7 +60,7 @@ session_start();
 
            $order = $_SESSION["order"]; 
            $restaurant = "SELECT restaurant_name, restaurant_address FROM restaurant WHERE restaurant_ID IN(SELECT restaurant_ID FROM `order` WHERE order_ID = '$order')";
-           $userInfo = "SELECT user_name, user_address, user_phoneNum FROM user WHERE user_ID IN(SELECT user_ID FROM `order` WHERE order_ID = '$order')";
+           $userInfo = "SELECT user_name, user_address, user_phoneNum FROM `user` WHERE user_ID IN(SELECT user_ID FROM `order` WHERE order_ID = '$order')";
            $orderInfo = "SELECT order_date FROM `order` WHERE order_ID = '$order'";
            //$foodInfo = "SELECT food_ID, food_title, food_price, SUM(`food_price`) FROM `food` WHERE food_ID IN(SELECT food_ID FROM `orderedfood` WHERE order_ID = '$order')";
            $foodInfo = "SELECT f.food_ID, f.food_title, f.food_price, o.food_quantity FROM `food` f
