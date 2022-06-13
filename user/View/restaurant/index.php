@@ -99,7 +99,7 @@ $id=$row['food_ID'];
                         </div>
                         <div class="food-quantity-section">
                             <button type="button" class="dec-button" name="minus">-</button>
-                            <input type="text" class="food-quantity" value=<?php if(array_key_exists($row['food_ID'], $foodQuantity)){echo reset($foodQuantity);}else{echo "0";}?> id=<?php echo $i;$i=$i+1;?> name="<?php echo $row['food_ID']?>"/>
+                            <input type="text" class="food-quantity" value=<?php if(isset($_SESSION['order']) && array_key_exists($row['food_ID'], $foodQuantity)){echo reset($foodQuantity);}else{echo "0";}?> id=<?php echo $i;$i=$i+1;?> name="<?php echo $row['food_ID']?>"/>
                             <button type="button" class="inc-button" name="plus">+</button>
                         </div>
                     </div>
