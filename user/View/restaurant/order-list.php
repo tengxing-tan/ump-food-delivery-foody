@@ -10,13 +10,13 @@ if(isset($_SESSION['restaurant_ID'])){
 }
 
 if(isset($_GET['id'])){
-    $result=mysqli_query($conn, "SELECT food_ID from food WHERE restaurant_ID='$restaurant_ID'");
+    $result=mysqli_query($conn, "SELECT food_ID FROM food WHERE restaurant_ID='$restaurant_ID' AND food_availability=1");
     $order=array();
 
     while($row=mysqli_fetch_array($result, 1)){
         $id=$row['food_ID'];
 
-        if(isset($_POST[$id]) && $_POST[(String)$id]!=0){
+        if(isset($_POST[$id]) && strcmp($_POST[(String)$id], "0")!=0){
                 $order+=[$id => $_POST[(String)$id]];
         }
     }
@@ -106,8 +106,11 @@ if(isset($_GET['id'])){
                         <hr/>
                         <?php
                         if(isset($_SESSION['order'])){
-                            $result=mysqli_query($conn, "SELECT * FROM food WHERE restaurant_ID='$restaurant_ID'");
+                            $foodQuantity=array();
                             $foodQuantity=$_SESSION['order'];
+                            foreach($foodQuantity as $x => $y){
+                            $result=mysqli_query($conn, "SELECT * FROM food WHERE restaurant_ID='$restaurant_ID' AND food_availability=1 AND food_ID='$x'");
+
                         while($row=mysqli_fetch_array($result, 1)){ 
                             if(reset($foodQuantity)!=0){
                         ?>
@@ -117,17 +120,17 @@ if(isset($_GET['id'])){
                             </div>
                             <div id="food-quantity">
                                 <button type="button" class="dec-button">-</button>
-                                <input type="text" class="food-number" value="<?php echo reset($foodQuantity);?>" name="<?php echo $row['food_ID'];?>"></input>
+                                <input type="text" class="food-number" value="<?php echo $y;?>" name="<?php echo $row['food_ID'];?>"></input>
                                 <button type="button" class="inc-button">+</button>
                             </div>
                             <div class="price-per-item">
                                 <p><?php echo $row['food_price']?></p>
                             </div>
                             <div class="food-price-section">
-                                <input class="food-price" value="RM <?php echo $row['food_price'] * reset($foodQuantity); array_shift($foodQuantity);?>" name="price-<?php echo $row['food_ID'];?>"></input>
+                                <input class="food-price" value="RM <?php echo $row['food_price'] * $y;?>" name="price-<?php echo $row['food_ID'];?>"></input>
                             </div>
                         </div>
-                        <?php } }} 
+                        <?php } }}} 
                             else { echo "No order";}
                         ?>
                             
