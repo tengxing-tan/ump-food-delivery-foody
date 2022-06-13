@@ -63,9 +63,9 @@
                     </div>
                     <div id="item2" class="item2"><h3 id="topic2">Date</h3>
                     </div>
-                    <div id="item3" class="item3"><h3 id="topic3">Complaint</h3>
+                    <div id="item3" class="item3"><h3 id="topic3">Complaint type</h3>
                     </div>
-                    <div id="item4" class="item4"><h3 id="topic4">Feedback</h3>
+                    <div id="item4" class="item4"><h3 id="topic4">Description</h3>
                     </div>
                     <div id="item5" class="item5"><h3 id="topic5">Status</h3>
                     </div>
@@ -82,8 +82,8 @@
                             echo "
                         <li><p class='compID'>".$row['order_ID']."</p>
                             <p class='compDate'>".$row['complaint_date']."</p>
-                            <p class='compDesc'>".$row['complaint_comment']."</p>
-                            <p class='feedback'>".$rider."</p>
+                            <p class='compDesc'>".$row['complaint_type']."</p>
+                            <p class='feedback'>".$row['complaint_comment']."</p>
                             <p class='status'>".$row['complaint_status']."</p>
                             <p class='action'><a id='view' class='fa fa-eye' aria-hidden='true' style='text-decoration: none' href='viewFeedback.php?i=$row[complaint_ID]'><span class='tips'>View</span></a><a id='add' class='fa fa-plus-square-o' aria-hidden='true' style='text-decoration: none' href='addFeedback.php?i=$row[complaint_ID]'><span class='tips'>Add</span></a><a id='edit' class='fa fa-pencil-square-o' aria-hidden='true' style='text-decoration: none' href='updateFeedback.php?i=$row[complaint_ID]'><span class='tips'>Update</span></a><a id='del' class='fa fa-trash-o' aria-hidden='true' style='text-decoration: none; color:red;' href='deletedFeedback.php?i=$row[complaint_ID]'><span class='tips'>Delete</span></a></p>
                         </li>";
