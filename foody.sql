@@ -58,7 +58,9 @@ CREATE TABLE `complaintlist` (
 --
 
 INSERT INTO `complaintlist` (`complaint_id`, `order_id`, `complaint_name`, `complaint_date`, `complaint_time`, `complaint_type`, `complaint_comment`, `complaint_status`) VALUES
-(1, 1, 'Food had eaten', '2022-06-07', '10:42:25', 'rider', 'the rider ate my roti canai😡', 'In Investigation');
+(1, 2, 'Food had eaten', '2022-06-07', '10:42:25', 'rider', 'the rider ate my roti canai😡', 'In Investigation'),
+(2, 2, 'Food had eaten', '2022-06-04', '10:42:25', 'rider', 'the rider late😡', 'In Investigation'),
+(3, 2, 'Food had eaten', '2022-06-05', '10:42:25', 'rider', 'delivery late', 'In Investigation');
 
 -- --------------------------------------------------------
 
@@ -184,16 +186,21 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`order_ID`, `restaurant_ID`, `rider_ID`, `user_ID`, `order_date`, `order_time`, `total_amount`, `order_status`) VALUES
-(1, 1, 1, 1, '2022-06-04', '17:10:56', 12, 'Ordered'),
-(2, 2, 1, 1, '2022-06-04', '23:32:05', 39, 'Ordered'),
-(3, 2, 1, 1, '2022-06-04', '23:35:16', 39, 'Ordered'),
-(4, 1, 1, 1, '2022-06-04', '23:35:34', 54, 'Ordered'),
+(1, 1, 1, 1, '2022-06-04', '17:10:56', 12, 'Prepared'),
+(2, 2, 1, 1, '2022-06-04', '23:32:05', 39, 'Prepared'),
+(3, 2, 1, 1, '2022-06-04', '23:35:16', 39, 'Prepared'),
+(4, 1, 2, 1, '2022-06-04', '23:35:34', 54, 'Completed'),
 (5, 1, 1, 1, '2022-06-04', '23:38:24', 54, 'Ordered'),
 (6, 1, 1, 1, '2022-06-04', '23:41:08', 54, 'Ordered'),
 (7, 2, 1, 1, '2022-06-04', '23:52:55', 21, 'Ordered'),
 (8, 1, 1, 1, '2022-06-05', '17:48:23', 162, 'Ordered'),
 (9, 1, 1, 1, '2022-06-05', '17:48:23', 162, 'Ordered'),
-(10, 1, 1, 1, '2022-05-15', '10:28:38', 24, 'Ordered');
+(10, 1, 2, 1, '2022-05-15', '10:28:38', 24, 'Completed'),
+(11, 1, 2, 1, '2022-05-16', '17:48:23', 162, 'Completed'),
+(12, 1, 2, 1, '2022-05-25', '16:48:23', 162, 'Completed'),
+(13, 1, 2, 1, '2022-05-26', '17:50:23', 162, 'Completed'),
+(14, 1, 2, 1, '2022-06-01', '18:48:23', 162, 'Completed'),
+(15, 1, 2, 1, '2022-06-02', '19:00:23', 162, 'Completed');
 
 -- --------------------------------------------------------
 
@@ -212,6 +219,18 @@ CREATE TABLE `orderedfood` (
 --
 
 INSERT INTO `orderedfood` (`order_ID`, `food_ID`, `food_quantity`) VALUES
+(1, 13, 1),
+(1, 14, 2),
+(1, 15, 3),
+(2, 13, 1),
+(2, 14, 2),
+(2, 15, 3),
+(3, 13, 1),
+(3, 14, 2),
+(3, 15, 3),
+(4, 13, 1),
+(4, 14, 2),
+(4, 15, 3),
 (6, 13, 1),
 (6, 14, 2),
 (6, 15, 3),
@@ -221,7 +240,25 @@ INSERT INTO `orderedfood` (`order_ID`, `food_ID`, `food_quantity`) VALUES
 (8, 13, 3),
 (8, 14, 6),
 (8, 15, 9),
-(9, 13, 2);
+(9, 13, 2),
+(10, 16, 1),
+(10, 17, 2),
+(10, 18, 3)
+(11, 16, 1),
+(11, 17, 2),
+(11, 18, 3)
+(12, 16, 1),
+(12, 17, 1),
+(12, 18, 1)
+(13, 16, 1),
+(13, 17, 1),
+(13, 18, 2),
+(14, 13, 3),
+(14, 14, 6),
+(14, 15, 9),
+(15, 13, 3),
+(15, 14, 5),
+(15, 15, 2);
 
 -- --------------------------------------------------------
 
@@ -313,7 +350,7 @@ CREATE TABLE `rider` (
 
 INSERT INTO `rider` (`rider_ID`, `rider_name`, `rider_email`, `rider_phoneNum`, `rider_password`, `rider_address`) VALUES
 (1, 'John Lim', 'johnlim@gmail.com', '0112235251', 'john4321', 'Kuantan, Pahang'),
-(2, 'Amir', 'amir@gmail,com', '0166669999', 'amir6666', 'Jln 2, Pekan, Pahang'),
+(2, 'Amir', 'amir@gmail,com', '0166669999', '1234', 'Jln 2, Pekan, Pahang'),
 (3, 'Shawan', 'shw@gmail.com', '0127789963', 'shwpass', 'Dhuam Pekan, Pahang');
 
 -- --------------------------------------------------------
