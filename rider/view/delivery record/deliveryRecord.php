@@ -71,6 +71,12 @@
                 </div>
                 <!-- Show delivery record within a month (current month)-->
         <?php
+                $transdate = date('m-d-Y', time());
+
+                $d = date_parse_from_format("m-d-y",$transdate);
+
+               $month = $d["month"];
+                
             session_start();
             $rider = $_SESSION["rider"];
            include '../connectDB.php';
@@ -78,7 +84,7 @@
            $sql = "SELECT o.order_ID, r.restaurant_address, u.user_address, o.order_date FROM `order` o 
            INNER JOIN `restaurant` r ON o.restaurant_ID = r.restaurant_ID
            INNER JOIN `user` u ON u.user_ID = o.user_ID
-           WHERE o.rider_ID = '$rider' AND o.order_status = 'Completed' AND MONTH(o.order_date) = MONTH(CURRENT_DATE()) AND YEAR(o.order_date) = YEAR(CURRENT_DATE()) ORDER BY o.order_date DESC"; 
+           WHERE o.rider_ID = '$rider' AND o.order_status = 'Completed' AND MONTH(o.order_date) = '$month' ORDER BY o.order_date DESC"; 
             $result = mysqli_query($link, $sql);
             ?>
 
