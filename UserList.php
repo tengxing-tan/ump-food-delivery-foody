@@ -67,6 +67,7 @@
 
             
             <div style="display:flex; justify-content: space-between width: 200px" >
+            
             <a href="AddUser.php"><button class = 'btn'>Add User</button></a>
 
             <a href="AddRider.php"><button class = 'btn'>Add Rider</button></a>

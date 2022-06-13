@@ -61,7 +61,7 @@
         <!-- user profile -->
         <div>
           <a class="icon-link" href="#">
-            Rider
+            User
             <i class="fa-solid fa-user"></i>
           </a>
         </div>
@@ -101,7 +101,7 @@
                 <form action="" method="post">
                 <tr>
                     <td width="200">
-                    <div class= "riderProfile">
+                    <div class= "userProfile">
                         <div class = "inputBox">
                             <span class = "details" >Rider ID: </span>
                             </td>
