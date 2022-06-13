@@ -48,6 +48,9 @@ body {
   height: calc(100vh - 120px);
 }
 #nav-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: white;
   height: 100%;
   width: 236px;

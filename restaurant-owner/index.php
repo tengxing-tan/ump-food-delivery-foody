@@ -5,8 +5,8 @@
  */
 session_start();
 // get restaurant owner id from session
-// $roID = $_SESSION['roID'];
-$_SESSION['roID'] = 1;
+$roID = $_SESSION['roID'];
+// $_SESSION['roID'] = 1;
 // echo $_SESSION['roID'];
 
 // get restaurant id

@@ -2,7 +2,7 @@
 session_start();
 include("../php/connect-database.php");
 
-$_SESSION['user_ID']=1;
+// $_SESSION['user_ID']=1;
 if(isset($_SESSION['ERROR_MSG'])){
     echo '<script>alert("'.$_SESSION['ERROR_MSG'].'")</script>';
     $_SESSION['ERROR_MSG']=null;
@@ -56,7 +56,7 @@ if(isset($_SESSION['ERROR_MSG'])){
             <li><a class="nav-link" href="./calculate-average-expenses/index.php">Calculate Average Expenses</a></li>
             <li><a class="nav-link" href="../../complaint/foody-complaint/user/complaintlistmain.php">Complaint List</a></li>
         </ul>
-        <a href="index.php" class="nav-link" style="text-decoration: underline;">
+        <a href="../../logout.php" class="nav-link" style="text-decoration: underline;">
             Logout
              <i class="fa fa-sign-out" aria-hidden="true" style></i>
          </a>

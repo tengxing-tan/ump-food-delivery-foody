@@ -24,7 +24,7 @@ if (isset($_POST["Login"])) {
         }
     } else if ($type === 'General User') {
 
-        $login = mysqli_query($con, "SELECT user_name, user_ID, user_password FROM user WHERE user_email '$email' AND user_password = '$password' limit 1 ");
+        $login = mysqli_query($con, "SELECT user_name, user_ID, user_password FROM user WHERE user_email='$email' AND user_password = '$password' limit 1 ");
 
         if (mysqli_num_rows($login) > 0) {
 
@@ -32,7 +32,7 @@ if (isset($_POST["Login"])) {
 
             $_SESSION["user_ID"] = $row['user_ID'];
 
-            header("Location: user/");
+            header("Location: user/View/index.php");
         } else {
             echo "<script>alert('Login details is incorrect. Please try again.');</script>";
         }

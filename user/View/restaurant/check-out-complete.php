@@ -78,7 +78,7 @@ foreach ($_SESSION['order'] as $id => $quantity) {
                 <li><a class="nav-link" href="../../../complaint/foody-complaint/user/complaintlistmain.php">Complaint List</a>
                 </li>
             </ul>
-            <a href="index.php" class="nav-link" style="text-decoration: underline;">
+            <a href="../../../logout.php" class="nav-link" style="text-decoration: underline;">
                 Logout
                 <i class="fa fa-sign-out" aria-hidden="true" style></i>
             </a>

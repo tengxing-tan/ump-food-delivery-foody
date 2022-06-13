@@ -60,6 +60,10 @@ $result = mysqli_query($conn, $query) or die("Could not execute query in adminfo
                         Expenses</a></li>
                 <li><a class="nav-link active" href="complaintlistmain.php">Complaint List</a></li>
             </ul>
+            <a href="../../../logout.php" class="nav-link" style="text-decoration: underline;">
+            Logout
+             <i class="fa fa-sign-out" aria-hidden="true" style></i>
+         </a>
         </nav>
 
         <div id="main-content">

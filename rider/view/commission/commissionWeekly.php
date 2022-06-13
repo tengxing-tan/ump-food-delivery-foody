@@ -96,8 +96,12 @@
                     } else {
                         echo "<p class='noresult'>0 results</p>";
                     }
-                    $average = $total / $week;
-                    $avg = number_format($average, 2);
+                    if($week!=0){
+                        $average = $total / $week;
+                        $avg = number_format($average, 2);
+                    }else{
+                        $avg=0;
+                    }
                     ?>
                                              
                     </ul>
