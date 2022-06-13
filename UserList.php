@@ -64,7 +64,11 @@
                 <button type="submit" name="next" value = "Add User" >Next</button>  
             </form>
 
-            <a href="AddUser.php"><button class = 'btn'>Add data</button></a>
+            <a href="AddUser.php"><button class = 'btn'>Add User</button></a>
+
+            <a href="AddRider.php"><button class = 'btn'>Add Rider</button></a>
+            
+            <a href="AddRestaurantOwner.php"><button class = 'btn'>Add Restaurant Owner</button></a>
 
 
             <?php
@@ -110,7 +114,7 @@
                                 <td style = "padding: 0 1rem">'.$phoneNum.'</td>
                                 <td style = "padding: 0 1rem">'.$address.'</td>
                                 <td style = "padding: 0 1rem">
-                                <button><a href= "UpdateUser.php?viewid= '.$id.'">Update</a></button>
+                                <button><a href= "UpdateUserProfile.php?viewid= '.$id.'">Update</a></button>
                                 <button><a href= "DeleteUser.php?viewid= '.$id.'">Delete</a></button>
                                 </td>
                                 </tr>';
