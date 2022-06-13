@@ -4,5 +4,3 @@
 * [System design | drawio](https://drive.google.com/file/d/1vDkBJH6_MKySPbvu3P28ZnorK1FaZ1Q3/view?usp=sharing)
 * [Prototype | Figma invite link](https://www.figma.com/team_invite/redeem/CViCAiPgKcoCKHz2UF2A0P)
 
-havent set session, only userform.
-nt yet do foreign key
