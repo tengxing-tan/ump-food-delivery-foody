@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <?php
+/* session */
+session_start();
+
 // show alert message if user manage a menu item
 include 'actions/alert_crud_status.php';
 

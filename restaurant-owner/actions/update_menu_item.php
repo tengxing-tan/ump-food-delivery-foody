@@ -1,9 +1,6 @@
 <?php
 include 'db_connect.php';
-/**
- * Session
- */
-session_start();
+
 $restaurantID = $_SESSION['restaurantID'];
 // $restaurantID = 1;
 

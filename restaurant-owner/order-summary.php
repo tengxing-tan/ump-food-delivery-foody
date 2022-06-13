@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <?php
+/* session */
+session_start();
+
 // read order from database
 include 'actions/read_order.php';
 ?>

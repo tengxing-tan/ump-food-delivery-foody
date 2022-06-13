@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <?php
+/* session */
+session_start();
+
 // read restaurant
 include 'actions/read_restaurant.php';
 ?>

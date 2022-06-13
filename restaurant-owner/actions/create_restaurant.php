@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <?php
 include 'db_connect.php';
-/**
- * SESSION
- */
-session_start();
+
 // $roID = $_SESSION['roID'];
 $roID = 1;
 

@@ -1,9 +1,6 @@
 <?php
 include 'db_connect.php';
-/**
- * SESSION
- */
-session_start();
+
 // if access by qr code, use get. else use session
 $restaurantID = (isset($_GET['id'])) ? $_GET['id'] : $_SESSION['restaurantID'];
 // $restaurantID = 1;

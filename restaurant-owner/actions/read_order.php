@@ -1,14 +1,13 @@
 <?php
 include 'db_connect.php';
-/**
- * Session
- */
-session_start();
+
 $restaurantID = $_SESSION['restaurantID'];
 
 /**
  * read food detail
  */
+$id = (isset($_GET['id'])) ? $_GET['id'] : 0;
+
 switch ($_GET['id']) {
     case 1:
         $durationType = 'Date';

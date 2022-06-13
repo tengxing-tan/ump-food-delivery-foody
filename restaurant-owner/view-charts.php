@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <?php
+/* session */
+session_start();
+
 // read data for charts
 include 'actions/read_insight_info.php';
 ?>

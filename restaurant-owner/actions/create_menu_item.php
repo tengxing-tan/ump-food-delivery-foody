@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <?php
 include 'db_connect.php';
-/**
- * SESSION
- */
-session_start();
+
 // $restaurantID = 3;
 $restaurantID = $_SESSION['restaurantID'];
 $foodTitle = $_POST['foodTitle'];

@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <?php
+/* session */
+session_start();
+
 // read restaurant owner's profile
 include 'actions/read_ro_profile.php';
 ?>

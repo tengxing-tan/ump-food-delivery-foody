@@ -1,4 +1,7 @@
 <?php
+/* session */
+session_start();
+
 // read restaurant registed under this restaurant owner
 include 'actions/read_restaurant.php';
 ?>

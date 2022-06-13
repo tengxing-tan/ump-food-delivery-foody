@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <?php
+/* session */
+session_start();
+
 // read menu item from database
 include 'actions/read_menu_item.php';
 $food_ID = $_GET['id'];
