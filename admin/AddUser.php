@@ -75,7 +75,7 @@
         <!-- main content (right side) -->
         <div id="main-content">
 
-    <h1>Registration</h1>  
+    <h1>Registration For User</h1>  
         <form action="#" method="post">
             
 

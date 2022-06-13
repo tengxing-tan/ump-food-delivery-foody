@@ -12,9 +12,9 @@
         $phoneNum  = mysqli_real_escape_string($con, $_POST['phoneNum']);
         $address = mysqli_real_escape_string($con, $_POST['roaddress']);
 
-            
-                $query2 = "INSERT INTO restaurantowner(ro_name, ro_password, ro_email, ro_phoneNum, ro_address) VALUES ('$name', '$password', '$email', '$phoneNum', '$address')";
-                $result = mysqli_query($con, $query2);
+           
+                $query = "INSERT INTO restaurantowner(ro_name, ro_password, ro_email, ro_phoneNum, ro_address) VALUES ('$name', '$password', '$email', '$phoneNum', '$address')";
+                $result = mysqli_query($con, $query);
 
                 if($result){
                     echo "
@@ -26,8 +26,7 @@
                 }else{
                     echo "<script>alert('Data Added FAILED'); <script>";
                 }
-            
-           
+                 
     }
 ?>
 
@@ -76,7 +75,7 @@
         <!-- main content (right side) -->
         <div id="main-content">
 
-    <h1>Registration</h1>  
+    <h1>Registration For Restaurant Owner</h1>  
         <form action="#" method="post">
             
 
@@ -84,7 +83,7 @@
             <table>
       <tr>
         <td width="200">
-            <label for="fusername">Name:</label>  
+            <label for="froname">Name:</label>  
             </td>
         <td>
             <input type="text" name="roname" id="froname" ><br><br>
