@@ -1,7 +1,13 @@
 <?php
-include("connecttest.php");
+include("../connecttest.php");
 //track which user do complaint
 session_start();
+
+
+$idURL = $_GET['a'];
+$query = "SELECT * FROM complaintlist WHERE order_id = '$idURL'";
+$result = mysqli_query($conn, $query) or die("Could not execute query in adminform.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -11,9 +17,9 @@ session_start();
     <title>Create new complaint</title>
     <meta charset="utf-8" />
 
-    <link rel='stylesheet' href='css/userform.css'>
-    <link rel='stylesheet' href='css/main.css' type='text/css' />
-    <link rel='stylesheet' href='css/upload.css' type='text/css' />
+    <link rel='stylesheet' href='../../css/userform.css'>
+    <link rel='stylesheet' href='../../css/main.css' type='text/css' />
+    <link rel='stylesheet' href='../../css/upload.css' type='text/css' />
     <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
@@ -40,7 +46,8 @@ session_start();
             <ul>
                 <li><a class="nav-link" href="../../../user/View/index.php">Home</a></li>
                 <li><a class="nav-link" href="../../../user/View/expenses-list/index.php">Expenses List</a></li>
-                <li><a class="nav-link" href="../../../user/View/calculate-average-expenses/index.php">Calculate Average Expenses</a></li>
+                <li><a class="nav-link" href="../../../user/View/calculate-average-expenses/index.php">Calculate Average
+                        Expenses</a></li>
                 <li><a class="nav-link active" href="complaintlistmain.php">Complaint List</a></li>
             </ul>
         </nav>
@@ -49,7 +56,7 @@ session_start();
 
             <h3>Create A New Complaint</h3>
             <br><br>
-            <form action="insertdata.php" method="post" id="complaintform">
+            <form action="insertdata.php?a=<?php echo $idURL ?>" method="post" id="complaintform">
 
 
                 <label for="complaint_name" class="required">Name:</label>
@@ -90,6 +97,8 @@ session_start();
 
 
                 <br><br>
+
+                <input type="hidden" name="id" value="<?php echo $idURL; ?>">
 
                 <button class='btn' type='submit' name='submit' style="margin-left: 60vw;">Submit</button>
 

@@ -3,30 +3,29 @@ session_start();
 include("../../php/connect-database.php");
 date_default_timezone_set("Asia/Singapore");
 
-$restaurant_ID=$_SESSION['restaurant_ID'];
-$total=$_SESSION['total'];
-$date=date('Y-m-d');
-$time=date("H:i:s");
-$status="Ordered";
-$user_ID=$_SESSION['user_ID'];
+$restaurant_ID = $_SESSION['restaurant_ID'];
+$total = $_SESSION['total'];
+$date = date('Y-m-d');
+$time = date("H:i:s");
+$status = "Ordered";
+$user_ID = $_SESSION['user_ID'];
 // $time=date('h:i:sa');
 
-$query="INSERT INTO `order` (order_ID, restaurant_ID, rider_ID, user_ID, order_date, order_time, total_amount, order_status) VALUES (NULL, $restaurant_ID, 1, $user_ID, '$date', '$time', $total, '$status')";
+$query = "INSERT INTO `order` (order_ID, restaurant_ID, rider_ID, user_ID, order_date, order_time, total_amount, order_status) VALUES (NULL, $restaurant_ID, 1, $user_ID, '$date', '$time', $total, '$status')";
 
-if(mysqli_query($conn, $query)){
+if (mysqli_query($conn, $query)) {
     echo '<script>alert("Order Completed")</script>';
-}
-else{
+} else {
     echo mysqli_error($conn);
 }
 
-$result=mysqli_query($conn, "SELECT order_ID from `order` WHERE order_date='$date' AND order_time='$time'");
-$row=mysqli_fetch_array($result, 1);
-$orderID=$row['order_ID'];
+$result = mysqli_query($conn, "SELECT order_ID from `order` WHERE order_date='$date' AND order_time='$time'");
+$row = mysqli_fetch_array($result, 1);
+$orderID = $row['order_ID'];
 
-foreach($_SESSION['order'] as $id => $quantity){
-    if($quantity!=0){
-        $foodQuery="INSERT INTO orderedfood (order_ID, food_ID, food_quantity) VALUES ('$orderID', '$id', '$quantity')";
+foreach ($_SESSION['order'] as $id => $quantity) {
+    if ($quantity != 0) {
+        $foodQuery = "INSERT INTO orderedfood (order_ID, food_ID, food_quantity) VALUES ('$orderID', '$id', '$quantity')";
         mysqli_query($conn, $foodQuery);
     }
 }
@@ -34,6 +33,7 @@ foreach($_SESSION['order'] as $id => $quantity){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,6 +46,7 @@ foreach($_SESSION['order'] as $id => $quantity){
     <!-- icon library | font awesome -->
     <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <!-- title bar -->
     <div id="title-bar">
@@ -58,10 +59,10 @@ foreach($_SESSION['order'] as $id => $quantity){
                 Order List
                 <i class="fa-solid fa-cart-shopping"></i>
             </a>
-          <a class="icon-link" href="../user.php">
-            User
-            <i class="fa-solid fa-user"></i>
-          </a>
+            <a class="icon-link" href="../user.php">
+                User
+                <i class="fa-solid fa-user"></i>
+            </a>
         </div>
     </div>
 
@@ -69,50 +70,57 @@ foreach($_SESSION['order'] as $id => $quantity){
     <div id="content-wrapper">
         <!-- navigation bar (left side) -->
         <nav id="nav-bar">
-        <ul>
-            <li><a class="nav-link active" href="../index.php">Home</a></li>
-            <li><a class="nav-link" href="../expenses-list/index.php">Expenses List</a></li>
-            <li><a class="nav-link" href="../calculate-average-expenses/index.php">Calculate Average Expenses</a></li>
-            <li><a class="nav-link" href="../../../complaint/foody-complaint/user/userform.php">Complaint List</a></li>
-        </ul>
-        <a href="index.php" class="nav-link" style="text-decoration: underline;">
-            Logout
-             <i class="fa fa-sign-out" aria-hidden="true" style></i>
-         </a>
+            <ul>
+                <li><a class="nav-link active" href="../index.php">Home</a></li>
+                <li><a class="nav-link" href="../expenses-list/index.php">Expenses List</a></li>
+                <li><a class="nav-link" href="../calculate-average-expenses/index.php">Calculate Average Expenses</a>
+                </li>
+                <li><a class="nav-link" href="../../../complaint/foody-complaint/user/userform.php">Complaint List</a>
+                </li>
+            </ul>
+            <a href="index.php" class="nav-link" style="text-decoration: underline;">
+                Logout
+                <i class="fa fa-sign-out" aria-hidden="true" style></i>
+            </a>
         </nav>
-    
+
         <!-- main content (right side) -->
         <div id="main-content">
             <div id="checkout-details">
                 <div id="header">
                     <i class="fa-solid fa-circle-check fa-5x" id="complete-logo"></i>
-                    <br/>
+                    <br />
                     <h4>Checkout Complete!</h4>
                     <br>
-                    <h4>Your order will be delivered soon.</h4><br/>
-                    <h4>You can click "Make Complaint" to make complaint on this order after you received your food.</h4>
+                    <h4>Your order will be delivered soon.</h4><br />
+                    <h4>You can click "Make Complaint" to make complaint on this order after you received your food.
+                    </h4>
                 </div>
-                <hr/>
+                <hr />
                 <div id="details">
                     <div id="order-time">
                         <p>Order status: Ordered</p>
-                        <p>Order Time: <?php echo $date." ".$time;?></p>
+                        <p>Order Time: <?php echo $date . " " . $time; ?></p>
                     </div>
                     <div id="delivery-address">
                         <p>Delivery adress:</p>
                         <?php
-                        if(isset($_POST['address'])){
+                        if (isset($_POST['address'])) {
                         ?>
-                        <p><?php echo $_POST['address'];}?></p>
+                        <p><?php echo $_POST['address'];
+                            } ?></p>
                     </div>
                 </div>
                 <div id="button">
-                    <a href="../../../complaint/foody-complaint/user/userform.php?a=<?php echo $orderID?>"><button type="button" class="button">Make Complaint</button></a>
-                    <a href="../index.php"><button type="button" class="button">Order received, back to homepage</button></a>
+                    <a href="../../../complaint/foody-complaint/user/userform.php?a=<?php echo $orderID ?>"><button
+                            type="button" class="button">Make Complaint</button></a>
+                    <a href="../index.php"><button type="button" class="button">Order received, back to
+                            homepage</button></a>
                 </div>
             </div>
         </div>
     </div>
     <?php session_destroy(); ?>
 </body>
+
 </html>

@@ -23,7 +23,7 @@ $complaint_status = $row['complaint_status'];
 
 <head>
     <title>Edit comment</title>
-    <link rel='stylesheet' href='css/main.css' type='text/css' />
+    <link rel='stylesheet' href='../../css/main.css' type='text/css' />
     <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>

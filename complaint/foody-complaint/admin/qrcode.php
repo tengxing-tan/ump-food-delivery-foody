@@ -12,7 +12,7 @@ include("connecttest.php");
     <title>Foody | UMP Food Delivery System</title>
 
     <!-- external stylesheet -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../../css/main.css">
 
     <!-- icon library | font awesome -->
     <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>

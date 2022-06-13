@@ -14,8 +14,8 @@ $result = mysqli_query($conn, $query);
     <title>View Complaint for Admin</title>
     <meta charset="utf-8" />
 
-    <link rel="stylesheet" href="css/viewcomplaint.css" type="text/css">
-    <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/viewcomplaint.css" type="text/css">
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" />
     <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
 </head>
 
