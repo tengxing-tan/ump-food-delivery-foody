@@ -1,0 +1,90 @@
+li #commission{
+    color: white;
+    background-color: var(--primary-bg);
+    transition: all ease-in 200ms;
+}
+button{
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    cursor: pointer;
+}
+#total{
+    background-color: #6C5A8A;
+    color: white;
+}
+#monthly, #weekly{
+    background-color: white;
+    color: #6C5A8A;
+}
+#topButton{
+    display: flex;
+    align-content: left;
+    justify-content: left;
+    margin-left: 15px;
+}
+#topButton button{
+    margin: 10px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+}
+
+#commDetail{
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(234, 233, 233);
+    margin-top: -10px;
+    }
+#topD{
+    background-color: white;
+    display: grid;
+    grid-template-columns: 300px 600px 300px;
+    grid-template-rows: 60px; 
+    margin: 10px;
+    justify-content: center;
+    align-content: center;
+    column-gap: 50px;
+    
+}
+#topD div{
+    text-align: center;
+    padding: 5px;
+    font-size: 16px;     
+}
+#middleD ul li{
+    display: grid;
+    grid-template-columns: 300px 600px 300px;
+    grid-template-rows: 60px;
+    background-color: white;
+    margin: 10px;
+    list-style: none;
+    font-size: 14px;
+    height: 50px;
+    column-gap: 50px;
+}
+#middleD ul li p{
+    margin: 10px;
+    text-align: center;
+}
+#middleD ul li .date{
+    margin-left: -20px;
+}
+.noresult{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#totalComm{
+    display: flex;
+    width: 1300px;
+    margin-top: 20px;
+    margin-left: 30px;
+    font-weight: bold;
+}
+#totalComm #totalC{
+    margin-left: 5px;
+}
+

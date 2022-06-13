@@ -1,0 +1,24 @@
+#riderInfo{
+    width: 500px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+#riderInfo h3{
+    padding-top: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+#riderInfo ul li{
+    list-style: none;
+    margin-bottom: 30px;
+    padding-left: 50px;
+    font-weight: bold;
+}
+#riderInfo ul li p{
+    display: inline-flex;
+    margin-left: 5px;
+    font-weight: lighter;
+    margin-right: 5px;
+}
