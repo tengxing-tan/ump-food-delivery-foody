@@ -4,7 +4,7 @@
 
 
     if(isset($_POST['Add'])){
-        $type = mysqli_real_escape_string($con, $_POST['type']);
+        
 
         $name = mysqli_real_escape_string($con, $_POST['roname']);
         $password = mysqli_real_escape_string($con, $_POST['password']);
@@ -12,7 +12,7 @@
         $phoneNum  = mysqli_real_escape_string($con, $_POST['phoneNum']);
         $address = mysqli_real_escape_string($con, $_POST['roaddress']);
 
-            if ($type === 'Restaurant Owner'){
+            
                 $query2 = "INSERT INTO restaurantowner(ro_name, ro_password, ro_email, ro_phoneNum, ro_address) VALUES ('$name', '$password', '$email', '$phoneNum', '$address')";
                 $result = mysqli_query($con, $query2);
 
@@ -26,7 +26,7 @@
                 }else{
                     echo "<script>alert('Data Added FAILED'); <script>";
                 }
-            }
+            
            
     }
 ?>

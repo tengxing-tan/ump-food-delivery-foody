@@ -18,6 +18,7 @@
 
     <!-- external stylesheet -->
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/styles.css">
     <!-- icon library | font awesome -->
     <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
 </head>
@@ -64,11 +65,17 @@
                 <button type="submit" name="next" value = "Add User" >Next</button>  
             </form>
 
+            
+            <div style="display:flex; justify-content: space-between width: 200px" >
             <a href="AddUser.php"><button class = 'btn'>Add User</button></a>
 
             <a href="AddRider.php"><button class = 'btn'>Add Rider</button></a>
-            
+
             <a href="AddRestaurantOwner.php"><button class = 'btn'>Add Restaurant Owner</button></a>
+
+
+            </div> 
+
 
 
             <?php
@@ -80,7 +87,9 @@
                         $result = mysqli_query($con, $query1);
             ?>
 
-                    <table border = "1px" style = "width: 70%; line-height:30px;">
+                     
+                    <table  border = "1px" style = "width: 70%; line-height:30px;">
+                    
                     <tr>
                         <th colspan =7><h2>User Account</h2></th>
                     </tr> 
@@ -165,7 +174,7 @@
                                 <td style = "padding: 0 1rem">'.$phoneNum.'</td>
                                 <td style = "padding: 0 1rem">'.$address.'</td>
                                 <td style = "padding: 0 1rem">
-                                <button><a href= "UpdateUser.php?viewid= '.$id.'">Update</a></button>
+                                <button><a href= "UpdateRiderProfile.php?viewid= '.$id.'">Update</a></button>
                                 <button><a href= "DeleteRider.php?viewid= '.$id.'">Delete</a></button>
                                 </td>
                                 </tr>';
@@ -215,7 +224,7 @@
                                 <td style = "padding: 0 1rem">'.$phoneNum.'</td>
                                 <td style = "padding: 0 1rem">'.$address.'</td>
                                 <td style = "padding: 0 1rem">
-                                <button><a href= "UpdateUser.php?viewid= '.$id.'">Update</a></button>
+                                <button><a href= "UpdateRoProfile.php?viewid= '.$id.'">Update</a></button>
                                 <button><a href= "DeleteRestaurantOwner.php?viewid= '.$id.'">Delete</a></button>
                                 </td>
                                 </tr>';

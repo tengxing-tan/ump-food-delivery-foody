@@ -4,7 +4,7 @@
 
 
     if(isset($_POST['Add'])){
-        $type = mysqli_real_escape_string($con, $_POST['type']);
+        
 
         $name = mysqli_real_escape_string($con, $_POST['username']);
         $password = mysqli_real_escape_string($con, $_POST['password']);
@@ -12,7 +12,7 @@
         $phoneNum  = mysqli_real_escape_string($con, $_POST['phoneNum']);
         $address = mysqli_real_escape_string($con, $_POST['useraddress']);
 
-            if ($type === 'General User'){
+           
                 $query = "INSERT INTO user(user_name, user_password, user_email, user_phoneNum, user_address) VALUES ('$name', '$password', '$email', '$phoneNum', '$address')";
                 $result = mysqli_query($con, $query);
 
@@ -26,7 +26,7 @@
                 }else{
                     echo "<script>alert('Data Added FAILED'); <script>";
                 }
-            }     
+                 
     }
 ?>
 

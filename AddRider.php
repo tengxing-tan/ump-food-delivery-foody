@@ -4,7 +4,7 @@
 
 
     if(isset($_POST['Add'])){
-        $type = mysqli_real_escape_string($con, $_POST['type']);
+        
 
         $name = mysqli_real_escape_string($con, $_POST['ridername']);
         $password = mysqli_real_escape_string($con, $_POST['password']);
@@ -12,9 +12,9 @@
         $phoneNum  = mysqli_real_escape_string($con, $_POST['phoneNum']);
         $address = mysqli_real_escape_string($con, $_POST['rideraddress']);
 
-            if ($type === 'Rider'){
-                $query2 = "INSERT INTO rider(rider_name, rider_password, rider_email, rider_phoneNum, rider_address) VALUES ('$name', '$password', '$email', '$phoneNum', '$address')";
-                $result = mysqli_query($con, $query2);
+           
+                $query = "INSERT INTO rider(rider_name, rider_password, rider_email, rider_phoneNum, rider_address) VALUES ('$name', '$password', '$email', '$phoneNum', '$address')";
+                $result = mysqli_query($con, $query);
 
                 if($result){
                     echo "
@@ -26,8 +26,7 @@
                 }else{
                     echo "<script>alert('Data Added FAILED'); <script>";
                 }
-            }
-           
+                 
     }
 ?>
 
@@ -53,7 +52,7 @@
         <!-- user profile -->
         <div>
           <a class="icon-link" href="#">
-            Admin
+            Rider
             <i class="fa-solid fa-user"></i>
           </a>
         </div>
@@ -84,7 +83,7 @@
             <table>
       <tr>
         <td width="200">
-            <label for="fusername">Name:</label>  
+            <label for="fridername">Name:</label>  
             </td>
         <td>
             <input type="text" name="ridername" id="fridername" ><br><br>
