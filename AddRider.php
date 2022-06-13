@@ -52,7 +52,7 @@
         <!-- user profile -->
         <div>
           <a class="icon-link" href="#">
-            Rider
+            Admin
             <i class="fa-solid fa-user"></i>
           </a>
         </div>
@@ -75,7 +75,7 @@
         <!-- main content (right side) -->
         <div id="main-content">
 
-    <h1>Registration</h1>  
+    <h1>Registration For Rider</h1>  
         <form action="#" method="post">
             
 

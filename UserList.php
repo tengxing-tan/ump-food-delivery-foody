@@ -53,193 +53,190 @@
     
         <!-- main content (right side) -->
         <div id="main-content">
-        <h1>User List</h1>
-            <form action="#" method="post">
-                <select name="type">
-                    <option disable selected value>Choose User Type</option>
-                    <option value="General User">User</option>
-                    <option value="Rider">Rider</option>
-                    <option value="Restaurant Owner">Restaurant Owner</option>
-                </select>
+    <div class="flexbox1">
+        <div class="title"><h1>User List</h1></div> <br>
 
-                <button type="submit" name="next" value = "Add User" >Next</button>  
-            </form>
+        <form action="" method="post">
+            <div class="dropdownMenu">    
+                    <select name="userType" id="user">
 
-            
-            <div style="display:flex; justify-content: space-between width: 200px" >
-            
-            <a href="AddUser.php"><button class = 'btn'>Add User</button></a>
+                        <option disable selected value>Choose User Type</option>
+                        <option value="User">General User</option>
+                        <option value="Rider">Rider</option>
+                        <option value="Restaurant Owner">Restaurant Owner</option>
 
-            <a href="AddRider.php"><button class = 'btn'>Add Rider</button></a>
+                    </select>  
+                    
+                    <input name="Next" type="submit" value="Next" class="button"> <br><br>  
+            </div>
+        </form>
+    </div>
 
-            <a href="AddRestaurantOwner.php"><button class = 'btn'>Add Restaurant Owner</button></a>
+        <form action="AddUser.php">
+            <button type="submit" name="send" value="Edit" class="button">Add New User</button> <br><br>
+        </form>
 
+        <form action="AddRider.php">
+            <button type="submit" name="send" value="Edit" class="button">Add New Rider</button> <br><br>
+        </form>
 
-            </div> 
+        <form action="AddRestaurantOwner.php">
+            <button type="submit" name="send" value="Edit" class="button">Add New Restaurant Owner</button> <br><br>
+        </form>
+    <hr><br>
 
-
-
-            <?php
-                if(isset($_POST['next'])){
-                    $getType = mysqli_real_escape_string($con, $_POST['type']);
-
-                    if($getType === "General User"){
+            <?php 
+                if(isset($_POST['Next'])){
+                    $getType = mysqli_real_escape_string($con, $_POST['userType']);
+        
+                    if($getType === "User"){
                         $query1 = "SELECT * FROM user";
                         $result = mysqli_query($con, $query1);
             ?>
 
-                     
-                    <table  border = "1px" style = "width: 70%; line-height:30px;">
-                    
-                    <tr>
-                        <th colspan =7><h2>User Account</h2></th>
-                    </tr> 
+                        <table border="1px" style="width: 70%; line-height:30px;">
+                            <tr>
+                                <th colspan=6><h2>User Account</h2></th>
+                            </tr>
 
-                    <t>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Password</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Address</th>
-                        <th>Menu</th>
-                    </t>
+                            <t>
+                                <th>ID</th>
+                                <th>Password</th>
+                                <th>Name</th>
+                                <th>Phone Number</th>
+                                <th>Address</th>
+                               
+                            </t>
 
-                    <?php
-                        if ($result->num_rows > 0){
-                            while($row =  $result->fetch_assoc()){
-                                $id = $row['user_ID'];
-                                $name = $row['user_name'];
-                                $pass = $row['user_password'];
-                                $email = $row['user_email'];
-                                $phoneNum = $row['user_phoneNum'];
-                                $address = $row['user_address'];
+                            <?php
+                                if ($result->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $result->fetch_assoc()) {
+                                        $id = $row['user_ID'];
+                                        $pass = $row['user_password'];
+                                        $name = $row['user_name'];
+                                        $phone = $row['user_phoneNum'];
+                                        $address = $row['user_address'];
+                                        
+                                        echo 
+                                        '<tr>
+                                            <td style="padding: 0 1rem">'.$id.'</td>
+                                            <td style="padding: 0 1rem">'.$pass.'</td>
+                                            <td style="padding: 0 1rem">'.$name.'</td>
+                                            <td style="padding: 0 1rem">'.$phone.'</td>
+                                            <td style="padding: 0 1rem">'.$address.'</td>
+                                            <td style="padding: 0 1rem">
+                                                <button><a href= "UpdateUserProfile.php?viewid='.$id.'">Update</a></button>
+                                                <button><a href= "DeleteUser.php?viewid='.$id.'">Delete</a></button>
+                                            </td>
+                                        </tr>';
+                                    }
+                                }
+                            ?>
 
-                                echo
-                                '<tr>
-                                <td style = "padding: 0 1rem">'.$id.'</td>
-                                <td style = "padding: 0 1rem">'.$name.'</td>
-                                <td style = "padding: 0 1rem">'.$pass.'</td>
-                                <td style = "padding: 0 1rem">'.$email.'</td>
-                                <td style = "padding: 0 1rem">'.$phoneNum.'</td>
-                                <td style = "padding: 0 1rem">'.$address.'</td>
-                                <td style = "padding: 0 1rem">
-                                <button><a href= "UpdateUserProfile.php?viewid= '.$id.'">Update</a></button>
-                                <button><a href= "DeleteUser.php?viewid= '.$id.'">Delete</a></button>
-                                </td>
-                                </tr>';
-                            }
-                        }
-
-                    ?>
-
-                    </table>
+                        </table><br><br>
 
             <?php
-                    }else if ($getType === "Rider"){
-                        $query1 = "SELECT * FROM rider";
-                        $result = mysqli_query($con, $query1);
+                    }else if($getType === "Rider"){
+                        $query = "SELECT * FROM rider";
+                        $result = mysqli_query($con, $query);
             ?>
 
-                    <table border = "1px" style = "width: 70%; line-height:30px;">
-                    <tr>
-                        <th colspan =7><h2>Rider Account</h2></th>
-                    </tr> 
+                        <table border="1px" style="width: 70%; line-height:30px;">
+                            <tr>
+                                <th colspan=6><h2>Rider Account</h2></th>
+                            </tr>
 
-                    <t>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Password</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Address</th>
-                        <th>Menu</th>
-                    </t>
+                            <t>
+                                <th>ID</th>
+                                <th>Password</th>
+                                <th>Name</th>
+                                <th>Phone Number</th>
+                                <th>Address</th>
+                                
+                            </t>
 
-                    <?php
-                        if ($result->num_rows > 0){
-                            while($row =  $result->fetch_assoc()){
-                                $id = $row['rider_ID'];
-                                $name = $row['rider_name'];
-                                $pass = $row['rider_password'];
-                                $email = $row['rider_email'];
-                                $phoneNum = $row['rider_phoneNum'];
-                                $address = $row['rider_address'];
+                            <?php
+                                if ($result->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $result->fetch_assoc()) {
+                                        $id = $row['rider_ID'];
+                                        $pass = $row['rider_password'];
+                                        $name = $row['rider_name'];
+                                        $phone = $row['rider_phoneNum'];
+                                        $address = $row['rider_address'];
+                                        
+                                        echo
+                                        '<tr>
+                                            <td style="padding: 0 1rem">'.$id.'</td>
+                                            <td style="padding: 0 1rem">'.$pass.'</td>
+                                            <td style="padding: 0 1rem">'.$name.'</td>
+                                            <td style="padding: 0 1rem">'.$phone.'</td>
+                                            <td style="padding: 0 1rem">'.$address.'</td>
+                                            <td style="padding: 0 1rem">
+                                                <button><a href= "UpdateRiderProfile.php?viewid='.$id.'">Update</a></button>
+                                                <button><a href= "DeleteRider.php?viewid='.$id.'">Delete</a></button>
+                                            </td>
+                                        </tr>';
+                                    }
+                                }
+                            ?>
 
-                                echo
-                                '<tr>
-                                <td style = "padding: 0 1rem">'.$id.'</td>
-                                <td style = "padding: 0 1rem">'.$name.'</td>
-                                <td style = "padding: 0 1rem">'.$pass.'</td>
-                                <td style = "padding: 0 1rem">'.$email.'</td>
-                                <td style = "padding: 0 1rem">'.$phoneNum.'</td>
-                                <td style = "padding: 0 1rem">'.$address.'</td>
-                                <td style = "padding: 0 1rem">
-                                <button><a href= "UpdateRiderProfile.php?viewid= '.$id.'">Update</a></button>
-                                <button><a href= "DeleteRider.php?viewid= '.$id.'">Delete</a></button>
-                                </td>
-                                </tr>';
-                            }
-                        }
+                        </table><br><br>
 
-                    ?>
-
-                    </table>
             <?php
                     }else if($getType === "Restaurant Owner"){
-                        $query1 = "SELECT * FROM restaurantowner";
-                        $result = mysqli_query($con, $query1);
+                        $query = "SELECT * FROM restaurantowner";
+                        $result = mysqli_query($con, $query);
             ?>
+                        <table border="1px" style="width: 70%; line-height:30px;">
+                            <tr>
+                                <th colspan=7><h2>Restaurant Owner Account</h2></th>
+                            </tr>
 
-                    <table border = "1px" style = "width: 70%; line-height:30px;">
-                    <tr>
-                        <th colspan =7><h2>Restaurant Owner Account</h2></th>
-                    </tr> 
+                            <t>
+                                <th>ID</th>
+                                <th>Password</th>
+                                <th>Name</th>
+                                <th>Phone Number</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                
+                            </t>
 
-                    <t>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Password</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Address</th>
-                        <th>Menu</th>
-                    </t>
+                            <?php
+                                if ($result->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $result->fetch_assoc()) {
+                                        $id = $row['ro_ID'];
+                                        $pass = $row['ro_password'];
+                                        $name = $row['ro_name'];
+                                        $phone = $row['ro_phoneNum'];
+                                        $email = $row['ro_email'];
+                                        $address = $row['ro_address'];
+                                        
+                                        echo
+                                        '<tr>
+                                            <td style="padding: 0 1rem">'.$id.'</td>
+                                            <td style="padding: 0 1rem">'.$pass.'</td>
+                                            <td style="padding: 0 1rem">'.$name.'</td>
+                                            <td style="padding: 0 1rem">'.$phone.'</td>
+                                            <td style="padding: 0 1rem">'.$email.'</td>
+                                            <td style="padding: 0 1rem">'.$address.'</td>
+                                            <td style="padding: 0 1rem">
+                                                <button><a href= "UpdateRoProfile.php?viewid='.$id.'">Update</a></button>
+                                                <button><a href= "DeleteRestaurantOwner.php?viewid='.$id.'">Delete</a></button>
+                                            </td>
+                                        </tr>';
+                                    }
+                                }
+                            ?>
 
-                    <?php
-                        if ($result->num_rows > 0){
-                            while($row =  $result->fetch_assoc()){
-                                $id = $row['ro_ID'];
-                                $name = $row['ro_name'];
-                                $pass = $row['ro_password'];
-                                $email = $row['ro_email'];
-                                $phoneNum = $row['ro_phoneNum'];
-                                $address = $row['ro_address'];
-
-                                echo
-                                '<tr>
-                                <td style = "padding: 0 1rem">'.$id.'</td>
-                                <td style = "padding: 0 1rem">'.$name.'</td>
-                                <td style = "padding: 0 1rem">'.$pass.'</td>
-                                <td style = "padding: 0 1rem">'.$email.'</td>
-                                <td style = "padding: 0 1rem">'.$phoneNum.'</td>
-                                <td style = "padding: 0 1rem">'.$address.'</td>
-                                <td style = "padding: 0 1rem">
-                                <button><a href= "UpdateRoProfile.php?viewid= '.$id.'">Update</a></button>
-                                <button><a href= "DeleteRestaurantOwner.php?viewid= '.$id.'">Delete</a></button>
-                                </td>
-                                </tr>';
-                            }
-                        }
-
-                    ?>
-
-                <?php 
-                        }
+                        </table><br><br>
+            <?php
                     }
-                ?>
-
-        </div>
+                }
+            ?>
     </div>
 </body>
 </html>

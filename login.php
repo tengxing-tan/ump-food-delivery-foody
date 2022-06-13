@@ -10,7 +10,7 @@
 
         if($type === 'Admin'){
 
-            $login = mysqli_query($con, "SELECT admin_email, admin_ID, admin_password FROM admin WHERE admin_email='$email' AND admin_password ='$password' limit 1");
+            $login = mysqli_query($con, "SELECT admin_email, admin_ID, admin_password FROM admin WHERE admin_email='$email'");
             //echo mysqli_num_rows($login);
 
             if (mysqli_num_rows($login) > 0) {

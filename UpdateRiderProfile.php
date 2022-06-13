@@ -81,16 +81,16 @@
         </ul>
         </nav>
     
-        <!-- main content (right side) -->
-        <div id="main-content">
+       <!-- main content (right side) -->
+       <div id="main-content">
 
-                <h1>Update Rider Profile</h1>
+            <h1>Update Rider Profile</h1>
 
-                <?php 
+            <?php 
                 if(isset($_GET['viewid'])){
                     $id = $_GET['viewid'];
 
-                    $query = "SELECT * FROM rider WHERE rider_ID = '$id'";
+                    $query = " SELECT * FROM rider WHERE rider_ID = '$id'";
                     $result = mysqli_query($con, $query);
 
                     if(mysqli_num_rows($result) > 0){
@@ -160,11 +160,8 @@
                 </tr>
                 </form>
             
-
-            
-                    
                 </table>
 
-        </div>
+            </div>
 </body>
 </html>
