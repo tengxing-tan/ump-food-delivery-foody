@@ -6,15 +6,15 @@
     if(isset($_POST['Add'])){
         
 
-        $name = mysqli_real_escape_string($con, $_POST['username']);
+        $name = mysqli_real_escape_string($con, $_POST['roname']);
         $password = mysqli_real_escape_string($con, $_POST['password']);
-        $email = mysqli_real_escape_string($con, $_POST['useremail']);
+        $email = mysqli_real_escape_string($con, $_POST['roemail']);
         $phoneNum  = mysqli_real_escape_string($con, $_POST['phoneNum']);
-        $address = mysqli_real_escape_string($con, $_POST['useraddress']);
+        $address = mysqli_real_escape_string($con, $_POST['roaddress']);
 
-           
-                $query = "INSERT INTO user(user_name, user_password, user_email, user_phoneNum, user_address) VALUES ('$name', '$password', '$email', '$phoneNum', '$address')";
-                $result = mysqli_query($con, $query);
+            
+                $query2 = "INSERT INTO restaurantowner(ro_name, ro_password, ro_email, ro_phoneNum, ro_address) VALUES ('$name', '$password', '$email', '$phoneNum', '$address')";
+                $result = mysqli_query($con, $query2);
 
                 if($result){
                     echo "
@@ -26,7 +26,8 @@
                 }else{
                     echo "<script>alert('Data Added FAILED'); <script>";
                 }
-                 
+            
+           
     }
 ?>
 
@@ -86,7 +87,7 @@
             <label for="fusername">Name:</label>  
             </td>
         <td>
-            <input type="text" name="username" id="fusername" ><br><br>
+            <input type="text" name="roname" id="froname" ><br><br>
             </td>
       </tr>
       <tr>
@@ -99,10 +100,10 @@
       </tr>
       <tr>
         <td>
-            <label for="fuseremail">Email:</label>   
+            <label for="froemail">Email:</label>   
             </td>
         <td>
-            <input type="email" name="useremail" id="fuseremail" ><br><br>
+            <input type="email" name="roemail" id="froemail" ><br><br>
             </td>
       </tr>
       <tr>
@@ -118,12 +119,12 @@
         <label for="faddress">Address:</label>
            </td>
         <td>
-            <textarea name="useraddress" rows="5" cols="40"></textarea><br><br>
+            <textarea name="roaddress" rows="5" cols="40"></textarea><br><br>
             </td>
       </tr>
       <tr>
         <td>
-            <button type="submit" name="Add" value = "Add User" >Add</button>   
+            <button type="submit" name="Add" value = "Add Restaurant Owner" >Add</button>   
             </td>
       </tr>
     </table>

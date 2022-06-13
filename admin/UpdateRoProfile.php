@@ -9,12 +9,12 @@
 
         if(isset($_POST['update'])){
 
-            $id = mysqli_real_escape_string($con, $_POST['userID']);
-            $name = mysqli_real_escape_string($con, $_POST['userName']);
-            $password = mysqli_real_escape_string($con, $_POST['userPassword']);
-            $email = mysqli_real_escape_string($con, $_POST['userEmail']);
+            $id = mysqli_real_escape_string($con, $_POST['roID']);
+            $name = mysqli_real_escape_string($con, $_POST['roName']);
+            $password = mysqli_real_escape_string($con, $_POST['roPassword']);
+            $email = mysqli_real_escape_string($con, $_POST['roEmail']);
 
-            $query = "UPDATE user SET user_name = '$name', user_password = '$password'  WHERE user_ID = '$id' ";
+            $query = "UPDATE restaurantowner SET ro_name = '$name', ro_password = '$password'  WHERE ro_ID = '$id' ";
             $result = mysqli_query($con, $query);
 
             if($result){
@@ -45,7 +45,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update User Profile</title>
+    <title>Update Restaurant Owner Profile</title>
 
     <!-- external stylesheet -->
     <link rel="stylesheet" href="style/main.css">
@@ -61,7 +61,7 @@
         <!-- user profile -->
         <div>
           <a class="icon-link" href="#">
-            User
+            Restaurant Owner
             <i class="fa-solid fa-user"></i>
           </a>
         </div>
@@ -84,13 +84,13 @@
         <!-- main content (right side) -->
         <div id="main-content">
 
-                <h1>Update User Profile</h1>
+                <h1>Update Restaurant Owner Profile</h1>
 
                 <?php 
                 if(isset($_GET['viewid'])){
                     $id = $_GET['viewid'];
 
-                    $query = "SELECT * FROM user WHERE user_ID = '$id'";
+                    $query = "SELECT * FROM restaurantowner WHERE ro_ID = '$id'";
                     $result = mysqli_query($con, $query);
 
                     if(mysqli_num_rows($result) > 0){
@@ -101,13 +101,13 @@
                 <form action="" method="post">
                 <tr>
                     <td width="200">
-                    <div class= "userProfile">
+                    <div class= "roProfile">
                         <div class = "inputBox">
-                            <span class = "details" >User ID: </span>
+                            <span class = "details" >Restaurant Owner ID: </span>
                             </td>
                         <td>
                             <br>
-                            <input type = "text" id = "user_ID" name="userID" value ="<?php echo $row['user_ID'] ?>" ><br><br>
+                            <input type = "text" id = "ro_ID" name="roID" value ="<?php echo $row['ro_ID'] ?>" ><br><br>
                         </div>
                         </td>
                       </tr>
@@ -115,33 +115,33 @@
                         <td>
 
                         <div class = "inputBox">
-                            <span class = "details" >User Name: </span>
+                            <span class = "details" >Restaurant Owner Name: </span>
                             </td>
                         <td>
                             <br>
-                            <input type = "text" id = "user_name" name="userName" value =" <?php echo $row['user_name'] ?>" ><br><br>
+                            <input type = "text" id = "ro_name" name="roName" value =" <?php echo $row['ro_name'] ?>" ><br><br>
                             </div>
                             </td>
                             </tr>
                             <tr>
                                 <td>
                         <div class="inputBox">
-                            <span class= "details">User Email:</span>
+                            <span class= "details">Restaurant Owner Email:</span>
                             </td>
                         <td>
                             <br>
-                            <input type = "email" id="user_email" name= "userEmail" value=" <?php echo $row['user_email'] ?>" disabled required><br><br>
+                            <input type = "email" id="ro_email" name= "roEmail" value=" <?php echo $row['ro_email'] ?>" disabled required><br><br>
                         </div>
                         </td>
                             </tr>
                             <tr>
                                 <td>
                         <div class = "inputBox">
-                            <span class = "details" >User Password: </span>
+                            <span class = "details" >Restaurant Owner Password: </span>
                             </td>
                         <td>
                             <br>
-                            <input type = "text" id = "user_password" name="userPassword" value =" <?php echo $row['user_password'] ?>" ><br><br>
+                            <input type = "text" id = "ro_password" name="roPassword" value =" <?php echo $row['ro_password'] ?>" ><br><br>
                             </td>
                         </tr>
                         </div>
