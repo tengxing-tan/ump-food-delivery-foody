@@ -1,0 +1,6 @@
+dbconnection.php
+admin/dbconnection.php
+complaint/foody-complaint/connecttest.php
+restaurant-owner/actions/db_connect.php
+rider/view/connectDB.php
+user/php/connect-database.php
