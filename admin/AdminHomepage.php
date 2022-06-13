@@ -11,6 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="styles.css">
+    <!-- icon library | font awesome -->
+    <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
     <title>Admin Homepage</title>
 </head>
 <body>
@@ -39,8 +41,11 @@
             <li><a class="nav-link" href="UserList.php">User List</a></li>
             <li><a class="nav-link" href="UserReport.php">User Report</a></li>
             <li><a class="nav-link" href="ComplaintReport.php">Complaint Report</a></li>
-            <li><a class="nav-link" href="../">Logout</a></li>
-        </ul>
+                    </ul>
+        <a href="../logout.php" class="nav-link" style="text-decoration: underline;">
+            Logout
+            <i class="fa fa-sign-out" aria-hidden="true" style></i>
+        </a>
         </nav>
     
         <!-- main content (right side) -->

@@ -18,7 +18,7 @@ if (isset($_POST["Login"])) {
 
             $_SESSION["adminLogin"] = $row['admin_ID'];
 
-            header("Location: admin/AdminHomePage.php");
+            header("Location: admin/AdminHomepage.php");
         } else {
             echo "<script>alert('Login details for admin is incorrect. Please try again.');</script>";
         }

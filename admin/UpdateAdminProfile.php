@@ -75,8 +75,11 @@
             <li><a class="nav-link" href="UserList.php">User List</a></li>
             <li><a class="nav-link" href="UserReport.php">User Report</a></li>
             <li><a class="nav-link" href="ComplaintReport.php">Complaint Report</a></li>
-            <li><a class="nav-link" href="../">Logout</a></li>
-        </ul>
+                    </ul>
+        <a href="../logout.php" class="nav-link" style="text-decoration: underline;">
+            Logout
+            <i class="fa fa-sign-out" aria-hidden="true" style></i>
+        </a>
         </nav>
     
         <!-- main content (right side) -->

@@ -1,15 +1,16 @@
 <?php
-    include_once 'dbconnection.php';
-    session_start();
+include_once 'dbconnection.php';
+session_start();
 
-    if(isset($_POST["Add User"])){
-        header ("Location: AddUser.php");
-    }
+if (isset($_POST["Add User"])) {
+    header("Location: AddUser.php");
+}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,6 +22,7 @@
     <!-- icon library | font awesome -->
     <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <!-- title bar -->
     <div id="title-bar">
@@ -29,10 +31,10 @@
 
         <!-- user profile -->
         <div>
-          <a class="icon-link" href="#">
-            Admin
-            <i class="fa-solid fa-user"></i>
-          </a>
+            <a class="icon-link" href="#">
+                Admin
+                <i class="fa-solid fa-user"></i>
+            </a>
         </div>
     </div>
 
@@ -40,19 +42,22 @@
     <div id="content-wrapper">
         <!-- navigation bar (left side) -->
         <nav id="nav-bar">
-        <ul>
-            <li><a class="nav-link" href="AdminHomepage.php">Dashboard</a></li>
-            <li><a class="nav-link" href="AdminProfile.php">Admin Profile</a></li>
-            <li><a class="nav-link" href="UserList.php">User List</a></li>
-            <li><a class="nav-link" href="UserReport.php">User Report</a></li>
-            <li><a class="nav-link" href="ComplaintReport.php">Complaint Report</a></li>
-            <li><a class="nav-link" href="../">Logout</a></li>
-        </ul>
+            <ul>
+                <li><a class="nav-link" href="AdminHomepage.php">Dashboard</a></li>
+                <li><a class="nav-link" href="AdminProfile.php">Admin Profile</a></li>
+                <li><a class="nav-link" href="UserList.php">User List</a></li>
+                <li><a class="nav-link" href="UserReport.php">User Report</a></li>
+                <li><a class="nav-link" href="ComplaintReport.php">Complaint Report</a></li>
+            </ul>
+            <a href="../logout.php" class="nav-link" style="text-decoration: underline;">
+                Logout
+                <i class="fa fa-sign-out" aria-hidden="true" style></i>
+            </a>
         </nav>
-    
+
         <!-- main content (right side) -->
         <div id="main-content">
-        <h1>User List</h1>
+            <h1>User List</h1>
             <form action="#" method="post">
                 <select name="type">
                     <option disable selected value>Choose User Type</option>
@@ -61,39 +66,41 @@
                     <option value="Restaurant Owner">Restaurant Owner</option>
                 </select>
 
-                <button type="submit" name="next" value = "Add User" >Next</button>  
+                <button type="submit" name="next" value="Add User">Next</button>
             </form>
 
-            <a href="AddUser.php"><button class = 'btn'>Add data</button></a>
+            <a href="AddUser.php"><button class='btn'>Add data</button></a>
 
 
             <?php
-                if(isset($_POST['next'])){
-                    $getType = mysqli_real_escape_string($con, $_POST['type']);
+            if (isset($_POST['next'])) {
+                $getType = mysqli_real_escape_string($con, $_POST['type']);
 
-                    if($getType === "General User"){
-                        $query1 = "SELECT * FROM user";
-                        $result = mysqli_query($con, $query1);
+                if ($getType === "General User") {
+                    $query1 = "SELECT * FROM user";
+                    $result = mysqli_query($con, $query1);
             ?>
 
-                    <table border = "1px" style = "width: 70%; line-height:30px;">
-                    <tr>
-                        <th colspan =7><h2>User Account</h2></th>
-                    </tr> 
+                    <table border="1px" style="width: 70%; line-height:30px;">
+                        <tr>
+                            <th colspan=7>
+                                <h2>User Account</h2>
+                            </th>
+                        </tr>
 
-                    <t>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Password</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Address</th>
-                        <th>Menu</th>
-                    </t>
+                        <t>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Password</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Address</th>
+                            <th>Menu</th>
+                        </t>
 
-                    <?php
-                        if ($result->num_rows > 0){
-                            while($row =  $result->fetch_assoc()){
+                        <?php
+                        if ($result->num_rows > 0) {
+                            while ($row =  $result->fetch_assoc()) {
                                 $id = $row['user_ID'];
                                 $name = $row['user_name'];
                                 $pass = $row['user_password'];
@@ -103,48 +110,50 @@
 
                                 echo
                                 '<tr>
-                                <td style = "padding: 0 1rem">'.$id.'</td>
-                                <td style = "padding: 0 1rem">'.$name.'</td>
-                                <td style = "padding: 0 1rem">'.$pass.'</td>
-                                <td style = "padding: 0 1rem">'.$email.'</td>
-                                <td style = "padding: 0 1rem">'.$phoneNum.'</td>
-                                <td style = "padding: 0 1rem">'.$address.'</td>
+                                <td style = "padding: 0 1rem">' . $id . '</td>
+                                <td style = "padding: 0 1rem">' . $name . '</td>
+                                <td style = "padding: 0 1rem">' . $pass . '</td>
+                                <td style = "padding: 0 1rem">' . $email . '</td>
+                                <td style = "padding: 0 1rem">' . $phoneNum . '</td>
+                                <td style = "padding: 0 1rem">' . $address . '</td>
                                 <td style = "padding: 0 1rem">
-                                <button><a href= "UpdateUser.php?viewid= '.$id.'">Update</a></button>
-                                <button><a href= "DeleteUser.php?viewid= '.$id.'">Delete</a></button>
+                                <button><a href= "UpdateUser.php?viewid= ' . $id . '">Update</a></button>
+                                <button><a href= "DeleteUser.php?viewid= ' . $id . '">Delete</a></button>
                                 </td>
                                 </tr>';
                             }
                         }
 
-                    ?>
+                        ?>
 
                     </table>
 
-            <?php
-                    }else if ($getType === "Rider"){
-                        $query1 = "SELECT * FROM rider";
-                        $result = mysqli_query($con, $query1);
-            ?>
+                <?php
+                } else if ($getType === "Rider") {
+                    $query1 = "SELECT * FROM rider";
+                    $result = mysqli_query($con, $query1);
+                ?>
 
-                    <table border = "1px" style = "width: 70%; line-height:30px;">
-                    <tr>
-                        <th colspan =7><h2>Rider Account</h2></th>
-                    </tr> 
+                    <table border="1px" style="width: 70%; line-height:30px;">
+                        <tr>
+                            <th colspan=7>
+                                <h2>Rider Account</h2>
+                            </th>
+                        </tr>
 
-                    <t>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Password</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Address</th>
-                        <th>Menu</th>
-                    </t>
+                        <t>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Password</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Address</th>
+                            <th>Menu</th>
+                        </t>
 
-                    <?php
-                        if ($result->num_rows > 0){
-                            while($row =  $result->fetch_assoc()){
+                        <?php
+                        if ($result->num_rows > 0) {
+                            while ($row =  $result->fetch_assoc()) {
                                 $id = $row['rider_ID'];
                                 $name = $row['rider_name'];
                                 $pass = $row['rider_password'];
@@ -154,47 +163,49 @@
 
                                 echo
                                 '<tr>
-                                <td style = "padding: 0 1rem">'.$id.'</td>
-                                <td style = "padding: 0 1rem">'.$name.'</td>
-                                <td style = "padding: 0 1rem">'.$pass.'</td>
-                                <td style = "padding: 0 1rem">'.$email.'</td>
-                                <td style = "padding: 0 1rem">'.$phoneNum.'</td>
-                                <td style = "padding: 0 1rem">'.$address.'</td>
+                                <td style = "padding: 0 1rem">' . $id . '</td>
+                                <td style = "padding: 0 1rem">' . $name . '</td>
+                                <td style = "padding: 0 1rem">' . $pass . '</td>
+                                <td style = "padding: 0 1rem">' . $email . '</td>
+                                <td style = "padding: 0 1rem">' . $phoneNum . '</td>
+                                <td style = "padding: 0 1rem">' . $address . '</td>
                                 <td style = "padding: 0 1rem">
-                                <button><a href= "UpdateUser.php?viewid= '.$id.'">Update</a></button>
-                                <button><a href= "DeleteRider.php?viewid= '.$id.'">Delete</a></button>
+                                <button><a href= "UpdateUser.php?viewid= ' . $id . '">Update</a></button>
+                                <button><a href= "DeleteRider.php?viewid= ' . $id . '">Delete</a></button>
                                 </td>
                                 </tr>';
                             }
                         }
 
-                    ?>
+                        ?>
 
                     </table>
-            <?php
-                    }else if($getType === "Restaurant Owner"){
-                        $query1 = "SELECT * FROM restaurantowner";
-                        $result = mysqli_query($con, $query1);
-            ?>
+                <?php
+                } else if ($getType === "Restaurant Owner") {
+                    $query1 = "SELECT * FROM restaurantowner";
+                    $result = mysqli_query($con, $query1);
+                ?>
 
-                    <table border = "1px" style = "width: 70%; line-height:30px;">
-                    <tr>
-                        <th colspan =7><h2>Restaurant Owner Account</h2></th>
-                    </tr> 
+                    <table border="1px" style="width: 70%; line-height:30px;">
+                        <tr>
+                            <th colspan=7>
+                                <h2>Restaurant Owner Account</h2>
+                            </th>
+                        </tr>
 
-                    <t>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Password</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Address</th>
-                        <th>Menu</th>
-                    </t>
+                        <t>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Password</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Address</th>
+                            <th>Menu</th>
+                        </t>
 
-                    <?php
-                        if ($result->num_rows > 0){
-                            while($row =  $result->fetch_assoc()){
+                        <?php
+                        if ($result->num_rows > 0) {
+                            while ($row =  $result->fetch_assoc()) {
                                 $id = $row['ro_ID'];
                                 $name = $row['ro_name'];
                                 $pass = $row['ro_password'];
@@ -204,28 +215,29 @@
 
                                 echo
                                 '<tr>
-                                <td style = "padding: 0 1rem">'.$id.'</td>
-                                <td style = "padding: 0 1rem">'.$name.'</td>
-                                <td style = "padding: 0 1rem">'.$pass.'</td>
-                                <td style = "padding: 0 1rem">'.$email.'</td>
-                                <td style = "padding: 0 1rem">'.$phoneNum.'</td>
-                                <td style = "padding: 0 1rem">'.$address.'</td>
+                                <td style = "padding: 0 1rem">' . $id . '</td>
+                                <td style = "padding: 0 1rem">' . $name . '</td>
+                                <td style = "padding: 0 1rem">' . $pass . '</td>
+                                <td style = "padding: 0 1rem">' . $email . '</td>
+                                <td style = "padding: 0 1rem">' . $phoneNum . '</td>
+                                <td style = "padding: 0 1rem">' . $address . '</td>
                                 <td style = "padding: 0 1rem">
-                                <button><a href= "UpdateUser.php?viewid= '.$id.'">Update</a></button>
-                                <button><a href= "DeleteRestaurantOwner.php?viewid= '.$id.'">Delete</a></button>
+                                <button><a href= "UpdateUser.php?viewid= ' . $id . '">Update</a></button>
+                                <button><a href= "DeleteRestaurantOwner.php?viewid= ' . $id . '">Delete</a></button>
                                 </td>
                                 </tr>';
                             }
                         }
 
-                    ?>
+                        ?>
 
-                <?php 
-                        }
-                    }
+                <?php
+                }
+            }
                 ?>
 
         </div>
     </div>
 </body>
+
 </html>
