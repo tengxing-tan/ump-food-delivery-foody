@@ -1,0 +1,104 @@
+li #complaint{
+    color: white;
+    background-color: var(--primary-bg);
+    transition: all ease-in 200ms;
+}
+
+button{
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: #6C5A8A;
+    color: white;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    cursor: pointer;
+}
+
+#compDetail{
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(234, 233, 233);
+    margin-top: -10px;
+}
+#topD{
+    background-color: white;
+    display: grid;
+    grid-template-columns: 80px 80px 130px 110px 90px 90px;
+    grid-template-rows: 60px; 
+    margin: 10px;
+    justify-content: center;
+    align-content: center;
+    column-gap: 123px;
+    
+}
+#topD div{
+    text-align: center;
+    padding: 5px;
+    font-size: 16px;  
+    margin-left: -20px;
+   
+}
+#topD .item2, #topD .item3, #topD .item4{
+    text-align: left;
+    margin-left: -20px;
+}
+#topD .item5, #top .item6{
+    text-align: left;
+    margin-left: -5px;
+}
+#middleD ul li{
+    display: grid;
+    grid-template-columns: 50px 100px 120px 120px 130px 100px;
+    grid-template-rows: 60px;
+    background-color: white;
+    margin: 12px;
+    list-style: none;
+    font-size: 14px;
+    padding-left: 20px;
+    height: 50px;
+    column-gap: 120px;
+}
+
+#middleD ul li p{
+    margin: 10px;
+    text-align: center;
+}
+#middleD ul li p a{
+    margin: 2px;
+    text-align: right;
+    padding-right: 2px;
+    position: relative;
+  
+}
+.feedback, .status{
+    padding-left: -50px;
+    margin-left: -50px;
+}
+.action{
+    margin-right: -10px;
+}
+.noresult{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#middleD .tips{
+    visibility: hidden;
+    width: 100px;
+    background-color:rgb(0, 0, 0,0.5);;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-bottom: 2px;
+    margin-left: -50px;
+}
+#middleD #view:hover span, #middleD #add:hover span, #middleD #edit:hover span, #middleD #del:hover span{
+    visibility: visible;
+}
