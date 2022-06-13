@@ -207,7 +207,7 @@ include 'actions/read_insight_info.php';
                 <p style="margin-top: 1rem; font-weight: bold; color: var(--primary-bg);">View in mobile phone</p>
                 <script type="text/javascript">
                     var qrcode = new QRCode(document.getElementById("QRCode"), {
-                        text: "http://10.66.0.36/foody/restaurant-owner/view-charts.php?id=<?php echo $restaurantID; ?>",
+                        text: "https://foody-g1-1b-2122.herokuapp.com/restaurant-owner/view-charts.php?id=<?php echo $restaurantID; ?>",
                         width: 128,
                         height: 128,
                         colorDark: "#6C5A8A",
