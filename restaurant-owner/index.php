@@ -108,13 +108,13 @@ include 'actions/read_order_status.php';
                             <?php
                             $actionButton = '';
                             switch (strtolower($row['order_status'])) {
-                                case 'ordered':
+                                case 'Ordered':
                                     echo '<a href="actions/update_order_status.php?id=' . $row['order_ID'] . '&status=cancelled"><button type="button" class="order-button cancel-order-button">Cancel</button></a>';
-                                    $actionButton = 'preparing';
+                                    $actionButton = 'Preparing';
                                     break;
                                 case 'preparing':
                                     echo '<a href="actions/update_order_status.php?id=' . $row['order_ID'] . '&status=cancelled"><button type="button" class="order-button cancel-order-button">Cancel</button></a>';
-                                    $actionButton = 'prepared';
+                                    $actionButton = 'Prepared';
                                     break;
                                 default:
                                     unset($actionButton);
