@@ -51,6 +51,7 @@ li #deliveryRecord{
     column-gap: 50px;
     position: sticky;
     top: -2rem;
+    box-shadow: var(--shadow);
 }
 #topD div{
     text-align: left;
