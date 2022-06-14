@@ -64,7 +64,7 @@
                 $result = mysqli_query($link, $sql);
                 $row = mysqli_fetch_assoc($result);
 
-                if($row['complaint_status'] == "Resolved"){
+                if($row['complaint_status'] == 'Resolved'){
                     echo " <div class='container' id='container'>
                         <form id='feedbackF' action='complaint.php' method='post'>
                             <div id='topic'>
