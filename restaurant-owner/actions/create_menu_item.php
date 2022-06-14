@@ -17,7 +17,7 @@ $foodPrice = $_POST['foodPrice'];
 /**
  * Store food image
  */
-$target_file = "../assets/img/menu/$restaurantID/" . $foodImage;
+$target_file = "../../assets/img/menu/$restaurantID/" . $foodImage;
 // $target_file = $target_dir . basename($foodImage);
 // echo $target_file;
 
@@ -27,16 +27,16 @@ $tempname = $_FILES["foodImage"]["tmp_name"];
 /**
  * Create folder for new restaurant
  */
-if (is_dir("../assets/img/menu/$restaurantID")) {
+if (is_dir("../../assets/img/menu/$restaurantID")) {
   echo 'restaurant folder exist';
 } else {
-  if (mkdir("../assets/img/menu/".$restaurantID, 0777, true)) {
+  if (mkdir("../../assets/img/menu/".$restaurantID, 0777, true)) {
     echo 'make directory successfully';
   } else {
-    echo "failed. I want to create directory at ../assets/img/menu/".$restaurantID;
+    echo "failed. I want to create directory at ../../assets/img/menu/".$restaurantID;
   }
 }
-$folder = "../assets/img/menu/$restaurantID/" . $foodImage;
+$folder = "../../assets/img/menu/$restaurantID/" . $foodImage;
 
 
 if (is_uploaded_file($foodImage)) {

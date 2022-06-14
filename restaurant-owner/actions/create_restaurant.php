@@ -12,7 +12,7 @@ $restaurantImage = $_FILES['restaurantImage'];
 /**
  * Store restaurant image
  */
-$target_file = "../assets/img/restaurant/$restaurantID/" . $restaurantImage;
+$target_file = "../../assets/img/restaurant/$restaurantID/" . $restaurantImage;
 // $target_file = $target_dir . basename($restaurantImage);
 // echo $target_file;
 
