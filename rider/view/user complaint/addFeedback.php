@@ -60,11 +60,11 @@
            session_start();
            $_SESSION["complaint"] = $i;
 
-           $sql = "SELECT complaint_status FROM complaintlist WHERE complaint_ID = '$i'";
+           $sql = "SELECT complaint_status FROM `complaintlist` WHERE complaint_ID = '$i'";
                 $result = mysqli_query($link, $sql);
                 $row = mysqli_fetch_assoc($result);
 
-                if($row['complaint_status'] == 'Resolved'){
+                if($row['complaint_status'] == "Resolved"){
                     echo " <div class='container' id='container'>
                         <form id='feedbackF' action='complaint.php' method='post'>
                             <div id='topic'>
