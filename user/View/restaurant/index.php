@@ -69,7 +69,7 @@ $id=$row['food_ID'];
                 $result=mysqli_query($conn, "SELECT * FROM restaurant WHERE restaurant_ID='$restaurant_ID'");
                 while($row=mysqli_fetch_array($result, 1)){ $_SESSION['restaurant_name']=$row['restaurant_name'];
                 ?>
-                <div id="restaurant-image"><img src="../<?php echo $row['restaurant_image']?>"/></div>   
+                <div id="restaurant-image"><img src="../../../assets/img/restaurant/<? echo $row['restaurant_image']?>"/></div>   
                 <div id="restaurant-info">
                     <h4 id="restaurant-name"><?php echo $row['restaurant_name']?></h4>
                     <p id="restaurant-address"><?php echo $row['restaurant_address']?></p><br>
@@ -91,7 +91,7 @@ $id=$row['food_ID'];
                     ?>
                     <div class="food-card">
                         <div class="food-image">
-                            <img src="../../src/img/<?php echo $row['food_image'];?>"/>                    
+                            <img src="../../../assets/img/menu/<?php  echo $restaurant_ID."/".$row['food_image'];?>"/>                    
                         </div>
                         <div class="food-details">
                             <h3><?php echo $row['food_title'];?></h3>
