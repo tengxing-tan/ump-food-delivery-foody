@@ -46,6 +46,8 @@ button{
     justify-content: center;
     align-items: center;
     margin-top: 100px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
 }
 #feedbackF{
     display: block;
@@ -87,5 +89,5 @@ button{
     background-color: white;
 }
 .cont #feedbackF #Btn {
-    margin-top: 110px;
+    margin-top: 150px;
 }
