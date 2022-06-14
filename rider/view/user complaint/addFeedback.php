@@ -67,7 +67,7 @@
 
                 if($row['complaint_status'] == "Resolved"){
                     echo " <div class='container' id='container'>
-                        <form id='feedbackF' action='complaint.php' method='post'>
+                        <form id='added' action='complaint.php' method='post'>
                             <div id='topic'>
                                 <h3>You have been added feedback! You may choose to update!</h3>
                                 <p></p>
