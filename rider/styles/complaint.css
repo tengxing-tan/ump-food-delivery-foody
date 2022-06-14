@@ -31,7 +31,7 @@ button{
     justify-content: center;
     align-content: center;
     column-gap: 123px;
-    
+    box-shadow: var(--shadow);
 }
 #topD div{
     text-align: center;
@@ -40,9 +40,12 @@ button{
     margin-left: -20px;
    
 }
-#topD .item2, #topD .item3, #topD .item4{
+#topD .item2{
     text-align: left;
     margin-left: -20px;
+}
+#topD .item3, #topD .item4{
+    margin-left: -30px;
 }
 #topD .item5, #top .item6{
     text-align: left;
@@ -59,6 +62,7 @@ button{
     padding-left: 20px;
     height: 50px;
     column-gap: 120px;
+    box-shadow: var(--shadow);
 }
 
 #middleD ul li p{
