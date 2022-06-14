@@ -66,7 +66,7 @@
                 $row = mysqli_fetch_assoc($result);
 
                 if($row['complaint_status'] == "Resolved"){
-                    echo " <div class='container' id='container'>
+                    echo " <div class='cont' id='cont'>
                         <form id='feedbackF' action='complaint.php' method='post'>
                             <div id='topic'>
                                 <h3>You have been added feedback! You may choose to update!</h3>
