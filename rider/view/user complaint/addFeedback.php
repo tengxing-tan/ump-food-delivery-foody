@@ -59,6 +59,23 @@
            $i = $_GET['i'];
            session_start();
            $_SESSION["complaint"] = $i;
+
+           $sql = "SELECT complaint_status FROM complaintlist WHERE complaint_ID = '$i'";
+                $result = mysqli_query($link, $sql);
+                $row = mysqli_fetch_assoc($result);
+
+                if($row['complaint_status'] == "Resolved"){
+                    echo " <div class='container' id='container'>
+                        <form id='feedbackF' action='complaint.php' method='post'>
+                            <div id='topic'>
+                                <h3>You have been added feedback! You may choose to update!</h3>
+                                <p></p>
+                                    <input type='submit' value='Back' id='Btn'>
+                                </div>
+                            
+                        </form>
+                    </div> ";
+                }
            ?>
                    <form id="feedbackF" action="addedFeedback.php" method="get">
                        <div id="topic">
