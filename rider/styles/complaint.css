@@ -41,8 +41,9 @@ button{
    
 }
 #topD .item2{
-    text-align: left;
-    margin-left: -20px;
+    display: flex;
+    margin-left: -25px;
+    padding-left: -30px;
 }
 #topD .item3, #topD .item4{
     display: flex;
@@ -54,9 +55,13 @@ button{
     margin-left: -25px;
     padding-left: -30px;
 }
-#topD .item5, #top .item6{
+#topD .item5{
     text-align: left;
     margin-left: -5px;
+}
+#top .item6{
+    display: flex;
+    margin-right: -50px;
 }
 #middleD ul li{
     display: grid;
@@ -92,6 +97,9 @@ button{
 }
 .action{
     margin-left: -20px;
+}
+.compDate{
+    margin-left: 20px;
 }
 .noresult{
     display: flex;
