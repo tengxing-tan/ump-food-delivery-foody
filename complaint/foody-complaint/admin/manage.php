@@ -1,6 +1,6 @@
 <!--To update data of viewcomplaint.php into database.-->
 <?php
-include("connecttest.php");
+include("../connecttest.php");
 
 extract($_POST);
 

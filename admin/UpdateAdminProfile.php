@@ -74,7 +74,8 @@
             <li><a class="nav-link" href="AdminProfile.php">Admin Profile</a></li>
             <li><a class="nav-link" href="UserList.php">User List</a></li>
             <li><a class="nav-link" href="UserReport.php">User Report</a></li>
-            <li><a class="nav-link" href="ComplaintReport.php">Complaint Report</a></li>
+            <li><a class="nav-link" href="../complaint/foody-complaint/admin/viewcomplaint.php">Complaint Menu</a></li>
+                <li><a class="nav-link" href="../complaint/foody-complaint/admin/report.php">Complaint Report</a></li>
                     </ul>
         <a href="../logout.php" class="nav-link" style="text-decoration: underline;">
             Logout
@@ -117,7 +118,7 @@
                             </td>
                         <td>
                             <br>
-                            <input type = "text" id = "admin_name" name="adminName" value =" <?php echo $row['admin_name'] ?>" ><br><br>
+                            <input type = "text" id = "admin_name" name="adminName" value ="<?php echo $row['admin_name'] ?>" ><br><br>
                             </div>
                             </td>
                             </tr>
@@ -128,7 +129,7 @@
                             </td>
                         <td>
                             <br>
-                            <input type = "email" id="admin_email" name= "adminEmail" value=" <?php echo $row['admin_email'] ?>" disabled required><br><br>
+                            <input type = "email" id="admin_email" name= "adminEmail" value="<?php echo $row['admin_email'] ?>" disabled required><br><br>
                         </div>
                         </td>
                             </tr>
@@ -139,7 +140,7 @@
                             </td>
                         <td>
                             <br>
-                            <input type = "text" id = "admin_password" name="adminPassword" value =" <?php echo $row['admin_password'] ?>" ><br><br>
+                            <input type = "text" id = "admin_password" name="adminPassword" value ="<?php echo $row['admin_password'] ?>" ><br><br>
                             </td>
                         </tr>
                         </div>

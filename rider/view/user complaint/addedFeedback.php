@@ -59,7 +59,7 @@
             if ($feedbackText == "") {  
                
             echo " <div class='container' id='container'>
-                        <form id='feedbackF' action='complaint.php' method='get'>
+                        <form id='feedbackF' action='complaint.php' method='post'>
                             <div id='topic'>
                                 <h3>Error! You have to give some feedback!</h3>
                                 <p></p>
@@ -73,7 +73,7 @@
             else if (preg_match ("/^[0-9]*$/", $feedbackText)) {  
                
                 echo " <div class='container' id='container'>
-                            <form id='feedbackF' action='complaint.php' method='get'>
+                            <form id='feedbackF' action='complaint.php' method='post'>
                                 <div id='topic'>
                                     <h3>Error! You enter wrong format! It is not a text!</h3>
                                     <p></p>

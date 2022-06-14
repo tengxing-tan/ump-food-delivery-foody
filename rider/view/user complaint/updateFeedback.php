@@ -65,7 +65,7 @@
                 
             ?>
     
-               <form id="feedbackF" action="UpdatedFeedback.php" method="get">
+               <form id="feedbackF" action="updatedFeedback.php" method="get">
                    
                        <div id="topic">
                            <h3>Update Your Feedback Here!</h3>

@@ -1,9 +1,6 @@
 <?php
 include 'db_connect.php';
-/**
- * Session
- */
-session_start();
+
 $roID = $_SESSION['roID'];
 
 // if want to read restaurant details

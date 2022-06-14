@@ -9,13 +9,14 @@ if (isset($_POST["Login"])) {
     
     if ($type === 'Admin') {
 
-        $login = mysqli_query($con, "SELECT admin_email, admin_ID, admin_password FROM admin WHERE admin_email='$email' AND admin_password ='$password' limit 1");
-        //echo mysqli_num_rows($login);
-
+        $login = mysqli_query($con, "SELECT admin_ID, admin_email, admin_password FROM `admin` WHERE admin_email='$email' AND admin_password = '$password' limit 1");
+        // echo mysqli_num_rows($login);
+        
         if (mysqli_num_rows($login) > 0) {
 
-            $row = mysqli_fetch_array($login);
+            $row = mysqli_fetch_assoc($login);
 
+            print_r($row);
             $_SESSION["adminLogin"] = $row['admin_ID'];
 
             header("Location: admin/AdminHomepage.php");

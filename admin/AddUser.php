@@ -4,7 +4,7 @@
 
 
     if(isset($_POST['Add'])){
-        $type = mysqli_real_escape_string($con, $_POST['type']);
+        
 
         $name = mysqli_real_escape_string($con, $_POST['username']);
         $password = mysqli_real_escape_string($con, $_POST['password']);
@@ -12,7 +12,7 @@
         $phoneNum  = mysqli_real_escape_string($con, $_POST['phoneNum']);
         $address = mysqli_real_escape_string($con, $_POST['useraddress']);
 
-            if ($type === 'General User'){
+           
                 $query = "INSERT INTO user(user_name, user_password, user_email, user_phoneNum, user_address) VALUES ('$name', '$password', '$email', '$phoneNum', '$address')";
                 $result = mysqli_query($con, $query);
 
@@ -26,37 +26,7 @@
                 }else{
                     echo "<script>alert('Data Added FAILED'); <script>";
                 }
-            }
-            else if($type === 'Rider'){
-                $query = "INSERT INTO rider(rider_name, rider_password, rider_email, rider_phoneNum, rider_address) VALUES ('$name', '$password', '$email', '$phoneNum', '$address')";
-                $result = mysqli_query($con, $query);
-
-                if($result){
-                    echo "
-                    <script>
-                    alert('Data Added Success!');
-                    window.location = 'UserList.php';
-                    </script>";
-
-                }else{
-                    echo "<script>alert('Data Added FAILED'); <script>";
-                }
-            }
-            else if($type === 'Restaurant Owner'){
-                $query = "INSERT INTO restaurantowner(ro_name, ro_password, ro_email, ro_phoneNum, ro_address) VALUES ('$name', '$password', '$email', '$phoneNum', '$address')";
-                $result = mysqli_query($con, $query);
-
-                if($result){
-                    echo "
-                    <script>
-                    alert('Data Added Success!');
-                    window.location = 'UserList.php';
-                    </script>";
-
-                }else{
-                    echo "<script>alert('Data Added FAILED'); <script>";
-                }
-            }
+                 
     }
 ?>
 
@@ -98,24 +68,16 @@
             <li><a class="nav-link" href="UserList.php">User List</a></li>
             <li><a class="nav-link" href="UserReport.php">User Report</a></li>
             <li><a class="nav-link" href="ComplaintReport.php">Complaint Report</a></li>
-                    </ul>
-        <a href="../logout.php" class="nav-link" style="text-decoration: underline;">
-            Logout
-            <i class="fa fa-sign-out" aria-hidden="true" style></i>
-        </a>
+            <li><a class="nav-link" href="login.php">Logout</a></li>
+        </ul>
         </nav>
     
         <!-- main content (right side) -->
         <div id="main-content">
 
-    <h1>Registration</h1>  
+    <h1>Registration For User</h1>  
         <form action="#" method="post">
-            <select name="type">
-                <option disable selected value>Choose User Type</option>
-                <option value="General User">User</option>
-                <option value="Rider">Rider</option>
-                <option value="Restaurant Owner">Restaurant Owner</option>
-            </select>
+            
 
             <br><br>
             <table>

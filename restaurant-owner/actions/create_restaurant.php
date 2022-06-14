@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <?php
 include 'db_connect.php';
-/**
- * SESSION
- */
-session_start();
+
 // $roID = $_SESSION['roID'];
 $roID = 1;
 
@@ -15,7 +12,7 @@ $restaurantImage = $_FILES['restaurantImage'];
 /**
  * Store restaurant image
  */
-$target_file = "../assets/restaurant/$restaurantID/" . $restaurantImage;
+$target_file = "../assets/img/restaurant/$restaurantID/" . $restaurantImage;
 // $target_file = $target_dir . basename($restaurantImage);
 // echo $target_file;
 

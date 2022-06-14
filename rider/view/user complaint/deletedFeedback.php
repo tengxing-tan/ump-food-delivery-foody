@@ -62,7 +62,7 @@
                                 $i = $_GET["i"]; 
                             
                                 $del = "DELETE FROM feedback WHERE complaint_ID = '$i'";
-                                $status = "UPDATE complaintlist SET complaint_status = NULL WHERE complaint_ID = '$i'";
+                                $status = "UPDATE complaintlist SET complaint_status = 'In Investigation' WHERE complaint_ID = '$i'";
                                 if (mysqli_query($link, $del)) {
                                     mysqli_query($link, $status);
                                     echo "<h3>Feedback Deleted!</h3>
