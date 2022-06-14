@@ -107,3 +107,11 @@ button{
 #middleD #view:hover span, #middleD #add:hover span, #middleD #edit:hover span, #middleD #del:hover span{
     visibility: visible;
 }
+#noOrder{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+
+}
