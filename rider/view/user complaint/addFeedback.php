@@ -59,6 +59,7 @@
            $i = $_GET['i'];
            session_start();
            $_SESSION["complaint"] = $i;
+           include '../connectDB.php';
 
            $sql = "SELECT complaint_status FROM `complaintlist` WHERE complaint_ID = '$i'";
                 $result = mysqli_query($link, $sql);
