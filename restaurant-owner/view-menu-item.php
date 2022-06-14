@@ -3,6 +3,8 @@
 /* session */
 session_start();
 
+$restaurantID = $_SESSION['restaurantID'];
+
 // read menu item from database
 include 'actions/read_menu_item.php';
 $food_ID = $_GET['id'];
@@ -79,7 +81,7 @@ $food_ID = $_GET['id'];
         <!-- remember to add inside form: enctype="multipart/form-data" -->
         <div style="display: inline-flex; flex-direction: column; align-items: start; width: 14rem;">
           <input type="file" id="input-food-image" name="foodImage" accept="image/*" onchange="updateImageDisplay()" style="margin-bottom: 1rem;">
-          <img id="preview" class="food-picture preview" src="<?php echo "assets/img/menu/$restaurantID/" . $row['food_image']; ?>" alt="Preview">
+          <img id="preview" class="food-picture preview" src="<?php echo "../assets/img/menu/$restaurantID/" . $row['food_image']; ?>" alt="Preview">
         </div>
         <!-- button -->
         <div class="submit-button">

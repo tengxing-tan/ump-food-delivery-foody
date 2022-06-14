@@ -2,6 +2,10 @@
 <?php
 include 'db_connect.php';
 
+/**
+ * Session
+ */
+session_start();
 // $restaurantID = 3;
 $restaurantID = $_SESSION['restaurantID'];
 $foodTitle = $_POST['foodTitle'];
