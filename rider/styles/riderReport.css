@@ -11,10 +11,18 @@ li #report{
     
 }
 #graph div{
-    padding-top: 30px;
+    /* padding-top: 30px;
     margin-bottom: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 30px;
+    padding-bottom: 30px; */
+    display: grid;
+    place-items: center;
+    background-color: white;
+    max-width: 56rem;
+    padding: 4rem;
+    margin: 2rem auto 4rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
 }
