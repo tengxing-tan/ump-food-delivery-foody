@@ -76,7 +76,7 @@ $user_ID=$_SESSION['user_ID'];
 
             if(isset($_POST['search'])){
                 $input=$_POST['search-expenses'];
-                $search_result=mysqli_query($conn, "SELECT * FROM expensesrecord WHERE user_ID='$user_ID' AND expenses_title LIKE '%$input%' OR expenses_date LIKE '%$input%'");
+                $search_result=mysqli_query($conn, "SELECT * FROM expensesrecord WHERE user_ID=$user_ID AND expenses_title LIKE '%$input%' OR expenses_date LIKE '%$input%'");
 
                 if(mysqli_num_rows($search_result)==0){
                     echo "<p style='color: var(--primary-bg);'>No result found</p>";
