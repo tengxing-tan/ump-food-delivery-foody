@@ -83,12 +83,15 @@ button{
     position: relative;
   
 }
-.feedback, .status{
+.feedback{
+    margin-left: -40px;
+} 
+.status{
     padding-left: -50px;
     margin-left: -50px;
 }
 .action{
-    margin-right: -10px;
+    margin-right: -25px;
 }
 .noresult{
     display: flex;
