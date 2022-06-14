@@ -118,7 +118,7 @@
                             </td>
                         <td>
                             <br>
-                            <input type = "text" id = "admin_name" name="adminName" value =" <?php echo $row['admin_name'] ?>" ><br><br>
+                            <input type = "text" id = "admin_name" name="adminName" value ="<?php echo $row['admin_name'] ?>" ><br><br>
                             </div>
                             </td>
                             </tr>
@@ -129,7 +129,7 @@
                             </td>
                         <td>
                             <br>
-                            <input type = "email" id="admin_email" name= "adminEmail" value=" <?php echo $row['admin_email'] ?>" disabled required><br><br>
+                            <input type = "email" id="admin_email" name= "adminEmail" value="<?php echo $row['admin_email'] ?>" disabled required><br><br>
                         </div>
                         </td>
                             </tr>
@@ -140,7 +140,7 @@
                             </td>
                         <td>
                             <br>
-                            <input type = "text" id = "admin_password" name="adminPassword" value =" <?php echo $row['admin_password'] ?>" ><br><br>
+                            <input type = "text" id = "admin_password" name="adminPassword" value ="<?php echo $row['admin_password'] ?>" ><br><br>
                             </td>
                         </tr>
                         </div>

@@ -11,7 +11,6 @@ if (isset($_POST["Login"])) {
 
         $login = mysqli_query($con, "SELECT admin_ID, admin_email, admin_password FROM `admin` WHERE admin_email='$email' AND admin_password = '$password' limit 1");
         // echo mysqli_num_rows($login);
-
         
         if (mysqli_num_rows($login) > 0) {
 
