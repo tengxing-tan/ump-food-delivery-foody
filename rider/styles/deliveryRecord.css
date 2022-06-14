@@ -75,9 +75,6 @@ li #deliveryRecord{
     margin: 15px;
     text-align: center;
 }
-#middleD ul li:nth-child(2n+1){
-    background-color: var(--light-grey-bg);
-}
 #middleD ul li p view{
     color: #6C5A8A;
     cursor: pointer;
