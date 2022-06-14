@@ -91,6 +91,7 @@ $user_ID=$_SESSION['user_ID'];
         var xValues = <?php echo json_encode($month)?>;
         var yValues = <?php echo json_encode($sum)?>;
         var barColors = "#6C5A8A";
+        var year = new Date().getFullYear();
 
         new Chart("chart", {
         type: "bar",
@@ -105,7 +106,7 @@ $user_ID=$_SESSION['user_ID'];
         legend: {display: false},
         title: {
         display: true,
-        text: "Total Expenses of Each Month in year 2022"},
+        text: "Total Expenses of Each Month in year "+ year},
         scales: {
             yAxes: [{
                 ticks: {beginAtZero: true}
