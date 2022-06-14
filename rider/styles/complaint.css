@@ -25,7 +25,7 @@ button{
 #topD{
     background-color: white;
     display: grid;
-    grid-template-columns: 80px 80px 120px 110px 90px 90px;
+    grid-template-columns: 80px 80px 110px 110px 90px 90px;
     grid-template-rows: 60px; 
     margin: 10px;
     justify-content: center;
