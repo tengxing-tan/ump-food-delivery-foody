@@ -9,6 +9,7 @@
     <!-- external stylesheet -->
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/addedFeedback.css">
+    <link rel="stylesheet" href="../../styles/viewFeedback.csss">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../../function/feedback.js" defer></script>
     <!-- icon library | font awesome -->
@@ -77,19 +78,23 @@
                         </form>
                     </div> ";
                 }
-           ?>
-                   <form id="feedbackF" action="addedFeedback.php" method="get">
-                       <div id="topic">
+                else{
+                    echo "
+                    <form id='feedbackF' action='addedFeedback.php' method='get'>
+                       <div id='topic'>
                            <h3>Add Your Feedback Here!</h3>
                        </div>
                        
-                        <textarea id="feedbackText" name="feedbackText" rows="10" cols="50"></textarea>
+                        <textarea id='feedbackText' name='feedbackText' rows='10' cols='50'></textarea>
                         <div>
                      
-                            <input type="submit" value="Add" id="Btn">
+                            <input type='submit' value='Add' id='Btn'>
                         </div>
                        
-                   </form>
+                   </form>";
+                }
+           ?>
+                   
                </div>
         </div>
         </div>
