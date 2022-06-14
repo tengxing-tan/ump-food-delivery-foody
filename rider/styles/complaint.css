@@ -45,6 +45,7 @@ button{
     margin-left: -20px;
 }
 #topD .item3, #topD .item4{
+    display: flex;
     margin-left: -50px;
     padding-left: -30px;
 }
