@@ -9,6 +9,8 @@ li #home{
     background-color: white;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
 }
 #arrowB{
     font-size: 24px;
