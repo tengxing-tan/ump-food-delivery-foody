@@ -46,8 +46,7 @@ button{
     justify-content: center;
     align-items: center;
     margin-top: 100px;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
+    
 }
 #feedbackF{
     display: block;
@@ -61,6 +60,8 @@ button{
     align-items: center;
     text-align: center;
     padding-top: 20px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
 }
 #topic{
     color: black;
