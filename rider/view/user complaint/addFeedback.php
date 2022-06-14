@@ -72,7 +72,7 @@
                             <div id='topic'>
                                 <h3>You have been added feedback! You may choose to update!</h3>
                                 <p></p>
-                                    <input type='submit' value='Back' id='BBtn'>
+                                    <input type='submit' value='Back' id='Btn'>
                                 </div>
                             
                         </form>
