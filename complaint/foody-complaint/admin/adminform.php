@@ -1,7 +1,7 @@
 <!-- Interface of update data. -->
 
 <?php
-include("connecttest.php");
+include("../connecttest.php");
 
 
 
