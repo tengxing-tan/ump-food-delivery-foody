@@ -23,7 +23,7 @@ if ($result) {
     $_SESSION['status'] = 0;
 }
 
-header('location: ../my-restaurants.php');
+header('location: ../my-restaurant.php');
 exit();
 
 /**
