@@ -66,13 +66,12 @@ button{
 #middleD ul li{
     display: grid;
     grid-template-columns: 50px 100px 120px 120px 130px 100px;
-    grid-template-rows: 60px;
+    grid-template-rows: min-content;
     background-color: white;
     margin: 12px;
     list-style: none;
     font-size: 14px;
     padding-left: 20px;
-    height: 50px;
     column-gap: 120px;
     box-shadow: var(--shadow);
 }
