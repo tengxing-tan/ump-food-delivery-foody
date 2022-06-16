@@ -219,7 +219,7 @@ include("../connecttest.php");
                 },
                 title: {
                     display: true,
-                    text: "Total Number Type of Complaint Cases"
+                    text: "Total Number of Complaint Cases With Different Complaint Status"
                 },
                 scales: {
                     yAxes: [{
