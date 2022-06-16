@@ -51,7 +51,11 @@ if(isset($_POST['search'])) {
 
         <!-- user profile -->
         <div>
-            <a class="icon-link" href="#">
+            <a class="icon-link" href="../../../user/View/restaurant/order-list.php">
+                Order List
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <a class="icon-link" href="../../../user/View/user.php">
                 User
                 <i class="fa-solid fa-user"></i>
             </a>

@@ -4,7 +4,13 @@ include("../connecttest.php");
 session_start();
 
 
-$idURL = $_GET['a'];
+if(isset($_GET['a'])){
+    $idURL = $_GET['a'];
+}else{
+    if(isset($_SESSION['user_ID'])){
+        $idURL = $_SESSION['user_ID'];
+    }
+}
 $query = "SELECT * FROM complaintlist WHERE order_id = '$idURL'";
 $result = mysqli_query($conn, $query) or die("Could not execute query in adminform.php");
 
@@ -32,7 +38,11 @@ $result = mysqli_query($conn, $query) or die("Could not execute query in adminfo
 
         <!-- user profile -->
         <div>
-            <a class="icon-link" href="#">
+            <a class="icon-link" href="../../../user/View/restaurant/order-list.php">
+                Order List
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <a class="icon-link" href="../../../user/View/user.php">
                 User
                 <i class="fa-solid fa-user"></i>
             </a>

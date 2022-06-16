@@ -75,7 +75,7 @@ foreach ($_SESSION['order'] as $id => $quantity) {
                 <li><a class="nav-link" href="../expenses-list/index.php">Expenses List</a></li>
                 <li><a class="nav-link" href="../calculate-average-expenses/index.php">Calculate Average Expenses</a>
                 </li>
-                <li><a class="nav-link" href="../../../complaint/foody-complaint/user/userform.php">Complaint List</a>
+                <li><a class="nav-link" href="../../../complaint/foody-complaint/user/complaintlistmain.php">Complaint List</a>
                 </li>
             </ul>
             <a href="index.php" class="nav-link" style="text-decoration: underline;">
@@ -120,7 +120,7 @@ foreach ($_SESSION['order'] as $id => $quantity) {
             </div>
         </div>
     </div>
-    <?php session_destroy(); ?>
+    <?php unset($_SESSION['order']); ?>
 </body>
 
 </html>

@@ -1,10 +1,11 @@
 <?php
+session_start();
 include("../connecttest.php");
 
+$user_ID=$_SESSION['user_ID'];
 
-$query = "SELECT * FROM complaintlist";
+$query = "SELECT * FROM complaintlist WHERE order_ID in (SELECT order_ID FROM `order` WHERE user_ID = '$user_ID')";
 $result = mysqli_query($conn, $query);
-
 
 ?>
 
@@ -28,7 +29,11 @@ $result = mysqli_query($conn, $query);
 
         <!-- user profile -->
         <div>
-            <a class="icon-link" href="#">
+            <a class="icon-link" href="../../../user/View/restaurant/order-list.php">
+                Order List
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <a class="icon-link" href="../../../user/View/user.php">
                 User
                 <i class="fa-solid fa-user"></i>
             </a>
