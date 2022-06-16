@@ -127,7 +127,7 @@ include("../connecttest.php");
 
         </a>
         <div class="diagramCard">
-            <div class="diagram"> <canvas id="myChart" style="max-width:500px;"></canvas> </div> <br><br><br>
+            <div class="diagram"> <canvas id="myChart" style="max-width:500px;"></canvas> </div>
             <div class="diagram"> <canvas id="myChart2" style="max-width:500px;"></canvas> </div>
         </div>
 

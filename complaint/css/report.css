@@ -37,10 +37,15 @@ body{
 }
 
 
+.diagramCard{   
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .diagram{
-    margin-left:30vw;
-    margin-right:20px;
-    
+    width:50vw;
+    margin-left: 5vw;
 }
 
 /*
