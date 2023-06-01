@@ -133,8 +133,8 @@ include("../connecttest.php");
         </a>
         <div class="diagramCard">
             <div class="diagram"> <canvas id="myChart" style="max-width:500px;"></canvas> </div>
+            <div class="diagram"> <canvas id="myChart2" style="max-width:500px;"></canvas> </div>
         </div>
-
 
 
 
@@ -153,12 +153,29 @@ include("../connecttest.php");
             }
         }
 
+        $querynew = "SELECT * from complaintlist WHERE complaint_status='New'";
+        $query_run_new = mysqli_query($conn, $querynew);
+        $new = mysqli_num_rows($query_run_new);
+        $queryinvest = "SELECT * from complaintlist WHERE complaint_status='In Investigation'";
+        $query_run_invest = mysqli_query($conn, $queryinvest);
+        $invest = mysqli_num_rows($query_run_invest);
+        $queryresolved = "SELECT * from complaintlist WHERE complaint_status='Resolved'";
+        $query_run_resolved = mysqli_query($conn, $queryresolved);
+        $resolved = mysqli_num_rows($query_run_resolved);
+
+
+
         ?>
         <script>
-            var yValues = <?php echo json_encode($complaintid) ?>;
-            var xValues = <?php echo json_encode($month) ?>;
+        var yValues = <?php echo json_encode($complaintid) ?>;
+        var xValues = <?php echo json_encode($month) ?>;
+        var xTypes = ["New", "In Investigation", "Resolved"];
+        var yTypes = [<?php echo json_encode($new) ?>, <?php echo json_encode($invest) ?>,
+            <?php echo json_encode($resolved) ?>
+        ];
 
-            var barColors = ["red", "blue"];
+
+        var barColors = "#6C5A8A";
 
             new Chart("myChart", {
                 type: "bar",
@@ -186,9 +203,43 @@ include("../connecttest.php");
                         }]
                     }
                 }
-            });
+            }
+        );
+
+
+
+        new Chart("myChart2", {
+            type: "bar",
+            data: {
+                labels: xTypes,
+                datasets: [{
+
+                    backgroundColor: barColors,
+                    data: yTypes
+
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: true,
+                    text: "Total Number of Complaint Cases With Different Complaint Status"
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
         </script>
     <a href="qrcode.php"><button class="btn">QR Code</button></a>
+
+
 
     </div>
     </div>
