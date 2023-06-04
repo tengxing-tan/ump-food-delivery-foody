@@ -1,10 +1,21 @@
 <?php
 
-include ("connecttest.php");
+include ("../connecttest.php");
 
 $output = '';
 //collect
+?>
 
+<head>
+    <title>Complaint List Main</title>
+    <meta charset='utf-8' />
+
+    <link rel='stylesheet' href='../../css/complaintlistmain.css'>
+    <link rel='stylesheet' href='../../css/main.css' type='text/css' />
+    <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
+</head>
+
+<?php
 if(isset($_POST['search'])) {
 
     $searchq = $_POST['search'];
