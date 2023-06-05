@@ -3,7 +3,7 @@
 
 <?php
 
-include ("connecttest.php");
+include ("../connecttest.php");
 
 $idURL = $_GET['id'];
 

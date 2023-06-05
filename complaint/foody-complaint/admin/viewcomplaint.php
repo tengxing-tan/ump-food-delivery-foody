@@ -17,6 +17,13 @@ $result = mysqli_query($conn, $query);
     <link rel="stylesheet" href="../../css/viewcomplaint.css" type="text/css">
     <link rel="stylesheet" href="../../css/main.css" type="text/css" />
     <script src="https://kit.fontawesome.com/06b2bd9377.js" crossorigin="anonymous"></script>
+
+    <style>
+        table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -51,9 +58,43 @@ $result = mysqli_query($conn, $query);
             </a>
         </nav>
 
+        
+
         <!--main content-->
         <div id="main-content">
             <h2>List For Complaint Cases</h2> <br><br>
+
+            <!--POST method form with several filter complaint options-->
+            <form action="viewcomplaintafterfiltering.php" method="post">
+            <br>
+            <div class="searchComplaint" style="background-color:pink;width:100%;">
+            <br><p style="font-family:Arial;color:black;text-align:center;font-size:110%;"><b>SEARCH COMPLAINT</b></p><br>
+            <table>
+            <tr>
+                <td>SEARCH FROM : <input type="date" name="start" style="width:auto;font-family:Arial;"></td>
+                <td>TO : <input type="date" name="end"></td>
+                <td><select required name = "complaintType" style="font-family:Arial;width:auto;">
+                    <option selected disabled value="">COMPLAINT TYPE</option>
+                    <option>Late Delivery</option>
+                    <option>Damaged Food</option>
+                    <option>Driver Attitude</option>
+                    <option>Wrong Order</option>
+                    </select>
+                </td>
+                <td><select required name = "complaintStatus" style="font-family:Arial;width:auto;">
+                    <option selected disabled value="">COMPLAINT STATUS</option>
+                    <option>IN INVESTIGATION</option>
+                    <option>RESOLVED</option>
+                    </select>
+                </td>
+                <td><input style="font-family:Arial;width:auto;font-weight: bold; "type="submit" value="SEARCH" name="searchComplaint"></td>
+            </tr>
+            </table>
+            <br>
+            </div>
+            </form>
+            <br><br>
+
             <!--output-->
             <div class='row'>
                 <div class='column'>
