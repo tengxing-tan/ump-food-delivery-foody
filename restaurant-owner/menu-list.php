@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <?php
 /* session */
-session_start();
+// session_start();
 
 // show alert message if user manage a menu item
-include 'actions/alert_crud_status.php';
+// include 'actions/alert_crud_status.php';
 
 // read menu item from database
-include 'actions/read_menu_list.php';
+// include 'actions/read_menu_list.php';
 ?>
 <html lang="en">
 
@@ -110,7 +110,21 @@ include 'actions/read_menu_list.php';
                             </p>
                             <p class="food-desc"><?php echo $row['food_description']; ?></p>
                         </div>
-                        <p class="food-price" onload="formatPrice()"><?php echo $row['food_price']; ?></p>
+                        <div style="background: green;">
+                            Saved <?php echo $discountedPercentage ?>
+                        </div>
+                        <p class="food-price" onload="formatPrice()" style="stroke"><?php echo $row['food_price']; ?></p>
+                        <p class="food-price"><?php echo $row['discounted_price']; ?></p>
+
+
+                        <?php
+                        if ($item_quantity > $row['max_quantity_per_order'])
+                        echo (
+                            '<div>'.
+                                'You are only allow to select this promotion item maximum of 5.'.
+                            '</div>'
+                        );
+                        ?>
                     </div>
                 <?php
                 } // close while
